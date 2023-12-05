@@ -17,19 +17,41 @@
 
 
 @font-face {
+    font-family: 'Neue Montreal';
+    src: url('NeueMontreal-Regular.eot');
+    src: local('Neue Montreal Regular'), local('NeueMontreal-Regular'),
+        url('NeueMontreal-Regular.eot?#iefix') format('embedded-opentype'),
+        url('NeueMontreal-Regular.woff2') format('woff2'),
+        url('NeueMontreal-Regular.woff') format('woff'),
+        url('NeueMontreal-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('NeueMontreal-Medium.eot');
+    src: local('Neue Montreal Medium'), local('NeueMontreal-Medium'),
+        url('NeueMontreal-Medium.eot?#iefix') format('embedded-opentype'),
+        url('NeueMontreal-Medium.woff2') format('woff2'),
+        url('NeueMontreal-Medium.woff') format('woff'),
+        url('NeueMontreal-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* @font-face {
   font-family: 'PPNeueMontreal';
   src: url('./fonts/PPNeueMontreal-Medium.otf') format('otf'),
     url('./fonts/PPNeueMontreal-Book.otf') format('otf');
-}
+} */
 
 html {
   scroll-behavior: smooth;
 }
 
-
-
 :root {
-  font-family: 'PPNeueMontreal', sans-serif;
+  font-family: 'Neue Montreal', sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 500;
