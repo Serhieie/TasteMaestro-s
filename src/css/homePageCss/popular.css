@@ -1,0 +1,8 @@
+.popular_title {
+  font-size: 24px;
+}
+.popular_list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
