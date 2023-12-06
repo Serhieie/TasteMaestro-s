@@ -94,6 +94,14 @@ body {
   min-height: 100vh;
   flex-direction: column;
 }
+main {
+  flex: 1;
+}
+
+footer {
+  background-color: var(--brand-color, #6d8434);
+ 
+}
 
 .modal-open {
   overflow: hidden;
@@ -129,15 +137,6 @@ body {
   .container {
     max-width: 1250px;
   }
-}
-
-main {
-  flex: 1;
-}
-
-footer {
-  background-color: var(--brand-color, #6d8434);
- 
 }
 
 .btn-up {
