@@ -53,21 +53,91 @@
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="345" />
-    <script type="module" crossorigin src="/TasteMaestro-s/assets/scrollUpBtn-460a0605.js"></script>
-    <link rel="stylesheet" href="/TasteMaestro-s/assets/scrollUpBtn-6453f831.css">
+    <script type="module" crossorigin src="/TasteMaestro-s/assets/scrollUpBtn-4ce863d5.js"></script>
+    <link rel="stylesheet" href="/TasteMaestro-s/assets/scrollUpBtn-ab2c6a8b.css">
   </head>
   <body>
     <header class="header">
-  <nav class="nav">
-    <ul class="nav-list">
-      <li><a href="./index.html">Im logo</a></li>
-      <li><a href="../index.html">home</a></li>
-      <li><a href="../carPage.html">cart</a></li>
-    </ul>
-  </nav>
+  <div class="container header__container">
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="header__nav_list_item_logo">
+          <a class="nav_link_logo" href="./index.html">
+            <span class="header__nav_span_logo">
+              <svg class="logo_icon" width="16" height="16">
+                <use xlink:href="/TasteMaestro-s/assets/sprite-05493043.svg#cabbage"></use>
+              </svg>
+            </span>
+            <svg class="logo_icon_text" width="16" height="16">
+              <use xlink:href="/TasteMaestro-s/assets/sprite-05493043.svg#icon-Food-Boutique"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="header__list_item">
+          <a class="header__nav_link_home nav_link" href="../index.html"
+            >Home</a
+          >
+        </li>
+
+        <li class="header__list_item">
+          <a class="header__nav_link_cart" href="./cartPage.html">
+            <span class="header__nav_span_cart"
+              ><svg class="cart_icon" width="14" height="14">
+                <use
+                  class="cart_logo_svg"
+                  xlink:href="/TasteMaestro-s/assets/sprite-05493043.svg#shopping-cart"
+                ></use>
+              </svg>
+            </span>
+            <span class="header__nav_cart_text header__js_span">CART (0)</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
-    
+    <section class="hero__section">
+  <div class="container hero__container">
+    <h1 class="hero__title">
+      Welcome to the <span class="hero__h1_span">Food</span> Boutique!
+    </h1>
+    <p class="hero__add_text">
+      With Food Boutique, you're not just subscribing to food, you're signing up
+      for a fresher, fitter, and happier you.
+    </p>
+    <div class="pictures-set_container">
+      <svg class="organic_food_icon" width="100" height="100">
+        <use xlink:href="/TasteMaestro-s/assets/sprite-05493043.svg#organic-food"></use>
+      </svg>
+      <picture>
+        <source
+          class="pictures-set"
+          srcset="/TasteMaestro-s/assets/desctopHero-x1-a8c2c85f.jpg 1x, /TasteMaestro-s/assets/desctopHero-x2-ea08b2e9.jpg 2x"
+          media="(min-width: 1440px)"
+        />
+        <source
+          class="pictures-set"
+          srcset="/TasteMaestro-s/assets/tablet-hero-x1-088d7d38.jpg 1x, /TasteMaestro-s/assets/tablet-hero-x2-b7beba9f.jpg 2x"
+          media="(min-width: 768px)"
+        />
+        <source
+          class="pictures-set"
+          srcset="/TasteMaestro-s/assets/mobileHero-x1-76857548.jpg 1x, /TasteMaestro-s/assets/mobileHero-x2-1bbb477d.jpg 2x"
+          media="(min-width: 300px)"
+        />
+        <img
+          class="pictures-set"
+          src="/TasteMaestro-s/assets/desctopHero-x1-a8c2c85f.jpg"
+          alt="Sunshine weather, man holding box of 
+      fresh and juicy vegetables and in frame hands of woomen 
+      sprinking vegetables with water"
+        />
+      </picture>
+    </div>
+  </div>
+</section>
+
     
     
     
@@ -79,7 +149,7 @@
       <svg class="arrow-up" width="44" height="44">
         <use
           class="arrow-up-icon"
-          xlink:href="/TasteMaestro-s/assets/sprite-a2eec87e.svg#icon-caret-small-left"
+          xlink:href="/TasteMaestro-s/assets/sprite-05493043.svg#icon-caret-small-left"
         ></use>
       </svg>
     </button>
