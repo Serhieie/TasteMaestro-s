@@ -18,24 +18,24 @@
 
 @font-face {
     font-family: 'Neue Montreal';
-    src: url('NeueMontreal-Regular.eot');
+    src: url('./fonts/NeueMontreal-Regular.eot');
     src: local('Neue Montreal Regular'), local('NeueMontreal-Regular'),
-        url('NeueMontreal-Regular.eot?#iefix') format('embedded-opentype'),
-        url('NeueMontreal-Regular.woff2') format('woff2'),
-        url('NeueMontreal-Regular.woff') format('woff'),
-        url('NeueMontreal-Regular.ttf') format('truetype');
+        url('./fonts/NeueMontreal-Regular.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/NeueMontreal-Regular.woff2') format('woff2'),
+        url('./fonts/NeueMontreal-Regular.woff') format('woff'),
+        url('./fonts/NeueMontreal-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Neue Montreal';
-    src: url('NeueMontreal-Medium.eot');
+    src: url('./fonts/NeueMontreal-Medium.eot');
     src: local('Neue Montreal Medium'), local('NeueMontreal-Medium'),
-        url('NeueMontreal-Medium.eot?#iefix') format('embedded-opentype'),
-        url('NeueMontreal-Medium.woff2') format('woff2'),
-        url('NeueMontreal-Medium.woff') format('woff'),
-        url('NeueMontreal-Medium.ttf') format('truetype');
+        url('./fonts/NeueMontreal-Medium.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/NeueMontreal-Medium.woff2') format('woff2'),
+        url('./fonts/NeueMontreal-Medium.woff') format('woff'),
+        url('./fonts/NeueMontreal-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
 }
@@ -55,8 +55,10 @@ html {
   font-size: 16px;
   line-height: 24px;
   font-weight: 500;
+  font-style: normal;
 
   color: #010101;
+  --text-color: #010101;
   --color-on-grin: #e8e8e2;
   background-color: #e8e8e2;
 
@@ -100,12 +102,16 @@ body {
   .container {
     width:100%;
     max-width: 335px;
+    margin: 0 auto
     /* width:335px; */
   }
 }
 @media screen and (min-width: 768px) {
   .container {
-    width: 704px;
+    width: 100%;
+    max-width: 704px;
+    margin: 0 auto;
+    /* width:335px; */
   }
 }
 @media screen and (min-width: 1440px) {

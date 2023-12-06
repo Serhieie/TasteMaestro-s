@@ -1,0 +1,49 @@
+<section class="hero__section">
+  <div class="container hero__container">
+    <h1 class="hero__title">
+      Welcome to the <span class="hero__h1_span">Food</span> Boutique!
+    </h1>
+    <p class="hero__add_text">
+      With Food Boutique, you're not just subscribing to food, you're signing up
+      for a fresher, fitter, and happier you.
+    </p>
+    <div class="pictures-set_container">
+      <svg class="organic_food_icon" width="100" height="100">
+        <use xlink:href="./img/sprite.svg#organic-food"></use>
+      </svg>
+      <picture>
+        <source
+          class="pictures-set"
+          srcset="
+            /img/desctopHero/desctopHero-x1.jpg 1x,
+            /img/desctopHero/desctopHero-x2.jpg 2x
+          "
+          media="(min-width: 1440px)"
+        />
+        <source
+          class="pictures-set"
+          srcset="
+            /img/tabletHero/tablet-hero-x1.jpg 1x,
+            /img/tabletHero/tablet-hero-x2.jpg 2x
+          "
+          media="(min-width: 768px)"
+        />
+        <source
+          class="pictures-set"
+          srcset="
+            /img/mobileHero/mobileHero-x1.jpg 1x,
+            /img/mobileHero/mobileHero-x2.jpg 2x
+          "
+          media="(min-width: 300px)"
+        />
+        <img
+          class="pictures-set"
+          src="/img/desctopHero/desctopHero-x1.jpg"
+          alt="Sunshine weather, man holding box of 
+      fresh and juicy vegetables and in frame hands of woomen 
+      sprinking vegetables with water"
+        />
+      </picture>
+    </div>
+  </div>
+</section>

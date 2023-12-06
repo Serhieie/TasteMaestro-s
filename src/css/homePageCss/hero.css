@@ -1,0 +1,122 @@
+.pictures-set_container {
+  position: relative;
+}
+
+.pictures-set {
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+.hero__title {
+  color: var(--text-color, #010101);
+  text-align: center;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.09;
+  letter-spacing: -0.88px;
+}
+
+.hero__h1_span {
+  color: var(--brand-color);
+}
+
+.hero__add_text {
+  color: var(--secondary-color, rgba(1, 1, 1, 0.8));
+
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
+
+  width: 100%;
+  max-width: 292px;
+  height: 100%;
+  max-height: 55px;
+
+  margin: 20px auto 32px;
+}
+
+.hero__section {
+  padding: 54px 0 74px;
+}
+
+.organic_food_icon {
+  position: absolute;
+  right: 8px;
+  top: -7px;
+}
+
+@media screen and (max-width: 375px) {
+  .hero__container {
+    width: 100%;
+    max-width: 335px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .container {
+    width: 100%;
+    max-width: 704px;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hero__section {
+    padding: 92px 0 74px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 704px;
+    margin: 0 auto;
+  }
+
+  .hero__title {
+    font-size: 80px;
+    line-height: 1;
+    letter-spacing: -1.6px;
+
+    width: 658px;
+
+    margin: 0 auto;
+  }
+
+  .hero__add_text {
+    font-size: 18px;
+    line-height: 1.33;
+
+    width: 100%;
+    max-width: 492px;
+    height: 100%;
+    max-height: 55px;
+
+    margin: 20px auto 40px;
+  }
+
+  .organic_food_icon {
+    position: absolute;
+    right: 10px;
+    top: -30px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1250px;
+  }
+
+  .hero__title {
+    width: 1042px;
+  }
+
+  .organic_food_icon {
+    position: absolute;
+    right: 20px;
+    top: -50px;
+  }
+
+  .hero__section {
+    padding: 53px 0 74px;
+  }
+}

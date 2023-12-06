@@ -1,9 +1,39 @@
 <header class="header">
-  <nav class="nav">
-    <ul class="nav-list">
-      <li><a href="./index.html">Im logo</a></li>
-      <li><a href="../index.html">home</a></li>
-      <li><a href="../carPage.html">cart</a></li>
-    </ul>
-  </nav>
+  <div class="container header__container">
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="header__nav_list_item_logo">
+          <a class="nav_link_logo" href="./index.html">
+            <span class="header__nav_span_logo">
+              <svg class="logo_icon" width="16" height="16">
+                <use xlink:href="./img/sprite.svg#cabbage"></use>
+              </svg>
+            </span>
+            <svg class="logo_icon_text" width="16" height="16">
+              <use xlink:href="./img/sprite.svg#icon-Food-Boutique"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="header__list_item">
+          <a class="header__nav_link_home nav_link" href="../index.html"
+            >Home</a
+          >
+        </li>
+
+        <li class="header__list_item">
+          <a class="header__nav_link_cart" href="./cartPage.html">
+            <span class="header__nav_span_cart"
+              ><svg class="cart_icon" width="14" height="14">
+                <use
+                  class="cart_logo_svg"
+                  xlink:href="./img/sprite.svg#shopping-cart"
+                ></use>
+              </svg>
+            </span>
+            <span class="header__nav_cart_text header__js_span">CART (0)</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
