@@ -12,7 +12,9 @@
 @import url('./homePageCss/productsList.css');
 @import url('./homePageCss/discount.css');
 @import url('./homePageCss/popular.css');
-@import url('./cartContent.css');
+@import url('./cartPage/cartList.css');
+@import url('./cartPage/cartEmpty.css');
+@import url('./cartPage/cartTotal.css');
 @import url('./footer.css');
 
 
