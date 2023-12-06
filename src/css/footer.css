@@ -1,0 +1,226 @@
+.footer-container {
+  padding-bottom: 20px;
+}
+.link-logo-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.footer-span-logo {
+  background-color: var(--color-on-grin);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-icon-footer {
+  width: 16px;
+  height: 16px;
+  fill: var(--brand-color);
+}
+.footer-logo-icon-text {
+  width: 118px;
+  height: 20px;
+  fill: var(--color-on-grin);
+}
+.list-social-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.item-social-footer {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(232, 232, 226, 0.3);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.item-social-footer:hover,
+.item-social-footer:focus {
+  background-color: rgba(232, 232, 226, 0.2);
+}
+
+.item-social-footer a {
+  width: 24px;
+  height: 24px;
+}
+
+.item-icon-footer {
+  fill: var(--color-on-grin);
+  width: 24px;
+  height: 24px;
+}
+.footer-title {
+  color: var(--color-on-grin);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.17;
+  letter-spacing: -0.48px;
+  margin-bottom: 14px;
+}
+.text-descr-footer {
+  color: rgba(232, 232, 226, 0.7);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.29;
+}
+.footer-form-cover {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+.footer-form {
+  margin-top: 20px;
+}
+
+.text-footer {
+  color: var(--color-on-grin);
+  font-family: Neue Montreal;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.29;
+}
+
+.footer-subscribe-input {
+  width: 100%;
+  display: flex;
+  padding: 12px 18px 12px 18px;
+  border-radius: 30px;
+  border: 1px solid #e8e8e2;
+  background-color: transparent;
+  color: rgba(232, 232, 226, 0.6);
+  font-family: Neue Montreal;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.29;
+}
+
+.footer-subscribe-input::placeholder {
+  color: rgba(232, 232, 226, 0.6);
+}
+
+.footer-btn {
+  display: flex;
+  width: 100%;
+  padding: 12px 149px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 30px;
+  color: #010101;
+  background-color: var(--color-on-grin);
+  border: none;
+  margin-top: 14px;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.footer-btn:hover,
+.footer-btn:focus {
+  color: var(--brand-color);
+}
+.footer-add-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.text-footer-add {
+  color: var(--color-on-grin);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.29;
+}
+
+@media screen and (min-width: 375px) {
+}
+@media screen and (min-width: 768px) {
+  .footer-container {
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+  .footer-main-part {
+    display: flex;
+    align-items: flex-start;
+    gap: 78px;
+  }
+  .link-logo-footer {
+    margin-top: 0;
+  }
+  .logo-icon-footer {
+    width: 20px;
+    height: 20px;
+  }
+
+  
+
+  .footer-span-logo {
+    width: 32px;
+    height: 32px;
+  }
+  .footer-logo-icon-text {
+    width: 157px;
+    height: 24px;
+  }
+  .footer-title {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.8px;
+  }
+  .text-descr-footer {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+  .text-footer {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .footer-subscribe-input {
+    width: 336px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-on-grin);
+  }
+  .footer-btn {
+    width: 336px;
+    color: #010101;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.29;
+  }
+  .footer-form-cover {
+    margin-top: 64px;
+    margin-bottom: 120px;
+  }
+  .footer-add-info {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .footer-main-part {
+    gap: 149px;
+    margin-bottom: 128px;
+  }
+  .second-part-footer {
+    display: flex;
+    align-items: flex-start;
+    gap: 148px;
+  }
+  .footer-form-cover{
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
