@@ -97,7 +97,7 @@
   border-radius: 30px;
   border: 1px solid #e8e8e2;
   background-color: transparent;
-  color: rgba(232, 232, 226, 0.6);
+  color: var(--color-on-grin);
   font-family: Neue Montreal;
   font-size: 14px;
   font-style: normal;
@@ -125,8 +125,7 @@
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.footer-btn:hover,
-.footer-btn:focus {
+.footer-btn:hover {
   color: var(--brand-color);
 }
 .footer-add-info {
