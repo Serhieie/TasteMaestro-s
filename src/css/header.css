@@ -44,6 +44,8 @@
   font-weight: 500;
   line-height: 18px;
 
+  user-select: none;
+
   border-radius: 30px;
 }
 
@@ -90,6 +92,7 @@
   text-transform: uppercase;
   display: none;
   transition: transform 300ms ease-in-out;
+  user-select: none;
 }
 
 .header__nav_span_cart {
