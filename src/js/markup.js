@@ -1,4 +1,4 @@
-function createProductListMarkup({
+function createProductItemMarkup({
   _id,
   name,
   img,
