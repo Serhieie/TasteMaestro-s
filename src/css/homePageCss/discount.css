@@ -1,0 +1,156 @@
+.discount-section {
+  padding-bottom: 80px;
+}
+
+.discount-title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.16em;
+  margin-bottom: 20px;
+}
+
+.discount-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.discount-card {
+  border-radius: 15px;
+  background: #fafafa;
+  height: 232px;
+  padding: 16px;
+}
+
+.discount-card-link {
+  position: relative;
+}
+
+.discount-label-icon {
+  position: absolute;
+  top: -13px;
+  right: -5px;
+}
+
+.img-field {
+  border-radius: 10px;
+  background: #e8e8e2;
+  min-width: 269px;
+  height: 150px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  margin-bottom: 16px;
+}
+
+.discount-product-img {
+  width: 114px;
+  height: 114px;
+  margin: 0 auto;
+}
+
+.discount-product-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.11em;
+}
+
+.discount-product-buy {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.discount-cart-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--brand-color, #6d8434);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+
+.discount-cart-btn:hover {
+  background-color: var(--hover-color, #586f1f);
+}
+
+.discount-cart-icon {
+  fill: var(--color-on-grin, #e8e8e2);
+}
+
+.discount-check-icon {
+  stroke: var(--color-on-grin, #e8e8e2);
+  fill: transparent;
+}
+
+@media screen and (min-width: 375px) {
+  .discount-section {
+    margin: 0 auto;
+  }
+
+  .discount-card {
+    min-width: 335px;
+  }
+
+  .img-field {
+    width: 304px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .discount-section {
+    padding-bottom: 100px;
+  }
+
+  .discount-title {
+    font-size: 28px;
+    line-height: 1.14em;
+  }
+
+  .discount-card-list {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  .discount-card {
+    min-width: 336px;
+  }
+
+  .discount-product-info {
+    font-size: 20px;
+    line-height: 1.2em;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .discount-section {
+    padding-bottom: 0;
+  }
+
+  .discount-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .discount-card {
+    min-width: 275px;
+  }
+
+  .img-field {
+    min-width: 243px;
+    padding-top: 23px;
+    padding-bottom: 22px;
+  }
+
+  .discount-product-img {
+    width: 105px;
+    height: 105px;
+  }
+}
