@@ -78,8 +78,11 @@ html {
   --cart-list-border: rgba(1, 1, 1, 0.1);
   --total-price-bg-color: rgba(109, 132, 52, 0.05);
 
+
   --input-border-color: rgba(1, 1, 1, 0.3);
 
+  --product-description-color: rgba(1, 1, 1, 0.3);
+ --product-card-bg-color: #fafafa;
   --product-cards-hover-shadow: box-shadow: 0px 9.1px 16.534px 0px rgba(0, 0, 0, 0.02), 0px 41.6px 46.475px 0px rgba(0, 0, 0, 0.04), 0px 105.3px 124.678px 0px rgba(0, 0, 0, 0.05), 0px 208px 286px 0px rgba(0, 0, 0, 0.07);
 
   font-synthesis: none;

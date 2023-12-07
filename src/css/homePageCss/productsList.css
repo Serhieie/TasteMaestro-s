@@ -1,9 +1,6 @@
-.product__list {
-}
-
 .product__list__card {
   list-style-type: none;
-  background: #fafafa;
+  background: var(--product-card-bg-color);
   border-radius: 20px;
   padding: 20px;
   margin-bottom: 20px;
@@ -17,7 +14,7 @@
 }
 
 .product__image__wraper {
-  background: #e8e8e2;
+  background: var(--background-color);
   padding: 19px 78px;
   display: flex;
   justify-content: center;
@@ -35,7 +32,7 @@
 }
 
 .product__title {
-  color: #010101;
+  color: var(--text-color);
   font-size: 18px;
   font-weight: 500;
   line-height: 1.11;
@@ -43,14 +40,14 @@
 }
 
 .product__description__text {
-  color: rgba(1, 1, 1, 0.3);
+  color: var(--product-description-color);
   font-size: 12px;
   font-weight: 400;
   line-height: 1.16; /* 116.667% */
 }
 
 .product__description__span {
-  color: #010101;
+  color: var(--text-color);
   font-size: 12px;
   font-weight: 400;
   line-height: 1.16; /* 116.667% */
@@ -63,7 +60,7 @@
 }
 
 .product__price {
-  color: #010101;
+  color: var(--text-color);
   font-size: 18px;
   font-weight: 500;
   line-height: 1.11; /* 111.111% */
@@ -71,7 +68,7 @@
 
 .product__order__btn {
   border-radius: 30px;
-  background: #6d8434;
+  background: var(--brand-color);
   border: none;
   display: flex;
   padding: 8px;
@@ -80,10 +77,7 @@
 }
 
 .card-icon {
-  fill: #e8e8e2;
-}
-
-@media screen and (min-width: 375px) {
+  fill: var(--color-on-grin);
 }
 
 @media screen and (min-width: 768px) {
@@ -106,7 +100,7 @@
   }
 
   .product__price {
-    color: #010101;
+    color: var(--text-color);
     font-size: 20px;
     line-height: 1.11; /* 111.111% */
   }
