@@ -53,6 +53,7 @@ function onSubmit(evt) {
         new AWN().warning(
           'Oops! Something went wrong!Your email address is incorrect. Please try again',
           globalOptionsError
+        );
         console.log(
           'Oops! Something went wrong!Your email address is incorrect'
         );
