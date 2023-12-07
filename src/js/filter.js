@@ -10,10 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const filters = { keyword: null, category: null, page: 1, limit: 6 };
     let categories = [];
 
+    categorySelect.innerHTML = '<option value="category-text" disabled selected>Categories</option>';
+
     filterForm.addEventListener('submit', async (event) => {
         event.preventDefault();
         filters.keyword = keywordInput.value;
-        filters.category = categorySelect.value === 'Show all' ? null : categorySelect.value;
+        filters.category = categorySelect.value === '' ? null : categorySelect.value;
         filters.page = 1;
         await fetchProducts();
     });
@@ -25,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     categorySelect.addEventListener('change', () => {
-        filters.category = categorySelect.value === 'Show all' ? null : categorySelect.value;
+        filters.category = categorySelect.value === '' ? null : categorySelect.value;
         filters.page = 1;
         fetchProducts();
     });
