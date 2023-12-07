@@ -54,8 +54,8 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="345" />
     <script type="module" crossorigin src="/TasteMaestro-s/assets/vendor-4d3d87e9.js"></script>
-    <script type="module" crossorigin src="/TasteMaestro-s/assets/popular-fa05cfc6.js"></script>
-    <link rel="stylesheet" href="/TasteMaestro-s/assets/popular-cd27b373.css">
+    <script type="module" crossorigin src="/TasteMaestro-s/assets/popular-5d468c27.js"></script>
+    <link rel="stylesheet" href="/TasteMaestro-s/assets/popular-a50cbe5c.css">
   </head>
   <body>
     <header class="header">
@@ -138,7 +138,32 @@
   </div>
 </section>
 
-      
+      <section class="filter__section">
+    <div class="container">
+        <p class="filter__name">Filters:</p>
+        <form id="filterForm">
+            <div class="filter__search">
+                <label>
+                    <input type="text" id="keywordInput" placeholder="Search for anything"/>
+                    <svg class="svg__search" width="20" height="20"><use href="../../img/sprite.svg#search"></use></svg>
+                </label>
+            </div>
+            <label>
+                <select id="categorySelect">
+                    <option value="Categories">
+                        <span class="category-text">Categories</span>
+                        <svg class="svg-icon" width="20" height="20">
+                            <use xlink:href="../../img/sprite.svg#search"></use>
+                        </svg>
+                    </option>
+                    <!-- категорії з сервера -->
+              </select>
+            </label>
+        </form>
+        
+        <div id="productsList"></div>
+    </div>
+</section>
       <section class="discount-section">
   <h2 class="discount-title">Discount products</h2>
   <ul class="discount-card-list">
