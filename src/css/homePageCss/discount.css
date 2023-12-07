@@ -20,16 +20,13 @@
   background: #fafafa;
   height: 232px;
   padding: 16px;
-}
-
-.discount-card-link {
   position: relative;
 }
 
 .discount-label-icon {
   position: absolute;
-  top: -13px;
-  right: -5px;
+  top: 3px;
+  right: 10px;
 }
 
 .img-field {
