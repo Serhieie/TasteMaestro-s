@@ -61,7 +61,7 @@ html {
   color: #010101;
   --text-color: #010101;
   --color-on-grin: #e8e8e2;
-  background-color: #e8e8e2;
+  --background-color: #e8e8e2;
 
   --secondary-color: rgba(1, 1, 1, 0.8);
   --light-font-color: rgba(28, 16, 16, 0.3);
