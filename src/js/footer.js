@@ -54,9 +54,6 @@ function onSubmit(evt) {
           'Oops! Something went wrong!Your email address is incorrect. Please try again',
           globalOptionsError
         );
-        console.log(
-          'Oops! Something went wrong!Your email address is incorrect'
-        );
       }
     });
   evt.target.reset();
