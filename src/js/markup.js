@@ -1,4 +1,4 @@
-export function createProductItemMarkup({
+function createProductItemMarkup({
   _id,
   name,
   img,
