@@ -4,3 +4,4 @@ import './js/apiService';
 import './js/helpers';
 import './js/localStorage';
 import './js/footer';
+import './js/popular';
