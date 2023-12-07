@@ -1,10 +1,13 @@
+import axios from 'axios';
+
 document.addEventListener('DOMContentLoaded', () => {
     const filterForm = document.getElementById('filterForm');
     const keywordInput = document.getElementById('keywordInput');
     const categorySelect = document.getElementById('categorySelect');
     const productsList = document.getElementById('productsList');
 
-    const filters = { keyword: null, category: null, page: 1, limit: 9 };
+    const filters = { keyword: null, category: null, page: 1, limit: 6 };
+    let categories = []; 
 
     filterForm.addEventListener('submit', async (event) => {
         event.preventDefault();
