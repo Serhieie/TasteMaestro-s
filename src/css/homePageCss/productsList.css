@@ -5,6 +5,12 @@
   padding: 20px;
   margin-bottom: 20px;
   position: relative;
+  transition: transform 300ms ease-in-out;
+}
+
+.product__list__card:hover {
+  box-shadow: var(--product-cards-hover-shadow);
+  transform: scale(1.01);
 }
 
 .sticker_icon {
@@ -74,6 +80,12 @@
   padding: 8px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  transition: background-color 300ms ease-in-out;
+}
+
+.product__order__btn:hover {
+  background: var(--hover-color);
 }
 
 .card-icon {
