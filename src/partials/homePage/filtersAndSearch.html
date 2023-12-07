@@ -1,18 +1,24 @@
 <section class="filter__section">
     <div class="container">
+        <p class="filter__name">Filters:</p>
         <form id="filterForm">
+            <div class="filter__search">
+                <label>
+                    <input type="text" id="keywordInput" placeholder="Search for anything"/>
+                    <svg class="svg__search" width="20" height="20"><use href="../../img/sprite.svg#search"></use></svg>
+                </label>
+            </div>
             <label>
-              Keyword:
-              <input type="text" id="keywordInput" />
-            </label>
-            <label>
-              Category:
-              <select id="categorySelect">
-                <option value="Show all">Show all</option>
-                <!-- категорії з сервера -->
+                <select id="categorySelect">
+                    <option value="Categories">
+                        <span class="category-text">Categories</span>
+                        <svg class="svg-icon" width="20" height="20">
+                            <use xlink:href="../../img/sprite.svg#search"></use>
+                        </svg>
+                    </option>
+                    <!-- категорії з сервера -->
               </select>
             </label>
-            <button type="submit">Search</button>
         </form>
         
         <div id="productsList"></div>
