@@ -47,30 +47,9 @@
   top: -7px;
 }
 
-@media screen and (max-width: 375px) {
-  .hero__container {
-    width: 100%;
-    max-width: 335px;
-    margin: 0 auto;
-  }
-}
-
-@media screen and (min-width: 375px) {
-  .container {
-    width: 100%;
-    max-width: 704px;
-    margin: 0 auto;
-  }
-}
 @media screen and (min-width: 768px) {
   .hero__section {
     padding: 92px 0 74px;
-  }
-
-  .container {
-    width: 100%;
-    max-width: 704px;
-    margin: 0 auto;
   }
 
   .hero__title {
@@ -106,10 +85,6 @@
   }
 }
 @media screen and (min-width: 1440px) {
-  .container {
-    max-width: 1250px;
-  }
-
   .hero__title {
     width: 1042px;
   }
