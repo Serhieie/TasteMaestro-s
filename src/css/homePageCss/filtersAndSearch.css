@@ -1,3 +1,52 @@
 .filter__section {
-    padding: 0px 0px 60px 0px;
+    padding: 0px 0px 40px 0px;
+}
+
+#filterForm {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 60px;
+}
+
+.filter__name {
+    color: rgba(1, 1, 1, 0.30);
+    font-family: Neue Montreal;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 128.571% */
+    padding-bottom: 6px;
+}
+
+.filter__search {
+    position: relative;
+}
+
+#keywordInput {
+    display: flex;
+    padding: 14px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 189px;
+    border-radius: 30px;
+    border: 1px solid rgba(1, 1, 1, 0.30);
+    width: 269px;
+}
+
+.svg__search {
+    position: absolute;
+    top: 14px;
+    left: 229px;
+}
+
+#categorySelect {
+    -webkit-appearance: none;
+    appearance: none;
+    display: flex;
+    padding: 14px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 44px;
+    border-radius: 30px;
+    border: 1px solid rgba(1, 1, 1, 0.30);
 }
