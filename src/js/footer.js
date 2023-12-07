@@ -30,7 +30,9 @@ function onSubmit(evt) {
 
   if (!email.match(regex)) {
     inputFooter.style.borderColor = 'red';
+
     new AWN().warning('Please enter a correct email', globalOptionsCheck);
+
     return;
   }
   inputFooter.style.borderColor = '#e8e8e2';
@@ -51,6 +53,8 @@ function onSubmit(evt) {
         new AWN().warning(
           'Oops! Something went wrong!Your email address is incorrect. Please try again',
           globalOptionsError
+        console.log(
+          'Oops! Something went wrong!Your email address is incorrect'
         );
       }
     });
