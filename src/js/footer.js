@@ -30,9 +30,7 @@ function onSubmit(evt) {
 
   if (!email.match(regex)) {
     inputFooter.style.borderColor = 'red';
-
     new AWN().warning('Please enter a correct email', globalOptionsCheck);
-
     return;
   }
   inputFooter.style.borderColor = '#e8e8e2';
