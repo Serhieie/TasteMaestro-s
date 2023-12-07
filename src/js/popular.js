@@ -41,6 +41,7 @@ function createMarkup(response) {
                 Category: <span class="popular_details_text">${newCategory}</span>
               </p>
             </li>
+            <div class="popular_detail_wrap">
             <li class="popular_details_item">
               <p class="popular_details_category">
                 Size: <span class="popular_details_text">${size}</span>
@@ -51,6 +52,7 @@ function createMarkup(response) {
                 Popularity: <span class="popular_details_text">${popularity}</span>
               </p>
             </li>
+            </div>
           </ul>
         </div>
         <div class="popular_order_container">
