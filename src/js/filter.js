@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const filters = { keyword: null, category: null, page: 1, limit: 6 };
     let categories = [];
 
-    categorySelect.innerHTML = '<option value="category-text" disabled selected>Categories</option>';
-
     filterForm.addEventListener('submit', async (event) => {
         event.preventDefault();
         filters.keyword = keywordInput.value;
@@ -70,9 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const displayCategories = (categories) => {
-        categorySelect.innerHTML = categories.map(category =>
+        const options = categories.map(category =>
             `<option value="${category}">${category}</option>`
         ).join('');
+        categorySelect.insertAdjacentHTML('beforeend', options); 
     };
 
     fetchCategories();
