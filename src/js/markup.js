@@ -1,3 +1,4 @@
+
 export function createProductItemMarkup({
   _id,
   name,

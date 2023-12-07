@@ -12,32 +12,33 @@
 @import url('./homePageCss/productsList.css');
 @import url('./homePageCss/discount.css');
 @import url('./homePageCss/popular.css');
-@import url('./cartContent.css');
+@import url('./cartPage/cartList.css');
+@import url('./cartPage/cartEmpty.css');
+@import url('./cartPage/cartTotal.css');
 @import url('./footer.css');
 
-
 @font-face {
-    font-family: 'Neue Montreal';
-    src: url('./fonts/NeueMontreal-Regular.eot');
-    src: local('Neue Montreal Regular'), local('NeueMontreal-Regular'),
-        url('./fonts/NeueMontreal-Regular.eot?#iefix') format('embedded-opentype'),
-        url('./fonts/NeueMontreal-Regular.woff2') format('woff2'),
-        url('./fonts/NeueMontreal-Regular.woff') format('woff'),
-        url('./fonts/NeueMontreal-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Neue Montreal';
+  src: url('./fonts/NeueMontreal-Regular.eot');
+  src: local('Neue Montreal Regular'), local('NeueMontreal-Regular'),
+    url('./fonts/NeueMontreal-Regular.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/NeueMontreal-Regular.woff2') format('woff2'),
+    url('./fonts/NeueMontreal-Regular.woff') format('woff'),
+    url('./fonts/NeueMontreal-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Neue Montreal';
-    src: url('./fonts/NeueMontreal-Medium.eot');
-    src: local('Neue Montreal Medium'), local('NeueMontreal-Medium'),
-        url('./fonts/NeueMontreal-Medium.eot?#iefix') format('embedded-opentype'),
-        url('./fonts/NeueMontreal-Medium.woff2') format('woff2'),
-        url('./fonts/NeueMontreal-Medium.woff') format('woff'),
-        url('./fonts/NeueMontreal-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
+  font-family: 'Neue Montreal';
+  src: url('./fonts/NeueMontreal-Medium.eot');
+  src: local('Neue Montreal Medium'), local('NeueMontreal-Medium'),
+    url('./fonts/NeueMontreal-Medium.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/NeueMontreal-Medium.woff2') format('woff2'),
+    url('./fonts/NeueMontreal-Medium.woff') format('woff'),
+    url('./fonts/NeueMontreal-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
 }
 
 /* @font-face {
@@ -60,7 +61,7 @@ html {
   color: #010101;
   --text-color: #010101;
   --color-on-grin: #e8e8e2;
-  background-color: #e8e8e2;
+  --background-color: #e8e8e2;
 
   --secondary-color: rgba(1, 1, 1, 0.8);
   --light-font-color: rgba(28, 16, 16, 0.3);
@@ -78,7 +79,12 @@ html {
 
   --input-border-color: rgba(1, 1, 1, 0.3);
 
-  --product-cards-hover-shadow: box-shadow: 0px 9.1px 16.534px 0px rgba(0, 0, 0, 0.02), 0px 41.6px 46.475px 0px rgba(0, 0, 0, 0.04), 0px 105.3px 124.678px 0px rgba(0, 0, 0, 0.05), 0px 208px 286px 0px rgba(0, 0, 0, 0.07);
+  --product-description-color: rgba(1, 1, 1, 0.3);
+  --product-card-bg-color: #fafafa;
+  --product-cards-hover-shadow: 0px 9.1px 16.534px 0px rgba(0, 0, 0, 0.02),
+    0px 41.6px 46.475px 0px rgba(0, 0, 0, 0.04),
+    0px 105.3px 124.678px 0px rgba(0, 0, 0, 0.05),
+    0px 208px 286px 0px rgba(0, 0, 0, 0.07);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -88,9 +94,17 @@ html {
 }
 
 body {
+  background-color: #e8e8e2;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+}
+main {
+  flex: 1;
+}
+
+footer {
+  background-color: var(--brand-color, #6d8434);
 }
 
 .modal-open {
@@ -98,19 +112,19 @@ body {
 }
 
 @media screen and (max-width: 375px) {
- .container {
-  width: 100%;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin: 0 auto;
-}
+  .container {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+  }
 }
 
 @media screen and (min-width: 375px) {
   .container {
-    width:100%;
+    width: 100%;
     max-width: 335px;
-    margin: 0 auto
+    margin: 0 auto;
     /* width:335px; */
   }
 }
@@ -128,21 +142,12 @@ body {
   }
 }
 
-main {
-  flex: 1;
-}
-
-footer {
-  background-color: var(--brand-color, #6d8434);
- 
-}
-
 .btn-up {
   width: 40px;
   height: 40px;
   z-index: 100;
   cursor: pointer;
-  background-color:var(--brand-color, #6d8434);
+  background-color: var(--brand-color, #6d8434);
   color: var(--color-on-grin, #e8e8e2);
   font-size: 35px;
   background-size: cover;
@@ -161,8 +166,6 @@ footer {
   box-shadow: 1px 1px 4px rgb(31, 41, 14);
 }
 
-
-
 .btn-up:hover {
   opacity: 1;
   background-color: var(--hover-color, #586f1f);
@@ -174,13 +177,12 @@ footer {
   transition: all 300ms ease-in-out;
   stroke: #e8e8e2;
   fill: var(--brand-color, #6d8434);
-
 }
 .arrow-up {
   transform: rotate(90deg);
 }
 
-.btn-up:hover  .arrow-up-icon{
+.btn-up:hover .arrow-up-icon {
   fill: var(--hover-color, #586f1f);
 }
 
@@ -207,11 +209,11 @@ footer {
   top: 0;
   left: 0;
   background: var(--backdrop-color-loader, rgba(236, 235, 235, 0.1));
-  z-index: 9999; 
-  display:none;
+  z-index: 9999;
+  display: none;
 }
 
- .loader {
+.loader {
   color: #e4fab2;
   font-size: 45px;
   text-indent: -9999em;
@@ -226,40 +228,41 @@ footer {
 
 @keyframes mltShdSpin {
   0% {
-    box-shadow: 0 -0.83em 0 -0.4em,
-    0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
-    0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
   }
   5%,
   95% {
-    box-shadow: 0 -0.83em 0 -0.4em, 
-    0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 
-    0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
   }
   10%,
   59% {
-    box-shadow: 0 -0.83em 0 -0.4em, 
-    -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, 
-    -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em,
+      -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em,
+      -0.297em -0.775em 0 -0.477em;
   }
   20% {
     box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em,
-     -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, 
-     -0.749em -0.34em 0 -0.477em;
+      -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em,
+      -0.749em -0.34em 0 -0.477em;
   }
   38% {
     box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em,
-     -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, 
-     -0.82em -0.09em 0 -0.477em;
+      -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em,
+      -0.82em -0.09em 0 -0.477em;
   }
   100% {
-    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 
-    0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
   }
 }
 
 @keyframes round {
-  0% { transform: rotate(0deg) }
-  100% { transform: rotate(360deg) }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
- 
