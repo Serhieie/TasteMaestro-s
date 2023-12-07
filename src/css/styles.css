@@ -210,7 +210,6 @@ footer {
   left: 0;
   background: var(--backdrop-color-loader, rgba(236, 235, 235, 0.1));
   z-index: 9999;
-  display: none;
 }
 
 .loader {
