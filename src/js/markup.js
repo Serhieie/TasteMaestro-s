@@ -9,6 +9,9 @@ function createProductListMarkup({
   popularity,
 }) {
   return `<li id="${_id}" class="product__list__card">
+        <svg class="sticker_icon visually-hidden" width="60" height="60">
+          <use xlink:href="./img/sprite.svg#discount"></use>
+        </svg>
         <div class="product__image__wraper">
           <img
             class="product__image"
@@ -40,7 +43,7 @@ function createProductListMarkup({
           </ul>
         </div>
         <div class="product__order__wraper">
-          <p class="product__price">${"$"+price}</p>
+          <p class="product__price">${'$' + price}</p>
           <button class="product__order__btn">
             <svg class="card-icon" width="18" height="18">
               <use href="../../img/sprite.svg#shopping-cart"></use>
