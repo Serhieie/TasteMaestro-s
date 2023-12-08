@@ -1,0 +1,60 @@
+/* ! Start cart-ware-count block */
+
+.cart-ware-count {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 14px;
+  padding-top: 70px;
+}
+
+/* ! End cart-ware-count block */
+
+/* ! Start cart-ware-count svg */
+
+.cart-svg-span {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-color, #6d8434);
+  padding: 12px;
+  border-radius: 50%;
+  position: relative;
+  transition: background-color 300ms ease-in-out;
+}
+
+.cart-count-icon {
+  fill: var(--color-on-grin, #e8e8e2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ! End cart-ware-count svg */
+
+/* ! Start cart-ware-count text */
+
+.cart-count {
+  color: var(--text-color, #010101);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.17;
+  text-transform: uppercase;
+}
+
+/* ! End cart-ware-count text */
+
+/* ! Start cart-ware-count media */
+
+@media screen and (min-width: 768px) {
+  .cart-count {
+  font-size: 32px;
+  line-height: 1;
+  }
+}
+
+/* ! End cart-ware-count media */

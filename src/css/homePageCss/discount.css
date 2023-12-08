@@ -17,10 +17,16 @@
 
 .discount-card {
   border-radius: 15px;
-  background: #fafafa;
+  background: var(--product-card-bg-color, #fafafa);
   height: 232px;
   padding: 16px;
   position: relative;
+  transition: transform 300ms ease-in-out;
+}
+
+.discount-card:hover {
+  box-shadow: var(--product-cards-hover-shadow);
+  transform: scale(1.01);
 }
 
 .discount-label-icon {
@@ -31,8 +37,8 @@
 
 .img-field {
   border-radius: 10px;
-  background: #e8e8e2;
-  min-width: 269px;
+  background: var(--color-on-grin, #e8e8e2);
+  width: 269px;
   height: 150px;
   padding-top: 18px;
   padding-bottom: 18px;
@@ -86,12 +92,8 @@
 }
 
 @media screen and (min-width: 375px) {
-  .discount-section {
-    margin: 0 auto;
-  }
-
   .discount-card {
-    min-width: 335px;
+    width: 335px;
   }
 
   .img-field {
@@ -116,7 +118,7 @@
   }
 
   .discount-card {
-    min-width: 336px;
+    width: 336px;
   }
 
   .discount-product-info {
@@ -137,11 +139,11 @@
   }
 
   .discount-card {
-    min-width: 275px;
+    width: 275px;
   }
 
   .img-field {
-    min-width: 243px;
+    width: 243px;
     padding-top: 23px;
     padding-bottom: 22px;
   }

@@ -4,20 +4,18 @@ import { createProductItemMarkup } from './markup.js';
 document.addEventListener('DOMContentLoaded', () => {
     const filterForm = document.getElementById('filterForm');
     const keywordInput = document.getElementById('keywordInput');
-    const categorySelect = document.getElementById('categorySelect');
+    const categorySelectButton = document.getElementById('categorySelect');
+    const categoryList = document.querySelector('.category-list');
     const productsList = document.getElementById('productsList');
 
     const filters = { keyword: null, category: null, page: 1, limit: 6 };
     let categories = [];
 
-    categorySelect.innerHTML = '<option value="category-text" disabled selected>Categories</option>';
-
     filterForm.addEventListener('submit', async (event) => {
         event.preventDefault();
         filters.keyword = keywordInput.value;
-        filters.category = categorySelect.value === '' ? null : categorySelect.value;
+        filters.category = getCategoryValue();
         filters.page = 1;
-        await fetchProducts();
     });
 
     keywordInput.addEventListener('input', () => {
@@ -26,10 +24,32 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchProducts();
     });
 
-    categorySelect.addEventListener('change', () => {
-        filters.category = categorySelect.value === '' ? null : categorySelect.value;
-        filters.page = 1;
-        fetchProducts();
+    categoryList.addEventListener('click', (event) => {
+        if (event.target.classList.contains('category-item')) {
+            const selectedCategory = getCategoryValue(event.target);
+            filters.category = selectedCategory;
+            filters.page = 1;
+            console.log('Зміна категорії. Нова категорія:', selectedCategory);
+            fetchProducts();
+            updateCategoryButtonText(selectedCategory);
+            hideCategoryList();
+        }
+    });
+
+    const updateCategoryButtonText = (category) => {
+        categorySelectButton.textContent = category;
+    };
+
+    const getCategoryValue = (selectedItem) => {
+        return selectedItem ? selectedItem.getAttribute('data-value') : null;
+    };
+
+    const hideCategoryList = () => {
+        categoryList.classList.remove('show');
+    };
+
+    categorySelectButton.addEventListener('click', () => {
+        categoryList.classList.toggle('show');
     });
 
     const fetchProducts = async () => {
@@ -62,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await axios.get('https://food-boutique.b.goit.study/api/products/categories');
             const data = response.data;
-            categories = ['Show all', ...data];
+            categories = [...data, 'Show all'];
             displayCategories(categories);
         } catch (error) {
             console.error('Error fetching categories:', error);
@@ -70,9 +90,17 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const displayCategories = (categories) => {
-        categorySelect.innerHTML = categories.map(category =>
-            `<option value="${category}">${category}</option>`
-        ).join('');
+        const listItems = categories.map(category => {
+            let displayCategory = category.replace(/_/g, ' ');
+
+            if (category === 'Breads_&_Bakery') {
+                displayCategory = displayCategory.replace(/&/g, '/');
+            }
+
+            return `<li class="category-item" data-value="${category}">${displayCategory}</li>`;
+        }).join('');
+
+        categoryList.innerHTML = listItems;
     };
 
     fetchCategories();

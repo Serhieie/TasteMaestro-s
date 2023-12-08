@@ -25,6 +25,9 @@ export default defineConfig(({ command }) => {
       },
       outDir: '../dist',
     },
+    optimizeDeps: {
+      include: ['./src/img/sprite.svg'],
+    },
     plugins: [injectHTML(), FullReload(['./src/**/**.html'])],
   };
 });
