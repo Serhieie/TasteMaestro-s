@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     filterForm.addEventListener('submit', async (event) => {
         event.preventDefault();
         filters.keyword = keywordInput.value;
-        filters.category = categorySelect.value === '' ? null : categorySelect.value;
+        filters.category = categorySelect.value === 'Categories' ? null : categorySelect.value;
         filters.page = 1;
         await fetchProducts();
     });
@@ -25,7 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     categorySelect.addEventListener('change', () => {
-        filters.category = categorySelect.value === '' ? null : categorySelect.value;
+        // Перевіряю, чи обрано категорію (а не "Categories")
+        if (categorySelect.value !== 'Categories') {
+            // Якщо обрано категорію, ховаю текст "Categories" випливаючого списку
+            categorySelect.querySelector('option[value="Categories"]').style.display = 'none';
+        }
+        filters.category = categorySelect.value === 'Categories' ? null : categorySelect.value;
         filters.page = 1;
         fetchProducts();
     });
@@ -60,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await axios.get('https://food-boutique.b.goit.study/api/products/categories');
             const data = response.data;
-            categories = ['Show all', ...data];
+            categories = [...data, 'Show all'];
             displayCategories(categories);
         } catch (error) {
             console.error('Error fetching categories:', error);
@@ -68,11 +73,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const displayCategories = (categories) => {
-        const options = categories.map(category =>
-            `<option value="${category}">${category}</option>`
-        ).join('');
-        categorySelect.insertAdjacentHTML('beforeend', options); 
-    };
+        const options = categories.map(category => {
+            let displayCategory = category.replace(/_/g, ' '); // Замінюю "_" на пробіл
+    
+            // Замінюю "&" на "/"
+            if (category === 'Breads_&_Bakery') {
+                displayCategory = displayCategory.replace(/&/g, '/');
+            }
+    
+            return `<option value="${category}">${displayCategory}</option>`;
+        }).join('');
+    
+        categorySelect.insertAdjacentHTML('beforeend', options);
+    };      
 
     fetchCategories();
     fetchProducts();

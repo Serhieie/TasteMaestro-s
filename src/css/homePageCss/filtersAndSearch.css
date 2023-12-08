@@ -43,6 +43,9 @@
     position: absolute;
     top: 14px;
     left: 169px;
+    padding: 3px;
+    stroke: #010101;
+    fill: transparent;
 }
 
 #categorySelect {
@@ -56,4 +59,8 @@
     border-radius: 30px;
     border: 1px solid rgba(1, 1, 1, 0.30);
     width: 209px;
+}
+
+#categorySelect option {
+    margin-bottom: 8px; /* Збільшення відстань між категоріями на 8px */
 }

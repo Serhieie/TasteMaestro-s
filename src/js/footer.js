@@ -1,5 +1,5 @@
 import { createSubscription } from './apiService';
-import Notiflix from 'notiflix';
+
 
 const form = document.querySelector('.footer-form-js');
 const inputFooter = document.querySelector('#subscribe');
