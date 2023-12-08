@@ -1,3 +1,7 @@
+.productsList__section {
+  padding-bottom: 80px;
+}
+
 .product__list__card {
   list-style-type: none;
   background: var(--product-card-bg-color);
@@ -11,6 +15,7 @@
 .product__list__card:hover {
   box-shadow: var(--product-cards-hover-shadow);
   transform: scale(1.01);
+  cursor: pointer;
 }
 
 .sticker_icon {
@@ -32,6 +37,7 @@
 .product__description__wraper {
   margin-bottom: 40px;
 }
+
 .product__details {
   display: flex;
   gap: 8px;
@@ -49,14 +55,16 @@
   color: var(--product-description-color);
   font-size: 12px;
   font-weight: 400;
-  line-height: 1.16; /* 116.667% */
+  line-height: 1.17;
+  /* 116.667% */
 }
 
 .product__description__span {
   color: var(--text-color);
   font-size: 12px;
   font-weight: 400;
-  line-height: 1.16; /* 116.667% */
+  line-height: 1.17;
+  /* 116.667% */
 }
 
 .product__order__wraper {
@@ -69,7 +77,8 @@
   color: var(--text-color);
   font-size: 18px;
   font-weight: 500;
-  line-height: 1.11; /* 111.111% */
+  line-height: 1.11;
+  /* 111.111% */
 }
 
 .product__order__btn {
@@ -85,14 +94,18 @@
 }
 
 .product__order__btn:hover {
-  background: var(--hover-color);
+  background-color: var(--hover-color);
 }
 
-.card-icon {
+.card-icon-product {
   fill: var(--color-on-grin);
 }
 
 @media screen and (min-width: 768px) {
+  .productsList__section {
+    padding-bottom: 100px;
+  }
+
   .product__list {
     gap: 32px;
     display: flex;
@@ -108,16 +121,23 @@
 
   .product__title {
     font-size: 20px;
-    line-height: 1.2; /* 120% */
+    line-height: 1.2;
+    /* 120% */
   }
 
   .product__price {
     color: var(--text-color);
     font-size: 20px;
-    line-height: 1.11; /* 111.111% */
+    line-height: 1.11;
+    /* 111.111% */
   }
 }
+
 @media screen and (min-width: 1440px) {
+  .productsList__section {
+    padding-bottom: 61px;
+  }
+
   .product__list {
     display: flex;
     flex-wrap: wrap;
@@ -125,9 +145,11 @@
     justify-content: center;
     align-items: center;
   }
+
   .container.container__products {
     max-width: 925px;
   }
+
   .product__list__card {
     max-width: calc((100% - 40px) / 3);
   }
@@ -137,10 +159,15 @@
     row-gap: 9px;
   }
 
+  .product__details:nth-child(2) {
+    margin-right: 20px;
+  }
+
   .product__image__wraper {
     padding-right: 58px;
     padding-left: 58px;
   }
+
   .product__description__wraper {
     margin-bottom: 20px;
   }
