@@ -15,7 +15,9 @@
 @import url('./cartPage/cartList.css');
 @import url('./cartPage/cartEmpty.css');
 @import url('./cartPage/cartTotal.css');
+@import url('./cartPage/CartWareCount.css');
 @import url('./footer.css');
+@import url('./homePageCss/pagination.css');
 
 @font-face {
   font-family: 'Neue Montreal';
@@ -210,7 +212,6 @@ footer {
   left: 0;
   background: var(--backdrop-color-loader, rgba(236, 235, 235, 0.1));
   z-index: 9999;
-  display: none;
 }
 
 .loader {
