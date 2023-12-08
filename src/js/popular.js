@@ -22,7 +22,7 @@ function createMarkup(response) {
       const newCategory = category.replace('_', ' ');
       return `<li class="popular_list_card" data-id="${_id}">
         <svg class="sticker_icon visually-hidden" width="60" height="60">
-          <use href="/img/sprite.svg#discount"></use>
+          <use href="/TasteMaestro-s/src/img/sprite.svg#shopping-cart"></use>
         </svg>
         <div class="popular_image_container">
           <img
@@ -58,7 +58,7 @@ function createMarkup(response) {
         <div class="popular_order_container">
           <button class="popular_order_btn">
             <svg class="card-icon" width="12" height="12">
-              <use href="/img/sprite.svg#shopping-cart"></use>
+              <use href="/TasteMaestro-s/src/img/sprite.svg#shopping-cart"></use>
             </svg>
           </button>
         </div>
