@@ -27,7 +27,7 @@ const globalOptionsError = {
 function onSubmit(evt) {
   evt.preventDefault();
   const email = evt.currentTarget.subscribe.value.trim().toLowerCase();
-
+  // ось це
   if (!email.match(regex)) {
     inputFooter.style.borderColor = 'red';
     new AWN().warning('Please enter a correct email', globalOptionsCheck);
