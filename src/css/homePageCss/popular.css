@@ -57,8 +57,11 @@
   top: 12px;
   transition: background-color 300ms ease-in-out;
 }
-
-.card-icon {
+.popular_discount_icon {
+  fill: var(--color-on-grin);
+  background-color: var(--hover-color);
+}
+.popular-icon {
   fill: var(--brand-color);
   transition: fill 300ms ease-in-out;
 }
@@ -67,7 +70,7 @@
   background-color: var(--hover-color);
 }
 
-.popular_order_btn:hover .card-icon {
+.popular_order_btn:hover .popular-icon {
   fill: var(--color-on-grin);
 }
 
