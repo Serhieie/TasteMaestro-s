@@ -1,5 +1,5 @@
 import axios from 'axios';
-import sprite from '../img/sprite.svg';
+import sprite from '/img/sprite.svg';
 
 let limit = 5;
 const popularList = document.querySelector('.popular-js');
