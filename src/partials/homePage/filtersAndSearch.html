@@ -1,32 +1,36 @@
-<section class="filter__section productsList__section">
-  <div class="container container__products">
-    <p class="filter__name">Filters:</p>
-    <form id="filterForm">
-      <div class="filter__search">
-        <label>
-          <input
-            type="text"
-            id="keywordInput"
-            placeholder="Search for anything"
-          />
-          <svg class="svg__search" width="20" height="20">
-            <use href="/img/sprite.svg#search"></use>
-          </svg>
-        </label>
-      </div>
-      <label>
-        <select id="categorySelect">
-          <option value="Categories">
-            <span class="category-text">Categories</span>
-            <svg class="svg-icon" width="20" height="20">
-              <use xlink:href="/img/sprite.svg#search"></use>
-            </svg>
-          </option>
-          <!-- категорії з сервера -->
-        </select>
-      </label>
-    </form>
+<section class="filter__section">
+    <div class="container">
+        <p class="filter__name">Filters:</p>
+        <form id="filterForm">
+            <div class="filter__position">
+                <label>
+                    <input type="text" id="keywordInput" placeholder="Search for anything"/>
+                    <svg class="svg__search" width="20" height="20"><use href="./img/sprite.svg#search"></use></svg>
+                </label>
+            </div>
+            <!-- <label>
+                <div class="filter__position">
+                    <select id="categorySelect">
+                        <option value="Categories" disabled selected>Categories</option>
+                        категорії з сервера
+                    </select>
+                    <svg class="svg__category" width="20" height="20">
+                      <use xlink:href="./img/sprite.svg#down-vector"></use>
+                  </svg>
+                </div>
+            </label> -->
 
-    <div id="productsList"></div>
-  </div>
+            <div class="filter__position">
+                <button id="categorySelect">Categories</button>
+                <ul class="category-list">
+                    <!-- категорії з сервера -->
+                </ul>
+                <svg class="svg__category" width="20" height="20">
+                    <use xlink:href="./img/sprite.svg#down-vector"></use>
+                </svg>
+            </div>
+        </form>
+        
+        <div id="productsList"></div>
+    </div>
 </section>

@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
         filters.keyword = keywordInput.value;
         filters.category = getCategoryValue();
         filters.page = 1;
-        await fetchProducts();
     });
 
     keywordInput.addEventListener('input', () => {
