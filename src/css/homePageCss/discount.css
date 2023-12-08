@@ -38,7 +38,7 @@
 .img-field {
   border-radius: 10px;
   background: var(--color-on-grin, #e8e8e2);
-  min-width: 269px;
+  width: 269px;
   height: 150px;
   padding-top: 18px;
   padding-bottom: 18px;
@@ -139,11 +139,11 @@
   }
 
   .discount-card {
-    min-width: 275px;
+    width: 275px;
   }
 
   .img-field {
-    min-width: 243px;
+    width: 243px;
     padding-top: 23px;
     padding-bottom: 22px;
   }
