@@ -1,4 +1,5 @@
 import axios from 'axios';
+import sprite from '/img/sprite.svg';
 
 const refs = {
   discountCardList: document.querySelector('.discount-card-list'),
@@ -37,7 +38,7 @@ function productsWithDiscountMarkup(array) {
           <img
             class="discount-product-img"
             src="${img}"
-            alt=""
+            alt="products"
           />
         </div>
         <div class="discount-product-info">
@@ -48,13 +49,13 @@ function productsWithDiscountMarkup(array) {
             </p>
             <button class="discount-cart-btn" type="button">
               <svg class="discount-cart-icon" width="18" height="18">
-                <use href="./img/sprite.svg#shopping-cart"></use>
+                <use xlink:href="${sprite}#shopping-cart"></use>
               </svg>
             </button>
           </div>
         </div>
         <svg class="discount-label-icon" width="60" height="60">
-          <use href="./img/sprite.svg#discount"></use>
+          <use xlink:href="${sprite}#discount"></use>
         </svg>
       </li>`
     )
