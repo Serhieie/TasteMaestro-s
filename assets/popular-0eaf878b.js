@@ -35,7 +35,7 @@ import{a as p,A as u}from"./vendor-f728e3bf.js";(function(){const r=document.cre
         <div class="product__order__wraper">
           <p class="product__price">${"$"+t}</p>
           <button class="product__order__btn">
-            <svg class="card-icon" width="18" height="18">
+            <svg class="card-icon-product" width="18" height="18">
               <use href="/img/sprite.svg#shopping-cart"></use>
             </svg>
           </button>
@@ -83,4 +83,4 @@ import{a as p,A as u}from"./vendor-f728e3bf.js";(function(){const r=document.cre
           </button>
         </div>
       </li>`}).join("")}
-//# sourceMappingURL=popular-50d01e6e.js.map
+//# sourceMappingURL=popular-0eaf878b.js.map
