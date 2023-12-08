@@ -18,7 +18,7 @@
     padding-bottom: 6px;
 }
 
-.filter__search {
+.filter__position {
     position: relative;
 }
 
@@ -39,6 +39,12 @@
     left: 229px;
 }
 
+.svg__category {
+    position: absolute;
+    top: 14px;
+    left: 169px;
+}
+
 #categorySelect {
     -webkit-appearance: none;
     appearance: none;
@@ -49,4 +55,5 @@
     gap: 44px;
     border-radius: 30px;
     border: 1px solid rgba(1, 1, 1, 0.30);
+    width: 209px;
 }
