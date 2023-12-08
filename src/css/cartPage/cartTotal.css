@@ -1,0 +1,104 @@
+.cart-total {
+    padding-bottom: 80px;
+}
+.total-form-title{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.16;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.total-input {
+    width: 335px;
+    height: 60px;
+    margin-bottom: 30px;
+    background-color: rgba(109, 132, 52, 0.05);
+    border: none;
+    border-radius: 8px;
+}
+
+.total-input::placeholder {
+    color: #010101;
+font-size: 18px;
+font-weight: 500;
+line-height: 1.11;
+padding-bottom: 14px;
+padding-left: 18px;
+}
+
+.checkout-input {
+    width: 335px;
+    height: 42px;
+    font-family: inherit;
+    border-radius: 30px;
+border: 1px solid rgba(1, 1, 1, 0.30);
+background-color: inherit;
+margin-bottom: 14px;
+gap: 8px;
+}
+
+button {
+    font-family: inherit;
+    color: #E8E8E2;
+    background-color: #6D8434;
+    width: 335px;
+    height: 42px;
+    display: inline-flex;
+padding: 15px 65px;
+justify-content: center;
+align-items: center;
+border-radius: 30px;
+border: none;
+font-size: 14px;
+}
+
+
+
+
+@media screen and (min-width: 375px) {
+
+}
+
+@media screen and (min-width: 768px) {
+    .cart-total {
+        padding-bottom: 100px;
+    } 
+    .total-form-title{
+        font-size: 32px;
+        line-height: 1.00;
+    }
+    .total-input {
+        width: 590px;
+        height: 60px;
+        margin-bottom: 40px;
+    }
+    .total-input::placeholder {
+    font-size: 20px;
+    line-height: 1.2;
+    padding-left: 28px;
+    }
+    .checkout-input {
+        width: 359px;
+        height: 54px;
+        gap: 16px;
+        margin-bottom: 0;
+    }
+    button {
+        width: 215px;
+        height: 54px;
+    font-size: 20px;
+    }
+  
+    #checkoutForm {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+      }
+}
+
+@media screen and (min-width: 1168px) {
+    .cart-total {
+        padding-left: 101px;
+    }
+}
