@@ -1,4 +1,5 @@
 import axios from 'axios';
+import sprite from '/img/sprite.svg';
 
 let limit = 5;
 const popularList = document.querySelector('.popular-js');
@@ -21,8 +22,8 @@ function createMarkup(response) {
     .map(({ img, name, category, size, popularity, _id }) => {
       const newCategory = category.replace('_', ' ');
       return `<li class="popular_list_card" data-id="${_id}">
-        <svg class="sticker_icon visually-hidden" width="60" height="60">
-          <use href="./img/sprite.svg#shopping-cart"></use>
+        <svg class="popular_discount_icon visually-hidden" width="60" height="60">
+          <use xlink:href="${sprite}#Discount"></use>
         </svg>
         <div class="popular_image_container">
           <img
@@ -57,8 +58,8 @@ function createMarkup(response) {
         </div>
         <div class="popular_order_container">
           <button class="popular_order_btn">
-            <svg class="card-icon" width="12" height="12">
-              <use href="./img/sprite.svg#shopping-cart"></use>
+            <svg class="popular-icon" width="12" height="12">
+              <use xlink:href="${sprite}#shopping-cart"></use>
             </svg>
           </button>
         </div>
