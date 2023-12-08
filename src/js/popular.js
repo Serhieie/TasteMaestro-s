@@ -58,7 +58,7 @@ function createMarkup(response) {
         <div class="popular_order_container">
           <button class="popular_order_btn">
             <svg class="card-icon" width="12" height="12">
-              <use href="/img/sprite.svg#shopping-cart"></use>
+              <use xlink:href="/img/sprite.svg#shopping-cart"></use>
             </svg>
           </button>
         </div>
