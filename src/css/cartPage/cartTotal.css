@@ -38,7 +38,7 @@ margin-bottom: 14px;
 gap: 8px;
 }
 
-button {
+.button-checkout {
     font-family: inherit;
     color: #E8E8E2;
     background-color: #6D8434;
@@ -78,13 +78,23 @@ font-size: 14px;
     line-height: 1.2;
     padding-left: 28px;
     }
+    .checkout-label {
+        position: absolute;
+    }
     .checkout-input {
         width: 359px;
         height: 54px;
         gap: 16px;
         margin-bottom: 0;
+        position: relative;
+        left: 20px;
+        top: 15px;
     }
-    button {
+
+    .checkout-input::placeholder {
+        
+    }
+    .button-checkout {
         width: 215px;
         height: 54px;
     font-size: 20px;
