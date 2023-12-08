@@ -7,7 +7,7 @@ select option {
 }
 
 .filter__section {
-    padding: 0px 0px 22px 0px;
+    padding-bottom: 22px;
 }
 
 #keywordInput,
@@ -22,7 +22,6 @@ select option {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-bottom: 22px;
 }
 
 .filter__name {
@@ -92,7 +91,6 @@ select option {
 
     #filterForm {
         flex-direction: row;
-        margin-bottom: 40px;
     }
 
     #keywordInput {
@@ -117,10 +115,6 @@ select option {
 @media screen and (min-width: 1440px) {
     .filter__section {
         padding-bottom: 60px;
-    }
-
-    #filterForm {
-        margin-bottom: 60px;
     }
 
 
