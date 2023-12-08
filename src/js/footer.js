@@ -6,7 +6,7 @@ const form = document.querySelector('.footer-form-js');
 const inputFooter = document.querySelector('#subscribe');
 form.addEventListener('submit', onSubmit);
 
-const regex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}/;
+const regex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
 
 const globalOptionsCheck = {
   labels: { warning: 'Warning' },
@@ -27,7 +27,7 @@ const globalOptionsError = {
 function onSubmit(evt) {
   evt.preventDefault();
   const email = evt.currentTarget.subscribe.value.trim().toLowerCase();
-
+  // ось це
   if (!email.match(regex)) {
     inputFooter.style.borderColor = 'red';
     new AWN().warning('Please enter a correct email', globalOptionsCheck);

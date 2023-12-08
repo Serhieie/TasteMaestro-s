@@ -1,3 +1,5 @@
+import sprite from '/img/sprite.svg';
+
 export function createProductItemMarkup({
   _id,
   name,
@@ -10,7 +12,7 @@ export function createProductItemMarkup({
 }) {
   return `<li id="${_id}" class="product__list__card">
         <svg class="sticker_icon visually-hidden" width="60" height="60">
-          <use xlink:href="/img/sprite.svg#discount"></use>
+          <use xlink:href="${sprite}#shopping-cart#discount"></use>
         </svg>
         <div class="product__image__wraper">
           <img
@@ -27,7 +29,10 @@ export function createProductItemMarkup({
             <li>
               <p class="product__description__text">
                 Category:
-                <span class="product__description__span">${category}</span>
+                <span class="product__description__span">${category.replace(
+                  /_/g,
+                  ' '
+                )}</span>
               </p>
             </li>
             <li>
@@ -45,8 +50,8 @@ export function createProductItemMarkup({
         <div class="product__order__wraper">
           <p class="product__price">${'$' + price}</p>
           <button class="product__order__btn">
-            <svg class="card-icon" width="18" height="18">
-              <use href="/img/sprite.svg#shopping-cart"></use>
+            <svg class="card-icon-product" width="18" height="18">
+              <use xlink:href="${sprite}#shopping-cart"></use>
             </svg>
           </button>
         </div>

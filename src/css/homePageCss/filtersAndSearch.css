@@ -1,11 +1,28 @@
+select option:checked {
+    color: #010101;
+}
+
+select option {
+    color: rgba(1, 1, 1, 0.50);
+}
+
 .filter__section {
-    padding: 0px 0px 40px 0px;
+    padding: 0px 0px 22px 0px;
+}
+
+#keywordInput,
+#categorySelect {
+    color: #010101;
+    font-size: 14px;
+    line-height: 1.29;
+    /* 128.571% */
 }
 
 #filterForm {
     display: flex;
+    flex-direction: column;
     gap: 8px;
-    margin-bottom: 60px;
+    margin-bottom: 22px;
 }
 
 .filter__name {
@@ -14,7 +31,8 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 18px; /* 128.571% */
+    line-height: 1.29;
+    /* 128.571% */
     padding-bottom: 6px;
 }
 
@@ -23,20 +41,28 @@
 }
 
 #keywordInput {
+    background-color: inherit;
     display: flex;
     padding: 14px 20px;
     justify-content: center;
     align-items: center;
-    gap: 189px;
+    /* gap: 189px; */
     border-radius: 30px;
     border: 1px solid rgba(1, 1, 1, 0.30);
-    width: 269px;
+    width: 100%;
 }
 
 .svg__search {
     position: absolute;
     top: 14px;
-    left: 229px;
+    right: 14px;
+    /* left: 229px; */
+}
+
+.svg-icon {
+    position: absolute;
+    top: 14px;
+    right: 14px;
 }
 
 .svg__category {
@@ -46,14 +72,63 @@
 }
 
 #categorySelect {
+    background-color: inherit;
     -webkit-appearance: none;
     appearance: none;
     display: flex;
     padding: 14px 20px;
     justify-content: center;
     align-items: center;
-    gap: 44px;
+    /* gap: 44px; */
     border-radius: 30px;
     border: 1px solid rgba(1, 1, 1, 0.30);
     width: 209px;
+    width: 100%;
+}
+
+
+@media screen and (min-width: 768px) {
+    .filter__section {
+        padding-bottom: 40px;
+    }
+
+    .svg__search {
+        top: 16px;
+        right: 16px;
+    }
+
+    #filterForm {
+        flex-direction: row;
+        margin-bottom: 40px;
+    }
+
+    #keywordInput {
+        width: 269px;
+    }
+
+    #categorySelect {
+        width: 189px;
+    }
+
+    #keywordInput,
+    #categorySelect {
+        font-size: 18px;
+        font-style: normal;
+        line-height: 1.23;
+        /* 133.333% */
+    }
+
+
+}
+
+@media screen and (min-width: 1440px) {
+    .filter__section {
+        padding-bottom: 60px;
+    }
+
+    #filterForm {
+        margin-bottom: 60px;
+    }
+
+
 }
