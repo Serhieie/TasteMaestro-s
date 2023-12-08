@@ -54,9 +54,9 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="345" />
     <script type="module" crossorigin src="/TasteMaestro-s/assets/vendor-f728e3bf.js"></script>
-    <script type="module" crossorigin src="/TasteMaestro-s/assets/discount-ffeafdaf.js"></script>
+    <script type="module" crossorigin src="/TasteMaestro-s/assets/discount-ed20a53f.js"></script>
     <link rel="stylesheet" href="/TasteMaestro-s/assets/vendor-dccfdd0c.css">
-    <link rel="stylesheet" href="/TasteMaestro-s/assets/discount-af87ded1.css">
+    <link rel="stylesheet" href="/TasteMaestro-s/assets/discount-78d0d84b.css">
   </head>
   <body>
     <header class="header">
@@ -138,25 +138,30 @@
           
           
     <div class="cart-total">
-        <p class="total-form-title">Your Order</p>
+        <h1 class="total-form-title">Your Order</h1>
 
         <div id="total-price">
-            <form id="cartForm">
+            <p class="total-input">
+                <span>
+                    
+                </span>
+            </p>
+            <!-- <form id="cartForm">
                 <label for="totalPrice"></label>
                 <input class="total-input" type="text" id="totalPrice" name="totalPrice" 
                 placeholder="Total"
                 readonly>
-            </form>
+            </form> -->
         </div>
         
         <form id="checkoutForm">
-            <label for="email"></label>
+            <label class="checkout-label" for="email">Mail:</label>
             <input class="checkout-input" type="email" id="email" name="email" 
-                       placeholder='Mail: Enter your email' 
+                       placeholder='Enter your email' 
                        required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
                    
                 
-              <button type="submit">Checkout</button>
+              <button class="button-checkout" type="submit">Checkout</button>
                     </form>
 
     </div>
