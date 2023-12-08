@@ -36,7 +36,7 @@ import{a as p,A as u}from"./vendor-f728e3bf.js";(function(){const r=document.cre
           <p class="product__price">${"$"+t}</p>
           <button class="product__order__btn">
             <svg class="card-icon-product" width="18" height="18">
-              <use href="/img/sprite.svg#shopping-cart"></use>
+              <use xlink:href="/img/sprite.svg#shopping-cart"></use>
             </svg>
           </button>
         </div>
@@ -78,9 +78,9 @@ import{a as p,A as u}from"./vendor-f728e3bf.js";(function(){const r=document.cre
         <div class="popular_order_container">
           <button class="popular_order_btn">
             <svg class="card-icon" width="12" height="12">
-              <use href="/img/sprite.svg#shopping-cart"></use>
+              <use xlink:href="/img/sprite.svg#shopping-cart"></use>
             </svg>
           </button>
         </div>
       </li>`}).join("")}
-//# sourceMappingURL=popular-0eaf878b.js.map
+//# sourceMappingURL=popular-7225cae9.js.map
