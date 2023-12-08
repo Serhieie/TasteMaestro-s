@@ -2,23 +2,21 @@
     <div class="container">
         <p class="filter__name">Filters:</p>
         <form id="filterForm">
-            <div class="filter__search">
+            <div class="filter__position">
                 <label>
                     <input type="text" id="keywordInput" placeholder="Search for anything"/>
-                    <svg class="svg__search" width="20" height="20"><use href="../../img/sprite.svg#search"></use></svg>
+                    <svg class="svg__search" width="20" height="20"><use href="./img/sprite.svg#search"></use></svg>
                 </label>
             </div>
-            <label>
-                <select id="categorySelect">
-                    <option value="Categories">
-                        <span class="category-text">Categories</span>
-                        <svg class="svg-icon" width="20" height="20">
-                            <use xlink:href="../../img/sprite.svg#search"></use>
-                        </svg>
-                    </option>
+            <div class="filter__position">
+                <button id="categorySelect">Categories</button>
+                <ul class="category-list">
                     <!-- категорії з сервера -->
-              </select>
-            </label>
+                </ul>
+                <svg class="svg__category" width="20" height="20">
+                    <use xlink:href="./img/sprite.svg#down-vector"></use>
+                </svg>
+            </div>
         </form>
         
         <div id="productsList"></div>

@@ -8,11 +8,13 @@
   flex-direction: column;
   gap: 14px;
 }
+
 .popular_products_list {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
+
 .popular_list_card {
   display: flex;
   height: 98px;
@@ -24,10 +26,12 @@
   cursor: pointer;
   transition: transform 300ms ease-in-out;
 }
+
 .popular_list_card:hover {
   box-shadow: var(--product-cards-hover-shadow);
   transform: scale(1.01);
 }
+
 .popular_image_container {
   width: 74px;
   height: 74px;
@@ -37,11 +41,12 @@
   align-items: center;
   border-radius: 10px;
 }
+
 .popular_order_btn {
   border-radius: 30px;
   padding: 4px;
-  width: 20px;
-  height: 20px;
+  /* width: 20px; */
+  /* height: 20px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,37 +55,49 @@
   position: absolute;
   right: 12px;
   top: 12px;
-  transition: git pull origin mainbackground-color 300ms ease-in-out;
+  transition: background-color 300ms ease-in-out;
 }
-.card-icon {
+.popular_discount_icon {
+  fill: var(--color-on-grin);
+  background-color: var(--hover-color);
+}
+.popular-icon {
   fill: var(--brand-color);
+  transition: fill 300ms ease-in-out;
 }
+
 .popular_order_btn:hover {
   background-color: var(--hover-color);
 }
-.card-icon:hover {
+
+.popular_order_btn:hover .popular-icon {
   fill: var(--color-on-grin);
 }
+
 .popular_product_title {
   font-size: 18px;
   line-height: 20px;
   font-weight: 500;
 }
+
 .popular_details_category {
   font-size: 12px;
   font-weight: 400;
   line-height: 14px;
   color: var(--backdrop-color-loader);
 }
+
 .popular_details_text {
   color: var(--text-color);
 }
+
 .popular_details {
   margin-top: 12px;
   display: flex;
   flex-direction: column;
   gap: 9px;
 }
+
 .popular_detail_wrap {
   display: flex;
   flex-direction: row;
@@ -94,16 +111,20 @@
     flex-wrap: wrap;
     gap: 13px;
   }
+
   .popular_list_card {
     width: 275px;
   }
+
   .popular_title {
     font-size: 28px;
   }
+
   .popular_product_title {
     font-size: 20px;
     line-height: 24px;
   }
+
   .popular_details {
     margin-top: 10px;
   }
