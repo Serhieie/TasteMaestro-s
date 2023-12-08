@@ -1,3 +1,5 @@
+/* ! Start cart-basic block */
+
 .cart-empty {
   display: flex;
   justify-content: center;
@@ -22,6 +24,10 @@
   height: 114px;
 }
 
+/* ! End cart-basic block */
+
+/* ! Start cart-text decoration  */
+
 .cart-empty-desc h2 {
   margin-bottom: 14px;
   color: #010101;
@@ -45,6 +51,9 @@
   color: #6d8434;
 }
 
+/* ! End cart-text decoration  */
+
+/* ! Start cart-media */
 
 @media screen and (min-width: 768px) {
   .cart-empty-desc {
@@ -66,3 +75,5 @@
     line-height: 1.33;
   }
 }
+
+  /* ! End cart-media */
