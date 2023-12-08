@@ -16,6 +16,7 @@
 @import url('./cartPage/cartEmpty.css');
 @import url('./cartPage/cartTotal.css');
 @import url('./footer.css');
+@import url('./homePageCss/pagination.css');
 
 @font-face {
   font-family: 'Neue Montreal';
