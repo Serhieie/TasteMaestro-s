@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const filterForm = document.getElementById('filterForm');
   const keywordInput = document.getElementById('keywordInput');
   const categorySelect = document.getElementById('categorySelect');
-  const containerProducts = document.querySelector('.container__products');
+  const productsList = document.getElementById('productsList');
 
   const filters = { keyword: null, category: null, page: 1, limit: 6 };
   let categories = [];
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const displayProducts = products => {
-    containerProducts.innerHTML =
+    productsList.innerHTML =
       '<ul class="product__list">' +
       products.map(product => createProductItemMarkup(product)).join('') +
       '</ul>';
