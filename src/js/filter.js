@@ -77,7 +77,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const displayCategories = categories => {
     categorySelect.innerHTML = categories
-      .map(category => `<option value="${category}">${category}</option>`)
+      .map(
+        category =>
+          `<option value="${category}">${category.replace(/_/g, ' ')}</option>`
+      )
       .join('');
   };
 

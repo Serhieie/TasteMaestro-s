@@ -29,7 +29,10 @@ export function createProductItemMarkup({
             <li>
               <p class="product__description__text">
                 Category:
-                <span class="product__description__span">${category}</span>
+                <span class="product__description__span">${category.replace(
+                  /_/g,
+                  ' '
+                )}</span>
               </p>
             </li>
             <li>
