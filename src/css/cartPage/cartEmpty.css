@@ -30,7 +30,7 @@
 
 .cart-empty-desc h2 {
   margin-bottom: 14px;
-  color: #010101;
+  color: var(--text-color, #010101);
 
   font-size: 18px;
   font-style: normal;
@@ -39,7 +39,7 @@
 }
 
 .cart-empty-text {
-  color: rgba(1, 1, 1, 0.7);
+  color: var(--secondary-color, rgba(1, 1, 1, 0.7));
   text-align: center;
   font-size: 14px;
   font-style: normal;
@@ -48,7 +48,7 @@
 }
 
 .cart-empty-cgreen {
-  color: #6d8434;
+  color: var(--brand-color, #6d8434);
 }
 
 /* ! End cart-text decoration  */

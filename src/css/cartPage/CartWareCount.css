@@ -25,10 +25,6 @@
   transition: background-color 300ms ease-in-out;
 }
 
-.cart-svg-span:hover {
-  background-color: var(--hover-color, #586f1f);
-}
-
 .cart-count-icon {
   fill: var(--color-on-grin, #e8e8e2);
   position: absolute;
@@ -42,7 +38,7 @@
 /* ! Start cart-ware-count text */
 
 .cart-count {
-  color: #010101;
+  color: var(--text-color, #010101);
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
