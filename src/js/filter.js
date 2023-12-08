@@ -4,7 +4,8 @@ import { createProductItemMarkup } from './markup.js';
 document.addEventListener('DOMContentLoaded', () => {
     const filterForm = document.getElementById('filterForm');
     const keywordInput = document.getElementById('keywordInput');
-    const categorySelect = document.getElementById('categorySelect');
+    const categorySelectButton = document.getElementById('categorySelect');
+    const categoryList = document.querySelector('.category-list');
     const productsList = document.getElementById('productsList');
 
     const filters = { keyword: null, category: null, page: 1, limit: 6 };
@@ -13,9 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     filterForm.addEventListener('submit', async (event) => {
         event.preventDefault();
         filters.keyword = keywordInput.value;
-        filters.category = categorySelect.value === 'Categories' ? null : categorySelect.value;
+        filters.category = getCategoryValue();
         filters.page = 1;
-        await fetchProducts();
     });
 
     keywordInput.addEventListener('input', () => {
@@ -24,15 +24,32 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchProducts();
     });
 
-    categorySelect.addEventListener('change', () => {
-        // Перевіряю, чи обрано категорію (а не "Categories")
-        if (categorySelect.value !== 'Categories') {
-            // Якщо обрано категорію, ховаю текст "Categories" випливаючого списку
-            categorySelect.querySelector('option[value="Categories"]').style.display = 'none';
+    categoryList.addEventListener('click', (event) => {
+        if (event.target.classList.contains('category-item')) {
+            const selectedCategory = getCategoryValue(event.target);
+            filters.category = selectedCategory;
+            filters.page = 1;
+            console.log('Зміна категорії. Нова категорія:', selectedCategory);
+            fetchProducts();
+            updateCategoryButtonText(selectedCategory);
+            hideCategoryList();
         }
-        filters.category = categorySelect.value === 'Categories' ? null : categorySelect.value;
-        filters.page = 1;
-        fetchProducts();
+    });
+
+    const updateCategoryButtonText = (category) => {
+        categorySelectButton.textContent = category;
+    };
+
+    const getCategoryValue = (selectedItem) => {
+        return selectedItem ? selectedItem.getAttribute('data-value') : null;
+    };
+
+    const hideCategoryList = () => {
+        categoryList.classList.remove('show');
+    };
+
+    categorySelectButton.addEventListener('click', () => {
+        categoryList.classList.toggle('show');
     });
 
     const fetchProducts = async () => {
@@ -73,19 +90,18 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const displayCategories = (categories) => {
-        const options = categories.map(category => {
-            let displayCategory = category.replace(/_/g, ' '); // Замінюю "_" на пробіл
-    
-            // Замінюю "&" на "/"
+        const listItems = categories.map(category => {
+            let displayCategory = category.replace(/_/g, ' ');
+
             if (category === 'Breads_&_Bakery') {
                 displayCategory = displayCategory.replace(/&/g, '/');
             }
-    
-            return `<option value="${category}">${displayCategory}</option>`;
+
+            return `<li class="category-item" data-value="${category}">${displayCategory}</li>`;
         }).join('');
-    
-        categorySelect.insertAdjacentHTML('beforeend', options);
-    };      
+
+        categoryList.innerHTML = listItems;
+    };
 
     fetchCategories();
     fetchProducts();
