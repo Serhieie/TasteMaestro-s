@@ -15,6 +15,7 @@
 @import url('./cartPage/cartList.css');
 @import url('./cartPage/cartEmpty.css');
 @import url('./cartPage/cartTotal.css');
+@import url('./cartPage/CartWareCount.css');
 @import url('./footer.css');
 
 @font-face {
