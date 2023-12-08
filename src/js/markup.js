@@ -1,4 +1,3 @@
-
 export function createProductItemMarkup({
   _id,
   name,
@@ -46,7 +45,7 @@ export function createProductItemMarkup({
         <div class="product__order__wraper">
           <p class="product__price">${'$' + price}</p>
           <button class="product__order__btn">
-            <svg class="card-icon" width="18" height="18">
+            <svg class="card-icon-product" width="18" height="18">
               <use href="../../img/sprite.svg#shopping-cart"></use>
             </svg>
           </button>
