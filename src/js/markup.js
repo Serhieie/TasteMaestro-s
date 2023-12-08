@@ -12,7 +12,7 @@ export function createProductItemMarkup({
 }) {
   return `<li id="${_id}" class="product__list__card">
         <svg class="sticker_icon visually-hidden" width="60" height="60">
-          <use href="./img/${sprite}#shopping-cart#discount"></use>
+          <use xlink:href="${sprite}#shopping-cart#discount"></use>
         </svg>
         <div class="product__image__wraper">
           <img
@@ -51,7 +51,7 @@ export function createProductItemMarkup({
           <p class="product__price">${'$' + price}</p>
           <button class="product__order__btn">
             <svg class="card-icon-product" width="18" height="18">
-              <use href="./img/${sprite}#shopping-cart"></use>
+              <use xlink:href="${sprite}#shopping-cart"></use>
             </svg>
           </button>
         </div>
