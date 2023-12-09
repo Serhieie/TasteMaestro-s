@@ -59,6 +59,7 @@
 }
 .cart-basket-input {
   padding-left: 56px;
+  padding-right: 20px;
   border-radius: 30px;
   border: 1px solid rgba(1, 1, 1, 0.3);
   background-color: transparent;
@@ -110,9 +111,10 @@
     flex-direction: row;
     gap: 16px;
   }
-  .cart_checkout {
-    /* display: flex;
-    flex-direction: row; */
+  #checkoutForm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     gap: 16px;
   }
   .total-form-title {
@@ -161,7 +163,7 @@
     line-height: 1.33;
   }
   .cart_checkout_btn {
-    /* margin-top: 14px; */
+    margin-top: 0;
     padding: 15px 0;
     font-size: 20px;
     width: 215px;
