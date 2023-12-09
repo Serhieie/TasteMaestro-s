@@ -8,3 +8,4 @@ import './js/footer';
 import './js/popular';
 import './js/pagination';
 import './js/discount';
+import './js/cartOrderList';

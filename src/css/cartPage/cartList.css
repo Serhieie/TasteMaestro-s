@@ -9,15 +9,14 @@
 
 .cart-clear-btn {
   margin-left: auto;
+  margin-bottom: 30px;
   border: none;
   background-color: inherit;
-
   color: var(--text-color, #010101);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 1.28;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,11 +36,23 @@
   align-items: center;
   flex-direction: column;
 
-  /* max-height: 670px; */
-  /* overflow-y: auto; */
+  max-height: 550px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 
   scrollbar-color: #888 #eee;
-  /* scrollbar-width: thin; */
+  scrollbar-width: thin;
+}
+
+.cart-order-list:after {
+  content: '';
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+.cart-order-list[data-item-count="more-than-max"]:after {
+  overflow-y: scroll;
 }
 
 ::-webkit-scrollbar {
@@ -59,14 +70,16 @@
 }
 
 .cart-order-item {
-  width: 335px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
-  padding-top: 40px;
-  padding-bottom: 40px;
+  width: 335px;
+  margin-right: 7px;
+
+  padding-top: 30px;
+  padding-bottom: 30px;
   border-bottom: 1px solid rgba(1, 1, 1, 0.1);
 }
 
@@ -92,13 +105,13 @@
 }
 
 .cart-order-img {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
 }
 
 .cart-order-img-cont {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,7 +120,7 @@
 }
 
 .cart-order-desc {
-  margin-left: 20px;
+  margin-left: 15px;
 }
 
 .cart-order-title {
@@ -116,6 +129,12 @@
   font-style: normal;
   font-weight: 500;
   line-height: 1.11;
+}
+
+.cart-order-title-btn {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
 }
 
 .cart-order-text {
@@ -176,12 +195,8 @@
 
   .cart-order-list {
     max-height: 520px;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-    padding-top: 200px;
+    /* padding-top: 200px; */
 
-    scrollbar-color: #888 #eee;
-    scrollbar-width: thin;
   }
 
   ::-webkit-scrollbar {
@@ -190,9 +205,10 @@
   }
 
   .cart-order-item {
-    width: 672px;
+    width: 632px;
     display: flex;
     align-items: start;
+    margin-right: 30px;
   }
 
   .cart-remove-btn {
@@ -200,17 +216,13 @@
   }
 
   .cart-order-amount {
-    margin-left: 380px;
+    margin-left: 320px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .cart-order-list {
     max-height: 650px;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-    padding-top: 200px;
-
   }
 
   .cart-clear-btn {
@@ -228,7 +240,7 @@
   }
 
   .cart-order-amount {
-    margin-left: 210px;
+    margin-left: 180px;
   }
 
 }
