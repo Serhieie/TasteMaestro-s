@@ -37,6 +37,7 @@ select option {
 
 .filter__position {
     position: relative;
+    width: 335px;
 }
 
 #keywordInput {
@@ -48,7 +49,7 @@ select option {
     /* gap: 189px; */
     border-radius: 30px;
     border: 1px solid rgba(1, 1, 1, 0.30);
-    width: 269px;
+    width: 335px;
     background-color: transparent;
 }
 
@@ -73,7 +74,7 @@ select option {
 .svg__category {
     position: absolute;
     top: 14px;
-    left: 169px;
+    left: 299px;
     padding: 3px;
     stroke: #010101;
     fill: transparent;
@@ -89,7 +90,7 @@ select option {
     align-items: center;
     border-radius: 30px;
     border: 1px solid rgba(1, 1, 1, 0.30);
-    width: 209px;
+    width: 335px;
     background-color: transparent;
 }
 
@@ -130,6 +131,82 @@ select option {
     border-radius: 15px;
     background: #FFF;
     box-shadow: 0px 4px 11.212px 0px rgba(0, 0, 0, 0.04), 0px 20px 69px 0px rgba(0, 0, 0, 0.07);
-    width: 209px;
+    width: 335px;
     margin-top: 8px;
+}
+
+#sortProducts {
+    background-color: inherit;
+    -webkit-appearance: none;
+    appearance: none;
+    display: flex;
+    padding: 14px 20px;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 30px;
+    border: 1px solid rgba(1, 1, 1, 0.30);
+    width: 335px;
+    background-color: transparent;
+}
+
+.sortProducts-list {
+    display: none;
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.sortProducts-list.show {
+    display: inline-flex;
+    padding: 14px 46px 14px 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 15px;
+    background: #FFF;
+    box-shadow: 0px 4px 11.212px 0px rgba(0, 0, 0, 0.04), 0px 20px 69px 0px rgba(0, 0, 0, 0.07);
+    width: 335px;
+    margin-top: 8px;
+}
+
+#sortProducts:focus-within {
+    border: 1px solid #6D8434;
+    outline: transparent;
+}
+
+@media screen and (min-width: 768px) {
+    .filter__position {
+        /* width: 335px; */
+    }
+
+    #keywordInput {
+        width: 269px;
+    }
+
+    #categorySelect {
+        width: 189px;
+    }
+
+    #sortProducts {
+        width: 200px;
+    }
+
+    #filterForm {
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    #filterForm {
+        flex-direction: row;
+    }
+
+    #categorySelect {
+        width: 209px;
+    }
 }
