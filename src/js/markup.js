@@ -12,9 +12,12 @@ export function createProductItemMarkup({
   popularity,
   is10PercentOff,
 }) {
-  const updateCartItems = loadStorage('cartItems');
-  const idx = updateCartItems.findIndex(element => element.id === _id);
-
+  let updateCartItems = [];
+  let idx = -1;
+  if (loadStorage('cartItems')) {
+    updateCartItems = loadStorage('cartItems');
+    idx = updateCartItems.findIndex(element => element.id === _id);
+  }
   return `<li data-id="${_id}" class="product__list__card product_item">
         <svg class="sticker_icon ${
           is10PercentOff ? '' : 'visually-hidden'
