@@ -9,3 +9,4 @@ import './js/popular';
 import './js/pagination';
 import './js/discount';
 import './js/modals';
+import './js/localeStorageFn';

@@ -1,4 +1,5 @@
 import sprite from '/img/sprite.svg';
+import { loadStorage } from './localeStorageFn';
 
 export function createProductItemMarkup({
   _id,
@@ -9,16 +10,23 @@ export function createProductItemMarkup({
   price,
   size,
   popularity,
+  is10PercentOff,
 }) {
-  return `<li id="${_id}" class="product__list__card">
-        <svg class="sticker_icon visually-hidden" width="60" height="60">
-          <use xlink:href="${sprite}#shopping-cart#discount"></use>
+  const updateCartItems = loadStorage('cartItems');
+  const idx = updateCartItems.findIndex(element => element.id === _id);
+
+  console.log(idx);
+  return `<li data-id="${_id}" class="product__list__card product_item">
+        <svg class="sticker_icon ${
+          is10PercentOff ? '' : 'visually-hidden'
+        }" width="60" height="60">
+          <use xlink:href="${sprite}#discount"></use>
         </svg>
         <div class="product__image__wraper">
           <img
             class="product__image"
             src="${img}"
-            alt="${desc}"
+            alt="${name}"
             width="140px"
             height="140px"
           />
@@ -29,7 +37,7 @@ export function createProductItemMarkup({
             <li>
               <p class="product__description__text">
                 Category:
-                <span class="product__description__span">${category.replace(
+                <span id="product_category_name" class="product__description__span"}>${category.replace(
                   /_/g,
                   ' '
                 )}</span>
@@ -37,7 +45,7 @@ export function createProductItemMarkup({
             </li>
             <li>
               <p class="product__description__text">
-                Size: <span class="product__description__span">${size}</span>
+                Size: <span id="product_size" class="product__description__span">${size}</span>
               </p>
             </li>
             <li>
@@ -49,9 +57,16 @@ export function createProductItemMarkup({
         </div>
         <div class="product__order__wraper">
           <p class="product__price">${'$' + price}</p>
-          <button class="product__order__btn">
-            <svg class="card-icon-product" width="18" height="18">
+          <button data-id="${_id}" class="product__order__btn add-to-cart">
+            <svg class="card-icon-cart" ${
+              idx === -1 ? "style = 'display:block'" : "style = 'display:none'"
+            }  width="18" height="18">
               <use xlink:href="${sprite}#shopping-cart"></use>
+            </svg>
+            <svg class="card-icon-check" ${
+              idx === -1 ? "style = 'display:none'" : "style = 'display:block'"
+            }  width="18" height="18">
+              <use xlink:href="${sprite}#check"></use>
             </svg>
           </button>
         </div>
