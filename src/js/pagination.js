@@ -1,83 +1,124 @@
-import commons from './commons';
-import axios from 'axios';
-import HELPERS from './helpers.js';
+// import { filters } from './filter.js';
+import COMMONS from './commons.js';
+import { fetchProducts } from './filter.js';
 
-document.addEventListener('DOMContentLoaded', function () {
-  const paginationSection = document.querySelector('.pagination-section');
-  const paginationList = paginationSection.querySelector('.pagination-list');
-  const backBtn = paginationSection.querySelector('.pagination-btn.back');
-  const forwardBtn = paginationSection.querySelector('.pagination-btn.forward');
+let perPage = COMMONS.filters.limit;
+let lastTotalHits = COMMONS.filters.totalHits;
 
-  const itemsPerPage = 9; // Кількість елементів на сторінці
-  let currentPage = 1;
+if (!COMMONS.filters.page) {
+  forward.setAttribute('disabled', true);
+  back.setAttribute('disabled', true);
+}
 
+COMMONS.paginationContainer.addEventListener('click', onPaginationClick);
 
-  function fetchData(page) {
-    const url = `https://food-boutique.b.goit.study/api/products?page=${page}&limit=${itemsPerPage}`;
-
-    fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => handleData(data))
-      .catch(error => {
-        console.error('Error fetching data:', error);
-        // Додайте код для відображення повідомлення про помилку користувачу
-      });
-  }
-
-  function handleData(data) {
-    // Реалізуйте логіку для відображення даних на сторінці
-    // data - об'єкт, який містить дані для поточної сторінки та інші інформаційні дані
-
-    // Очистіть поточні елементи пагінації
-    paginationList.innerHTML = '';
-
-    // Додайте нові елементи списку для кожного елемента на сторінці
-    data.forEach(item => {
-      const li = document.createElement('li');
-      li.textContent = item; // Припускається, що дані містять текстовий контент
-      paginationList.appendChild(li);
-    });
-
-    // Оновіть інтерфейс пагінації (якщо вам потрібно)
-    updatePaginationUI(data.currentPage, data.totalPages);
-  }
-
-  function updatePaginationUI(currentPage, totalPages) {
-    // Реалізуйте оновлення інтерфейсу пагінації, наприклад, додайте номери сторінок до списку
-
-    // Очистіть поточні елементи пагінації
-    paginationList.innerHTML = '';
-
-    // Додайте елементи пагінації
-    for (let i = 1; i <= totalPages; i++) {
-      const li = document.createElement('li');
-      li.textContent = i;
-      li.addEventListener('click', () => {
-        currentPage = i;
-        fetchData(currentPage);
-      });
-      paginationList.appendChild(li);
+async function onPaginationClick(event) {
+  const selectedPage = parseInt(event.target.textContent);
+  if (event.target.classList.contains('pagination-btn')) {
+    if (event.target.classList.contains('back')) {
+      if (COMMONS.filters.page === 1) {
+        return;
+      } else if (COMMONS.filters.page > 0) {
+        COMMONS.filters.page -= 1;
+      }
+    } else if (event.target.classList.contains('forward')) {
+      if (COMMONS.filters.page === lastPage) {
+        COMMONS.forward.setAttribute('disabled', true);
+        return;
+      } else if (COMMONS.filters.page < lastPage) {
+        COMMONS.forward.removeAttribute('disabled');
+      }
+      COMMONS.filters.page += 1;
     }
+    console.log('adwda');
+    await fetchProducts(COMMONS.filters.page);
   }
 
-  // Додайте обробники подій для кнопок пагінації
-  backBtn.addEventListener('click', () => {
-    if (currentPage > 1) {
-      currentPage--;
-      fetchData(currentPage);
+  if (event.target.classList.contains('pagi_item_span')) {
+    if (event.target.textContent === '...') return;
+    if (selectedPage === COMMONS.filters.page) {
+      return;
+    }
+
+    COMMONS.filters.page = selectedPage;
+    await fetchProducts(COMMONS.filters.page);
+    updatePagination();
+  }
+}
+
+function updatePagination() {
+  const paginationItems = document.querySelectorAll('.pagi_item');
+
+  paginationItems.forEach(item => {
+    item.classList.remove('isActive');
+    if (parseInt(item.textContent) === COMMONS.filters.page) {
+      item.classList.add('isActive');
     }
   });
 
-  forwardBtn.addEventListener('click', () => {
-    // Реалізуйте перевірку, чи поточна сторінка не перевищує загальну кількість сторінок
-    // Якщо ні, викликайте fetchData(currentPage + 1);
-  });
+  // Дізейбл кнопки назад, якщо сторінка перша
+  if (COMMONS.filters.page <= 1) {
+    COMMONS.back.setAttribute('disabled', true);
+  } else {
+    COMMONS.back.removeAttribute('disabled');
+  }
 
-  // Початкове завантаження даних
-  fetchData(currentPage);
-});
+  if (COMMONS.filters.page === lastTotalHits) {
+    return COMMONS.forward.setAttribute('disabled', true);
+  } else {
+    return COMMONS.forward.removeAttribute('disabled');
+  }
+}
+
+function createPaginationMarkup(totalHits, page) {
+  const lastPage = Math.ceil(totalHits);
+
+  const paginationList = document.querySelector('.pagination-list');
+  paginationList.innerHTML = '';
+
+  if (lastPage > 1) {
+    let paginationHTML = '';
+
+    let startPage = 1;
+    let endPage = lastPage;
+
+    if (lastPage > 5) {
+      startPage = Math.max(1, page - 2);
+      endPage = Math.min(lastPage, page + 2);
+
+      if (startPage === 1) {
+        endPage = 5;
+      } else if (endPage === lastPage) {
+        startPage = lastPage - 4;
+      }
+    }
+
+    if (startPage >= 2) {
+      paginationHTML += createPaginationItem(1, page === 1);
+      paginationHTML += createEllipsisItem();
+    }
+
+    for (let i = startPage; i <= endPage; i += 1) {
+      paginationHTML += createPaginationItem(i, i === page);
+    }
+
+    if (endPage < lastPage) {
+      paginationHTML += createEllipsisItem();
+      paginationHTML += createPaginationItem(lastPage, lastPage === page);
+    }
+
+    paginationList.innerHTML = paginationHTML;
+  }
+}
+
+function createPaginationItem(pageNumber, isActive) {
+  const activeClass = isActive ? 'isActive' : '';
+  const paddingChange = COMMONS.filters.page >= 10 ? 'py' : '';
+  return `<li class="pagi_item ${activeClass} pagination-item"><span class="pagi_item_span ${paddingChange}">${pageNumber}</span></li>`;
+}
+
+function createEllipsisItem() {
+  return `<li class="pagi_item pagination-item"><span class="pagi_item_span">...</span></li>`;
+}
+
+export { createPaginationMarkup };
