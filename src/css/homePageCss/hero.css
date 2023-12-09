@@ -5,6 +5,7 @@
 .pictures-set {
   overflow: hidden;
   border-radius: 30px;
+  margin: 0 auto;
 }
 
 .hero__title {

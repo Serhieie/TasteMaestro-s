@@ -271,3 +271,14 @@ footer {
     transform: rotate(360deg);
   }
 }
+
+.father_div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.child_div_two {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}

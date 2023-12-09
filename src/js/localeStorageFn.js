@@ -6,49 +6,9 @@
  * клік 'item-minus' віднімає
  *
  */
-console.log('asd');
 //TODO
 //додати для корзини виклик зміни к-ть товарів в хідері
 //привязатися до розмітки корзини для зміни тексКонтенту в спані
-
-const KEY = 'cartItems';
-
-//const cartConteiner = document.querySelector('.js-cart');
-//cartConteiner.addEventListener('click', handlerClickPlus);
-
-function handlerClickPlus(e) {
-  const button = e.target.closest('.item-plus');
-  if (!button) {
-    return;
-  }
-  // <li class="cart-order-item" data-id="id_product"></li>
-  const itemId = e.target.closest('.cart-order-item').dataset.id;
-  const updateCartItems = loadStorage(KEY);
-  const idx = updateCartItems.findIndex(element => element.id === itemId);
-  updateCartItems[idx].quantity += 1;
-  el.textContent = updateCartItems[idx].quantity;
-  //змінити контент елемента відображення к-ті товару
-  saveStorage(KEY, updateCartItems);
-}
-
-function handlerClickMinus(e) {
-  const button = e.target.closest('.item-minus');
-  if (!button) {
-    return;
-  }
-  // <li class="cart-order-item" data-id="id_product"></li>
-  const itemId = e.target.closest('.cart-order-item').dataset.id;
-  const updateCartItems = loadStorage(KEY);
-  const idx = updateCartItems.findIndex(element => element.id === itemId);
-  if (updateCartItems[idx].quantity === 0) {
-    return;
-  } else {
-    updateCartItems[idx].quantity -= 1;
-    el.textContent = updateCartItems[idx].quantity;
-  }
-  //змінити контент елемента відображення к-ті товару
-  saveStorage(KEY, updateCartItems);
-}
 
 //===============================================================
 /**

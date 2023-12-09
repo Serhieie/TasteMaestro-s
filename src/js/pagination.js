@@ -10,7 +10,6 @@ async function onPaginationClick(event) {
   const selectedPage = parseInt(event.target.textContent);
 
   if (event.target.closest('.pagination-btn')) {
-    console.log(event.target.closest('.pagination-btn'));
     if (event.target.classList.contains('back')) {
       if (COMMONS.filters.page === 1) {
         return;

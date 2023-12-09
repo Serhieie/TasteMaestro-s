@@ -146,7 +146,8 @@
   .product__list {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    column-gap: 20px;
+    row-gap: 40px;
     justify-content: center;
     align-items: center;
   }

@@ -6,6 +6,8 @@ const forward = document.querySelector('.forward');
 const back = document.querySelector('.back');
 let filters = { keyword: null, category: null, page: 1, limit: 9 };
 let isFetching = false;
+//
+
 export default {
   BASE_URL,
   loader,
