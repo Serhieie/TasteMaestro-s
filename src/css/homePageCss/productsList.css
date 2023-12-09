@@ -103,6 +103,7 @@
 }
 .card-icon-check {
   stroke: var(--color-on-grin);
+  fill: transparent;
   display: none;
 }
 
