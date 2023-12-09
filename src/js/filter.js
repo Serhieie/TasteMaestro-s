@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const keywordInput = document.getElementById('keywordInput');
     const categorySelectButton = document.getElementById('categorySelect');
     const categoryList = document.querySelector('.category-list');
+    const sortProductsButton = document.getElementById('sortProducts');
+    const sortProductsList = document.querySelector('.sortProducts-list');
     const productsList = document.getElementById('productsList');
 
     const filters = { keyword: null, category: null, page: 1, limit: 6 };
@@ -14,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     filterForm.addEventListener('submit', async (event) => {
         event.preventDefault();
         filters.keyword = keywordInput.value;
-        filters.category = getCategoryValue();
         filters.page = 1;
+        fetchProducts();
     });
 
     keywordInput.addEventListener('input', () => {
@@ -29,11 +31,38 @@ document.addEventListener('DOMContentLoaded', () => {
             const selectedCategory = getCategoryValue(event.target);
             filters.category = selectedCategory;
             filters.page = 1;
-            console.log('Зміна категорії. Нова категорія:', selectedCategory);
             fetchProducts();
             updateCategoryButtonText(selectedCategory);
             hideCategoryList();
         }
+    });
+
+    const getSortValue = () => {
+        const selectedSortOption = document.querySelector('.sortProducts-list .category-item[data-value]:checked');
+        return selectedSortOption ? selectedSortOption.getAttribute('data-value') : null;
+    };
+
+    sortProductsList.addEventListener('click', (event) => {
+        if (event.target.classList.contains('category-item')) {
+            const selectedSortOption = event.target.getAttribute('data-value');
+            filters.sort = selectedSortOption;
+            filters.page = 1;
+            fetchProducts();
+            updateSortButtonText(selectedSortOption);
+            hideSortList();
+        }
+    });
+    
+    const updateSortButtonText = (sortOption) => {
+        sortProductsButton.textContent = sortOption === 'alphabetical' ? 'A to Z' : 'Z to A';
+    };
+    
+    const hideSortList = () => {
+        sortProductsList.classList.remove('show');
+    };
+    
+    sortProductsButton.addEventListener('click', () => {
+        sortProductsList.classList.toggle('show');
     });
 
     const updateCategoryButtonText = (category) => {
@@ -55,15 +84,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const fetchProducts = async () => {
         try {
             let url = `https://food-boutique.b.goit.study/api/products?page=${filters.page}&limit=${filters.limit}`;
-    
+
             if (filters.keyword) {
                 url += `&keyword=${filters.keyword}`;
             }
-    
+
             if (filters.category && filters.category !== 'Show all') {
                 url += `&category=${filters.category}`;
             }
-    
+
+            if (filters.sort) {
+                url += `&byABC=${filters.sort === 'alphabetical'}`;
+            }
+
+            console.log(url);
             const response = await axios.get(url);
             const data = response.data;
             displayProducts(data.results);
