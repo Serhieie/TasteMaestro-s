@@ -84,12 +84,19 @@
     color: var(--modal-text);
 }
 
-.icon-close {
-    width: 22px;
-    height: 22px;
+.modal-btn-close{
+    display: flex;
     position: absolute;
     top: 14px;
     right: 14px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+.icon-close {
+    width: 22px;
+    height: 22px;
 }
 
 .modal-subscription-img {
@@ -131,7 +138,7 @@
 }
 
 .product-image-box {
-    width: 240px;
+    width: 295px;
     height: 212px;
     border-radius: 10px;
     background-color: var(--background-color);
@@ -205,11 +212,14 @@
 }
 
 @media screen and (min-width: 768px) {
+    .modal-btn-close{
+        top: 24px;
+        right: 24px;
+    }
+
     .icon-close {
         width: 28px;
         height: 28px;
-        top: 24px;
-        right: 24px;
     }
 
     .modal-title {
@@ -286,4 +296,7 @@
         gap: 8px;
     }
 
+    .product-image-box {
+        width: 240px;
+    }
 }
