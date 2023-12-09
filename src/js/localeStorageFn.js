@@ -84,12 +84,12 @@ function checkLS(e) {
   }
 
   const id = itemId.dataset.id;
-  const img = itemId.querySelector('.product__image').src;
-  const imgDsc = itemId.querySelector('.product__image').alt;
-  const title = itemId.querySelector('.product__title').textContent;
+  const img = itemId.querySelector('#product__image').src;
+  const imgDsc = itemId.querySelector('#product__image').alt;
+  const title = itemId.querySelector('#product__title').textContent;
   const category = itemId.querySelector('#product_category_name').textContent;
   const size = itemId.querySelector('#product_size').textContent;
-  const price = itemId.querySelector('.product__price').textContent;
+  const price = itemId.querySelector('#product__price').textContent;
 
   const check = itemId.querySelector('.card-icon-check');
   const cart = itemId.querySelector('.card-icon-cart');

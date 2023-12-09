@@ -23,6 +23,7 @@ export function createProductItemMarkup({
         </svg>
         <div class="product__image__wraper">
           <img
+          id="product__image"
             class="product__image"
             src="${img}"
             alt="${name}"
@@ -31,7 +32,7 @@ export function createProductItemMarkup({
           />
         </div>
         <div class="product__description__wraper">
-          <h3 class="product__title">${name}</h3>
+          <h3 id="product__title" class="product__title">${name}</h3>
           <ul class="product__details">
             <li>
               <p class="product__description__text">
@@ -55,7 +56,7 @@ export function createProductItemMarkup({
           </ul>
         </div>
         <div class="product__order__wraper">
-          <p class="product__price">${'$' + price}</p>
+          <p id="product__price" class="product__price">${'$' + price}</p>
           <button data-id="${_id}" class="product__order__btn add-to-cart">
             <svg class="card-icon-cart" ${
               idx === -1 ? "style = 'display:block'" : "style = 'display:none'"
