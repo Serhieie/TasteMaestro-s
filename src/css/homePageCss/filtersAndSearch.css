@@ -38,7 +38,6 @@ select option {
 
 .filter__position {
     position: relative;
-    width: 335px;
 }
 
 #keywordInput {
@@ -181,33 +180,23 @@ select option {
 }
 
 @media screen and (min-width: 768px) {
-    .filter__position {
-        /* width: 335px; */
-    }
-
     #keywordInput {
         width: 269px;
     }
 
     #categorySelect {
-        width: 189px;
+        width: 209px;
     }
 
     #sortProducts {
-        width: 200px;
-    }
-
-    #filterForm {
-        flex-direction: row;
-    }
-}
-
-@media screen and (min-width: 1440px) {
-    #filterForm {
-        flex-direction: row;
-    }
-
-    #categorySelect {
         width: 209px;
+    }
+
+    .svg__category {
+        left: 179px;
+    }
+
+    #filterForm {
+        flex-direction: row;
     }
 }
