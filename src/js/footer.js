@@ -28,7 +28,6 @@ const globalOptionsError = {
 
 function onSubmit(evt) {
   evt.preventDefault();
-  loader.classList.remove("visually-hidden");
   const email = evt.currentTarget.subscribe.value.trim().toLowerCase();
   // ось це
   if (!email.match(regex)) {
@@ -41,6 +40,7 @@ function onSubmit(evt) {
   const info = {
     email: email,
   };
+  loader.classList.remove("visually-hidden");
   createSubscription(info)
     .then(data => {
       if (data.status === 201) {
