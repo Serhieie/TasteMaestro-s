@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         filters.keyword = keywordInput.value;
         filters.page = 1;
-        fetchProducts();
     });
 
     keywordInput.addEventListener('input', () => {
@@ -37,11 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    const getSortValue = () => {
-        const selectedSortOption = document.querySelector('.sortProducts-list .category-item[data-value]:checked');
-        return selectedSortOption ? selectedSortOption.getAttribute('data-value') : null;
-    };
-
     sortProductsList.addEventListener('click', (event) => {
         if (event.target.classList.contains('category-item')) {
             const selectedSortOption = event.target.getAttribute('data-value');
@@ -54,7 +48,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     const updateSortButtonText = (sortOption) => {
-        sortProductsButton.textContent = sortOption === 'alphabetical' ? 'A to Z' : 'Z to A';
+        switch (sortOption) {
+            case 'alphabetical':
+                sortProductsButton.textContent = 'A to Z';
+                break;
+            case 'reverse-alphabetical':
+                sortProductsButton.textContent = 'Z to A';
+                break;
+            case 'cheap':
+                sortProductsButton.textContent = 'Cheap';
+                break;
+            case 'expensive':
+                sortProductsButton.textContent = 'Expensive';
+                break;
+            case 'popular':
+                sortProductsButton.textContent = 'Popular';
+                break;
+            case 'not-popular':
+                sortProductsButton.textContent = 'Not popular';
+                break;
+            case 'all':
+                sortProductsButton.textContent = 'Show all';
+                break;
+            default:
+                break;
+        }
     };
     
     const hideSortList = () => {
@@ -80,23 +98,60 @@ document.addEventListener('DOMContentLoaded', () => {
     categorySelectButton.addEventListener('click', () => {
         categoryList.classList.toggle('show');
     });
+    
+    document.addEventListener('click', (event) => {
+        if (
+            !event.target.matches('#sortProducts') &&
+            !event.target.closest('.sortProducts-list')
+        ) {
+            hideSortList();
+        }
+    });
+
+    document.addEventListener('click', (event) => {
+        if (
+            !event.target.matches('#categorySelect') &&
+            !event.target.closest('.category-list')
+        ) {
+            hideCategoryList();
+        }
+    });
 
     const fetchProducts = async () => {
         try {
             let url = `https://food-boutique.b.goit.study/api/products?page=${filters.page}&limit=${filters.limit}`;
-
+    
             if (filters.keyword) {
                 url += `&keyword=${filters.keyword}`;
             }
-
+    
             if (filters.category && filters.category !== 'Show all') {
                 url += `&category=${filters.category}`;
             }
-
-            if (filters.sort) {
-                url += `&byABC=${filters.sort === 'alphabetical'}`;
+    
+            if (filters.sort && filters.sort !== 'all') {
+                switch (filters.sort) {
+                    case 'alphabetical':
+                        url += `&byABC=true`;
+                        break;
+                    case 'reverse-alphabetical':
+                        url += `&byABC=false`;
+                        break;
+                    case 'cheap':
+                        url += `&byPrice=true`;
+                        break;
+                    case 'expensive':
+                        url += `&byPrice=false`;
+                        break;
+                    case 'popular':
+                        url += `&byPopularity=false`;
+                        break;
+                    case 'not-popular':
+                        url += `&byPopularity=true`;
+                        break;
+                }
             }
-
+    
             console.log(url);
             const response = await axios.get(url);
             const data = response.data;

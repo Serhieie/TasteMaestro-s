@@ -38,6 +38,7 @@ select option {
 
 .filter__position {
     position: relative;
+    width: 269px;
 }
 
 #keywordInput {
@@ -90,7 +91,7 @@ select option {
     align-items: center;
     border-radius: 30px;
     border: 1px solid rgba(1, 1, 1, 0.30);
-    width: 209px;
+    width: 269px;
     background-color: transparent;
 }
 
@@ -131,7 +132,7 @@ select option {
     border-radius: 15px;
     background: #FFF;
     box-shadow: 0px 4px 11.212px 0px rgba(0, 0, 0, 0.04), 0px 20px 69px 0px rgba(0, 0, 0, 0.07);
-    width: 209px;
+    width: 269px;
     margin-top: 8px;
 }
 
@@ -145,7 +146,7 @@ select option {
     align-items: center;
     border-radius: 30px;
     border: 1px solid rgba(1, 1, 1, 0.30);
-    width: 209px;
+    width: 269px;
     background-color: transparent;
 }
 
@@ -170,6 +171,27 @@ select option {
     border-radius: 15px;
     background: #FFF;
     box-shadow: 0px 4px 11.212px 0px rgba(0, 0, 0, 0.04), 0px 20px 69px 0px rgba(0, 0, 0, 0.07);
-    width: 209px;
+    width: 269px;
     margin-top: 8px;
+}
+
+#sortProducts:focus-within {
+    border: 1px solid #6D8434;
+    outline: transparent;
+}
+
+@media screen and (min-width: 768px) {
+    #filterForm {
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    #filterForm {
+        flex-direction: row;
+    }
+
+    #categorySelect {
+        width: 209px;
+    }
 }
