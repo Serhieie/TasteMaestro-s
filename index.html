@@ -53,9 +53,10 @@
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="345" />
-    <script type="module" crossorigin src="/TasteMaestro-s/assets/vendor-f728e3bf.js"></script>
-    <script type="module" crossorigin src="/TasteMaestro-s/assets/discount-c4b170ec.js"></script>
-    <link rel="stylesheet" href="/TasteMaestro-s/assets/discount-64c1dbc8.css">
+    <script type="module" crossorigin src="/TasteMaestro-s/commonHelpers2.js"></script>
+    <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/vendor-f728e3bf.js">
+    <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/footer-1f24a41b.js">
+    <link rel="stylesheet" href="/TasteMaestro-s/assets/footer-febb1ead.css">
     <link rel="stylesheet" href="/TasteMaestro-s/assets/vendor-dccfdd0c.css">
   </head>
   <body>
@@ -180,7 +181,9 @@
         </form>
     </div>
 </section>
-      <section class="productsList__section">
+      <div class="father_div container">
+        <div class="child_div_one">
+          <section class="productsList__section">
   <h2 class="productsList__section__title visually-hidden">Products</h2>
   <div id="productsList" class="container container__products">
     <ul class="product__list">
@@ -231,7 +234,7 @@
     </ul>
   </div>
 </section>
-      <section class="pagination-section">
+          <section class="pagination-section">
   <div class="conteiner-pagination">
     <button type="button" class="pagination-btn back">
       <svg class="pagination-svg back" width="40" height="40">
@@ -251,14 +254,16 @@
   </div>
 </section>
 
-      <section class="popular_product_section">
+        </div>
+        <div class="child_div_two">
+          <section class="popular_product_section">
   <div class="container popular_container">
     <h3 class="popular_title">Popular products</h3>
     <ul class="popular_products_list popular-js"></ul>
   </div>
 </section>
 
-      <section class="discount-section">
+          <section class="discount-section">
   <div class="container">
     <h2 class="discount-title">Discount products</h2>
     <ul class="discount-card-list">
@@ -316,6 +321,8 @@
   </div>
 </section>
 
+        </div>
+      </div>
     </main>
     <footer class="footer">
   <div class="container footer-container">
