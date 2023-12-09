@@ -3,27 +3,31 @@
         <h1 class="total-form-title">Your Order</h1>
 
         <div id="total-price">
-            <p class="total-input">
-                <span>
-                    
-                </span>
+            <p class="total-input"> Total
+                <span class="title-sum">Sum:</span>
+                <span id="totalPrice"><span>$</span>12,94</span>
+                <!-- <p class="total-text">Total</p> -->
+                <!-- <span class="title-sum">Sum:</span>
+                <span class="price-value">$0</span> -->
             </p>
-            <!-- <form id="cartForm">
-                <label for="totalPrice"></label>
-                <input class="total-input" type="text" id="totalPrice" name="totalPrice" 
-                placeholder="Total"
-                readonly>
-            </form> -->
         </div>
-        
+
         <form id="checkoutForm">
+            <div class="input-container">
+              <label class="checkout-label" for="email">Mail: </label>
+              <div class="checkout-input-wrap">
+              <input class="checkout-input" type="email" id="email" name="email" 
+                     placeholder='Enter your email'>
+            </div></div>
+            <button class="button-checkout" type="submit">Checkout</button>
+          </form>
+
+        <!-- <form id="checkoutForm">
             <label class="checkout-label" for="email">Mail:</label>
             <input class="checkout-input" type="email" id="email" name="email" 
-                       placeholder='Enter your email' 
-                       required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+                       placeholder='Enter your email'>
                    
                 
               <button class="button-checkout" type="submit">Checkout</button>
-                    </form>
-
-    </div>
+                    </form> -->
+    </div> 
