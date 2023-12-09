@@ -138,7 +138,7 @@
 }
 
 .product-image-box {
-    width: 240px;
+    width: 295px;
     height: 212px;
     border-radius: 10px;
     background-color: var(--background-color);
@@ -296,4 +296,7 @@
         gap: 8px;
     }
 
+    .product-image-box {
+        width: 240px;
+    }
 }
