@@ -54,9 +54,9 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="345" />
     <script type="module" crossorigin src="/TasteMaestro-s/assets/vendor-f728e3bf.js"></script>
-    <script type="module" crossorigin src="/TasteMaestro-s/assets/discount-8c618f35.js"></script>
+    <script type="module" crossorigin src="/TasteMaestro-s/assets/discount-4f4b77a1.js"></script>
     <link rel="stylesheet" href="/TasteMaestro-s/assets/vendor-dccfdd0c.css">
-    <link rel="stylesheet" href="/TasteMaestro-s/assets/discount-785c60b8.css">
+    <link rel="stylesheet" href="/TasteMaestro-s/assets/discount-c7c169e1.css">
   </head>
   <body>
     <header class="header">
@@ -281,31 +281,34 @@
   </ul>
 </div>
 
-          
-    <div class="cart-total">
-        <h1 class="total-form-title">Your Order</h1>
+          <div class="cart_total_order">
+  <p class="total-form-title">Your Order</p>
 
-        <div id="total-price">
-            <p class="total-input"> Total
-                <span class="title-sum">Sum:</span>
-                <span id="totalPrice"><span>$</span>12,94</span>
-                <!-- <p class="total-text">Total</p> -->
-                <!-- <span class="title-sum">Sum:</span>
-                <span class="price-value">$0</span> -->
-            </p>
-        </div>
+  <div id="total-price">
+    <p class="cart_total_input">Total</p>
+    <p class="cart_total_sum">
+      Sum:<span class="total_price" id="cart_total">$0.00</span>
+    </p>
+  </div>
 
-        <form id="checkoutForm">
-            <div class="input-container">
-              <label class="checkout-label" for="email">Mail: </label>
-              <div class="checkout-input-wrap">
-              <input class="checkout-input" type="email" id="email" name="email" 
-                     placeholder='Enter your email'>
-            </div></div>
-            <button class="button-checkout" type="submit">Checkout</button>
-          </form>
+  <form card="cart_checkout" id="checkoutForm">
+    <div class="cart_input_container">
+      <input
+        type="email"
+        name="cart-client-email"
+        class="cart-basket-input"
+        placeholder="Enter your email"
+        pattern="[A-Za-z0-9._+\-']+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}"
+        required
+      />
+      <span class="placeholder-text">Mail:</span>
+    </div>
+    <button class="cart_checkout_btn" type="submit" aria-label="Checkout cart">
+      Checkout
+    </button>
+  </form>
 
-        <!-- <form id="checkoutForm">
+  <!-- <form id="checkoutForm">
             <label class="checkout-label" for="email">Mail:</label>
             <input class="checkout-input" type="email" id="email" name="email" 
                        placeholder='Enter your email'>
@@ -313,7 +316,7 @@
                 
               <button class="button-checkout" type="submit">Checkout</button>
                     </form> -->
-    </div> 
+</div>
 
         </div>
       </section>
