@@ -58,3 +58,9 @@
 }
 
 /* ! End cart-ware-count media */
+@media screen and (min-width: 1440px) {
+  .cart-list-total {
+    display: flex;
+    gap: 101px;
+  }
+}

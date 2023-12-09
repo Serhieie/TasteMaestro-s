@@ -1,6 +1,7 @@
 import { getOrders } from "./apiService";
 import AWN from 'awesome-notifications';
 import 'awesome-notifications/dist/style.css';
+import { showModalFirstCase, showModalSecondCase } from './modals';
 
 // function calculateTotalPrice() {
 //   const totalPriceDiv = document.getElementById('total-price');
