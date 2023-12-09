@@ -55,9 +55,9 @@
     <meta property="og:image:height" content="345" />
     <script type="module" crossorigin src="/TasteMaestro-s/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/vendor-f728e3bf.js">
-    <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/footer-dccc97d0.js">
+    <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/footer-9ae26d65.js">
     <link rel="stylesheet" href="/TasteMaestro-s/assets/vendor-dccfdd0c.css">
-    <link rel="stylesheet" href="/TasteMaestro-s/assets/footer-a6b8b01c.css">
+    <link rel="stylesheet" href="/TasteMaestro-s/assets/footer-e4c2c650.css">
   </head>
   <body>
     <header class="header">
@@ -136,7 +136,8 @@
 
 <!-- ! Empty cart end -->
 
-          <div class="cart-filled-list">
+            <div class="cart-list-total">
+              <div class="cart-filled-list">
   <button class="cart-clear-btn" type="button">
     Delete all
     <span class="cart-clear-span">
@@ -282,16 +283,17 @@
   </ul>
 </div>
 
-          <div class="cart_total_order">
+              <div class="cart_total_order">
   <p class="total-form-title">Your Order</p>
 
   <div id="total-price">
     <p class="cart_total_input">Total</p>
     <p class="cart_total_sum">
-      Sum:<span class="total_price" id="cart_total">$0.00</span>
+      Sum:<span class="total_price" id="cart_total">$12,94</span>
     </p>
   </div>
 
+  <div class="input-container-main">
   <form card="cart_checkout" id="checkoutForm">
     <div class="cart_input_container">
       <input
@@ -299,8 +301,6 @@
         name="cart-client-email"
         class="cart-basket-input"
         placeholder="Enter your email"
-        pattern="[A-Za-z0-9._+\-']+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}"
-        required
       />
       <span class="placeholder-text">Mail:</span>
     </div>
@@ -308,7 +308,7 @@
       Checkout
     </button>
   </form>
-
+</div>
   <!-- <form id="checkoutForm">
             <label class="checkout-label" for="email">Mail:</label>
             <input class="checkout-input" type="email" id="email" name="email" 
@@ -319,6 +319,7 @@
                     </form> -->
 </div>
 
+            </div>
         </div>
       </section>
     </main>
