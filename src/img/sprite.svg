@@ -111,6 +111,15 @@
 <path d="M32.9167 27.6667C27.6667 28.8333 26.4417 32.4325 25.2283 35.4483L26.3308 35.8333L26.885 34.4917C27.165 34.5908 27.4567 34.6667 27.6667 34.6667C34.0833 34.6667 35.8333 24.75 35.8333 24.75C35.25 25.9167 31.1667 26.0625 28.25 26.6458C25.3333 27.2292 24.1667 29.7083 24.1667 30.875C24.1667 32.0417 25.1875 33.0625 25.1875 33.0625C27.0833 27.6667 32.9167 27.6667 32.9167 27.6667Z" fill="#FAFAFA"/>
 </symbol>
 
+<symbol id="minus" width="19" height="18" viewBox="0 0 19 18" fill="none">
+<path d="M4.25 9H14.75"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+<symbol id="plus" width="18" height="18" viewBox="0 0 18 18" fill="none">
+<path d="M9 3.75V14.25"   stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M3.75 9H14.25"   stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
 
 </defs>
 </svg>
