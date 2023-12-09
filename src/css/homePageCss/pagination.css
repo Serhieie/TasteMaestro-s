@@ -76,3 +76,11 @@
 .flip-horizontal {
   transform: scaleX(-1);
 }
+
+.pagi_item_span {
+  padding: 10px 16px;
+}
+
+.isActive {
+  background-color: #6d8434;
+}

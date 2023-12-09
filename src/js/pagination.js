@@ -2,19 +2,15 @@
 import COMMONS from './commons.js';
 import { fetchProducts } from './filter.js';
 
-let perPage = COMMONS.filters.limit;
 let lastTotalHits = COMMONS.filters.totalHits;
-
-if (!COMMONS.filters.page) {
-  forward.setAttribute('disabled', true);
-  back.setAttribute('disabled', true);
-}
 
 COMMONS.paginationContainer.addEventListener('click', onPaginationClick);
 
 async function onPaginationClick(event) {
   const selectedPage = parseInt(event.target.textContent);
-  if (event.target.classList.contains('pagination-btn')) {
+
+  if (event.target.closest('.pagination-btn')) {
+    console.log(event.target.closest('.pagination-btn'));
     if (event.target.classList.contains('back')) {
       if (COMMONS.filters.page === 1) {
         return;
@@ -22,16 +18,16 @@ async function onPaginationClick(event) {
         COMMONS.filters.page -= 1;
       }
     } else if (event.target.classList.contains('forward')) {
-      if (COMMONS.filters.page === lastPage) {
+      if (COMMONS.filters.page === lastTotalHits) {
         COMMONS.forward.setAttribute('disabled', true);
         return;
-      } else if (COMMONS.filters.page < lastPage) {
+      } else if (COMMONS.filters.page < lastTotalHits) {
         COMMONS.forward.removeAttribute('disabled');
       }
+
       COMMONS.filters.page += 1;
     }
-    console.log('adwda');
-    await fetchProducts(COMMONS.filters.page);
+    fetchProducts(COMMONS.filters.page);
   }
 
   if (event.target.classList.contains('pagi_item_span')) {
@@ -41,7 +37,7 @@ async function onPaginationClick(event) {
     }
 
     COMMONS.filters.page = selectedPage;
-    await fetchProducts(COMMONS.filters.page);
+    fetchProducts(COMMONS.filters.page);
     updatePagination();
   }
 }
@@ -68,6 +64,16 @@ function updatePagination() {
   } else {
     return COMMONS.forward.removeAttribute('disabled');
   }
+}
+
+function createPaginationItem(pageNumber, isActive) {
+  const activeClass = isActive ? 'isActive' : '';
+  const paddingChange = COMMONS.filters.page >= 10 ? 'py' : '';
+  return `<li class="pagi_item ${activeClass} pagination_item"><span class="pagi_item_span ${paddingChange}">${pageNumber}</span></li>`;
+}
+
+function createEllipsisItem() {
+  return `<li class="pagi_item pagination_item"><span class="pagi_item_span">...</span></li>`;
 }
 
 function createPaginationMarkup(totalHits, page) {
@@ -110,15 +116,4 @@ function createPaginationMarkup(totalHits, page) {
     paginationList.innerHTML = paginationHTML;
   }
 }
-
-function createPaginationItem(pageNumber, isActive) {
-  const activeClass = isActive ? 'isActive' : '';
-  const paddingChange = COMMONS.filters.page >= 10 ? 'py' : '';
-  return `<li class="pagi_item ${activeClass} pagination-item"><span class="pagi_item_span ${paddingChange}">${pageNumber}</span></li>`;
-}
-
-function createEllipsisItem() {
-  return `<li class="pagi_item pagination-item"><span class="pagi_item_span">...</span></li>`;
-}
-
 export { createPaginationMarkup };

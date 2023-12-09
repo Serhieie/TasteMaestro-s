@@ -10,6 +10,7 @@ const categoryList = document.querySelector('.category-list');
 const sortProductsButton = document.getElementById('sortProducts');
 const sortProductsList = document.querySelector('.sortProducts-list');
 const productsList = document.getElementById('productsList');
+const ulContainer = document.querySelector('.product__list');
 
 let categories = [];
 
@@ -48,28 +49,20 @@ export const fetchProducts = async () => {
       }
     }
 
-    console.log(url);
     const response = await axios.get(url);
     const data = response.data;
     COMMONS.filters.totalHits = data.totalPages;
-    console.log(data.totalPages, COMMONS.filters.limit, COMMONS.filters.page);
-    console.log(data);
-    createPaginationMarkup(
-      data.totalPages,
-      COMMONS.filters.limit,
-      COMMONS.filters.page
-    );
     displayProducts(data.results);
+    createPaginationMarkup(data.totalPages, COMMONS.filters.page);
   } catch (error) {
     console.error('Error fetching products:', error);
   }
 };
 
 const displayProducts = products => {
-  productsList.innerHTML =
-    '<ul class="product__list">' +
-    products.map(product => createProductItemMarkup(product)).join('') +
-    '</ul>';
+  ulContainer.innerHTML = products
+    .map(product => createProductItemMarkup(product))
+    .join('');
 };
 
 const fetchCategories = async () => {
