@@ -97,8 +97,13 @@
   background-color: var(--hover-color);
 }
 
-.card-icon-product {
+.card-icon-cart {
   fill: var(--color-on-grin);
+  display: block;
+}
+.card-icon-check {
+  stroke: var(--color-on-grin);
+  display: none;
 }
 
 @media screen and (min-width: 768px) {

@@ -6,15 +6,15 @@
  * клік 'item-minus' віднімає
  *
  */
-
+console.log('asd');
 //TODO
 //додати для корзини виклик зміни к-ть товарів в хідері
 //привязатися до розмітки корзини для зміни тексКонтенту в спані
 
 const KEY = 'cartItems';
 
-const cartConteiner = document.querySelector('.js-cart');
-cartConteiner.addEventListener('click', handlerClickPlus);
+//const cartConteiner = document.querySelector('.js-cart');
+//cartConteiner.addEventListener('click', handlerClickPlus);
 
 function handlerClickPlus(e) {
   const button = e.target.closest('.item-plus');
@@ -71,31 +71,71 @@ itemsContainer.addEventListener('click', checkLS);
 function checkLS(e) {
   //отримання кнопки та перевірка чи клік відбувся по ній
   const button = e.target.closest('.add-to-cart');
-  if (!button) {
+  //збереження ід елемента в зміну (очікується клас на елемнті '.product_item')
+  const itemId = e.target.closest('.product_item');
+
+  if (!itemId || itemId.nodeName !== 'LI') {
     return;
   }
-  //збереження ід елемента в зміну (очікується клас на елемнті '.product_item')
-  const itemId = e.target.closest('.product_item').dataset.id;
+
+  if (button === null) {
+    console.log('modal');
+    return;
+  }
+
+  const id = itemId.dataset.id;
+  const img = itemId.querySelector('#product__image').src;
+  const imgDsc = itemId.querySelector('#product__image').alt;
+  const title = itemId.querySelector('#product__title').textContent;
+  const category = itemId.querySelector('#product_category_name').textContent;
+  const size = itemId.querySelector('#product_size').textContent;
+  const price = itemId.querySelector('#product__price').textContent;
+
+  const check = itemId.querySelector('.card-icon-check');
+  const cart = itemId.querySelector('.card-icon-cart');
+
   //перевіряємо чи є щост в ЛС
   if (!localStorage.getItem(KEY)) {
     //додаємо у випадку відсутнього ключа в ЛС
-    const cartItem = [{ id: `${itemId}`, quantity: 1 }];
+    const cartItem = [
+      { id, img, imgDsc, title, category, price, size, quantity: 1 },
+    ];
     saveStorage(KEY, cartItem);
     console.log('ф-ція зміни картинки додати');
+    cart.style.display = 'none';
+    check.style.display = 'block';
     changeCounter();
     //потрібно змінити стан кнопки
   } else {
     //при наявному ЛС перевіряється вміст та зміннюється к-ть
     const updateCartItems = loadStorage(KEY);
-    const idx = updateCartItems.findIndex(element => element.id === itemId);
-    if (idx != -1) {
+    const idx = updateCartItems.findIndex(
+      element => element.id === itemId.dataset.id
+    );
+    console.log(idx);
+    if (idx !== -1) {
       //видалити
       // updateCartItems[idx].quantity += 1;
       updateCartItems.splice(idx, 1);
+
       console.log('ф-ція зміни картинки прибрати');
+      cart.style.display = 'block';
+      check.style.display = 'none';
     } else {
       //додати
-      updateCartItems.push({ id: `${itemId}`, quantity: 1 });
+
+      updateCartItems.push({
+        id,
+        img,
+        imgDsc,
+        title,
+        category,
+        price,
+        size,
+        quantity: 1,
+      });
+      cart.style.display = 'none';
+      check.style.display = 'block';
       console.log('ф-ція зміни картинки додати');
     }
     saveStorage(KEY, updateCartItems);
@@ -113,7 +153,7 @@ const saveStorage = (key, value) => {
   }
 };
 
-const loadStorage = key => {
+export const loadStorage = key => {
   try {
     const serializedState = localStorage.getItem(key);
     return serializedState === null ? undefined : JSON.parse(serializedState);
