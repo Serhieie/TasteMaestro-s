@@ -6,6 +6,7 @@ import { showCheckoutModal } from '../modals';
 
   // const totalElement = document.getElementById('cart_total');
   // totalElement.textContent = `$${totalPriceCart}`;
+import { showModalFirstCase, showModalSecondCase } from '../modals';
 
 const checkoutForm = document.getElementById('checkoutForm');
 
@@ -18,20 +19,21 @@ checkoutForm.addEventListener('submit', function(event) {
 
   if (!isValidEmail) {
     alert('Будь ласка, введіть дійсну електронну адресу.');
+    return;
 }
 
+const regex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
 if (!email.match(regex)) {
   emailInput.style.borderColor = 'red';
   new AWN().warning('Please enter a correct email', globalOptionsCheck);
+return;
 }
+
 emailInput.style.borderColor = '#e8e8e2';
 showCheckoutModal()
+
 checkoutForm.reset();
 });
-
-// console.log()
-
-const regex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
 
 const globalOptionsCheck = {
   labels: { warning: 'Warning' },
@@ -40,4 +42,8 @@ const globalOptionsCheck = {
   maxNotifications: 1,
   durations: { global: 2000 },
 };
+
+
+
+
 
