@@ -1,11 +1,12 @@
 import sprite from '/img/sprite.svg';
 
 const orderList = document.querySelector('.cart-order-list'),
-      cartListSection = document.querySelector('.cart-filled-list'),
-      cartEmptySection = document.querySelector('.cart-empty'),
-      clearCartBtn = document.querySelector('.cart-clear-btn'),
-      cartCount = document.querySelector('.cart-count'),
-      cartTotalRight = document.querySelector('.cart_total_order');
+  cartListSection = document.querySelector('.cart-filled-list'),
+  cartEmptySection = document.querySelector('.cart-empty'),
+  clearCartBtn = document.querySelector('.cart-clear-btn'),
+  cartCount = document.querySelector('.cart-count'),
+  cartTotalRight = document.querySelector('.cart_total_order'),
+  headerCounter = document.querySelector('.header__js_span');
 
 let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
 
@@ -43,7 +44,7 @@ function cartOrder(cart) {
               <svg class="cart-remove-icon" width="18" height="18">
                 <use
                   class="cart-remove-svg"
-                  xlink:href="./img/${sprite}#close-cross"
+                  xlink:href="${sprite}#close-cross"
                 ></use>
               </svg>
             </span>
@@ -55,7 +56,9 @@ function cartOrder(cart) {
           ${item.size}
         </p>
         <div class="cart-order-total-price">
-          <span class="cart-order-price">$${(parseFloat(item.price.replace('$', '')) * item.quantity).toFixed(2)}</span>
+          <span class="cart-order-price">$${(
+            parseFloat(item.price.replace('$', '')) * item.quantity
+          ).toFixed(2)}</span>
           <div class="cart-order-amount">
             <button class="cart-order-decr" type="button">-</button>
             <span class="cart-order-quantity">${item.quantity}</span>
@@ -70,7 +73,6 @@ function cartOrder(cart) {
     .join('');
 }
 
-
 function renderCartItem() {
   if (cart.length) {
     orderList.innerHTML = cartOrder(cart);
@@ -79,7 +81,6 @@ function renderCartItem() {
     cartTotalRight.classList.add('visually-hidden');
     cartListSection.classList.add('visually-hidden');
   }
-
 }
 
 function handleDecrCount(target) {
@@ -90,7 +91,6 @@ function handleDecrCount(target) {
     cart[index].quantity -= 1;
     updateCartItem(cartItem, cart[index]);
   }
-
 }
 
 function handleIncrCount(target) {
@@ -116,7 +116,7 @@ function handleRemoveItem(e) {
   }
 }
 
-orderList.addEventListener('click', (e) => {
+orderList.addEventListener('click', e => {
   if (e.target.closest('.cart-remove-btn')) {
     handleRemoveItem(e);
   }
@@ -140,7 +140,9 @@ function updateCartItem(cartItem, item) {
 
   const numericPrice = parseFloat(item.price.replace('$', ''));
 
-  totalPriceElement.textContent = `$${(numericPrice * item.quantity).toFixed(2)}`;
+  totalPriceElement.textContent = `$${(numericPrice * item.quantity).toFixed(
+    2
+  )}`;
   quantityElement.textContent = item.quantity;
 
   updateTotalPrice();
@@ -148,7 +150,11 @@ function updateCartItem(cartItem, item) {
 }
 
 function updateTotalPrice() {
-  const total = cart.reduce((sum, item) => sum + (parseFloat(item.price.replace('$', '')) * item.quantity), 0);
+  const total = cart.reduce(
+    (sum, item) =>
+      sum + parseFloat(item.price.replace('$', '')) * item.quantity,
+    0
+  );
   totalPriceCart = Number(total.toFixed(2));
 }
 
@@ -166,11 +172,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function changeListLength() {
-
   if (!cart.length) {
+    headerCounter.textContent = `Cart (${0})`;
     cartCount.textContent = `Cart (${0})`;
   } else {
     cartCount.textContent = `Cart (${cart.length})`;
+    headerCounter.textContent = `Cart (${cart.length})`;
   }
 }
-
