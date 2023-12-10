@@ -1,5 +1,5 @@
 // import { filters } from './filter.js';
-import COMMONS from './commons.js';
+import COMMONS from '../commons.js';
 import { fetchProducts } from './filter.js';
 
 let lastTotalHits = COMMONS.filters.totalHits;
