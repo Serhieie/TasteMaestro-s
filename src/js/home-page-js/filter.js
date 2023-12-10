@@ -60,10 +60,16 @@ export const fetchProducts = async () => {
 };
 
 const displayProducts = products => {
-  ulContainer.innerHTML = products
-    .map(product => createProductItemMarkup(product))
-    .join('');
+  if (products.length === 0) {
+    ulContainer.innerHTML =
+      '<div style="display: inline-flex; flex-direction: column; align-items: center; gap: 14px; width: 371px; height: 110px; margin: 0 auto;"><p style="color: #010101; display: inline-flex; justify-content: center; text-align: center; font-size: 20px;">Nothing was found for the selected <span style="color: #6D8434; padding-left: 4px;"> filters...</span></p><p style="color: rgba(1, 1, 1, 0.70); display: inline-flex; text-align: center; justify-content: center; font-size: 18px;">Try adjusting your search parameters or browse our range by other criteria to find the perfect product for you. </p></div>';
+  } else {
+    ulContainer.innerHTML = products
+      .map(product => createProductItemMarkup(product))
+      .join('');
+  }
 };
+
 
 const fetchCategories = async () => {
   try {

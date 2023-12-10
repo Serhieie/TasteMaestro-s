@@ -1,6 +1,7 @@
 const KEY = 'cartItems';
 
 const cartConteiner = document.querySelector('.js-cart');
+const headerCounter = document.querySelector('.header__js_span');
 // cartConteiner.addEventListener('click', handlerClickPlus);
 
 function handlerClickPlus(e) {
@@ -58,12 +59,10 @@ export const loadStorage = key => {
 };
 
 function changeCounter() {
-  const counter = document.querySelector('.header__js_span');
-
   if (!loadStorage(KEY)) {
-    counter.textContent = `CART (${0})`;
+    headerCounter.textContent = `CART (${0})`;
   } else {
-    counter.textContent = `CART (${loadStorage(KEY).length})`;
+    headerCounter.textContent = `CART (${loadStorage(KEY).length})`;
   }
 }
 
