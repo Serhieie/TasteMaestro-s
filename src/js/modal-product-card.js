@@ -24,6 +24,7 @@ async function onClickProductCard(event) {
     console.log(cartBtn);
     return;
   }
+}
 
 async function onClickProductCard(event){
     console.log(event.target.closest(".add-to-cart"))
