@@ -6,11 +6,11 @@ const orderList = document.querySelector('.cart-order-list'),
   clearCartBtn = document.querySelector('.cart-clear-btn'),
   cartCount = document.querySelector('.cart-count'),
   cartTotalRight = document.querySelector('.cart_total_order'),
-  headerCounter = document.querySelector('.header__js_span');
+  headerCounter = document.querySelector('.header__js_span'),
+  totalElement = document.getElementById('cart_total');
+
 
 let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
-
-let totalPriceCart = 0;
 
 function handleCartClick(e) {
   const target = e.target;
@@ -162,7 +162,8 @@ function updateTotalPrice() {
       sum + parseFloat(item.price.replace('$', '')) * item.quantity,
     0
   );
-  totalPriceCart = Number(total.toFixed(2));
+
+  totalElement.textContent = `$${Number(total.toFixed(2))}`;
 }
 
 function updateLocalStorage() {
