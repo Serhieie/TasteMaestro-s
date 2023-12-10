@@ -73,7 +73,7 @@ function createPaginationItem(pageNumber, isActive) {
 }
 
 function createEllipsisItem() {
-  return `<li class="pagi_item pagination_item"><span class="pagi_item_span">...</span></li>`;
+  return `<li class="pagi_item pagination_item ellipsis"><span class="pagi_item_span pagi_item_span_ellipsis">...</span></li>`;
 }
 
 function createPaginationMarkup(totalHits, page) {
