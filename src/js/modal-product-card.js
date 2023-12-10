@@ -4,7 +4,8 @@ import sprite from '/img/sprite.svg';
 const modalCard = document.querySelector('.js-modal-product-card');
 const backdrop = document.querySelector('.js-backdrop');
 const loader = document.querySelector('.loader-container');
-const fatherDiv = document.querySelector('.father_div')
+const fatherDiv = document.querySelector('.father_div');
+const body = document.querySelector('body');
 
 fatherDiv.addEventListener('click', onClickProductCard);
 
@@ -21,6 +22,7 @@ async function onClickProductCard(event) {
     return;
   }
   loader.classList.remove('visually-hidden');
+  body.classList.add('modal-is-open')
   const cardInfo = await getProductCardInfo(elementId);
 
   modalCard.innerHTML = '';
@@ -48,6 +50,7 @@ async function onClickProductCard(event) {
   function onClick() {
     backdrop.classList.add('visually-hidden');
     modalCard.classList.add('visually-hidden');
+    body.classList.remove('modal-is-open');
     modalCard.innerHTML = '';
     closeBtn.removeEventListener('click', onClick);
   }
@@ -55,6 +58,7 @@ async function onClickProductCard(event) {
   function backdropOnClick() {
     backdrop.classList.add('visually-hidden');
     modalCard.classList.add('visually-hidden');
+    body.classList.remove('modal-is-open');
     modalCard.innerHTML = '';
     backdrop.removeEventListener('click', backdropOnClick);
   }
@@ -64,6 +68,7 @@ async function onClickProductCard(event) {
     if (evt.key === 'Escape') {
       backdrop.classList.add('visually-hidden');
       modalCard.classList.add('visually-hidden');
+      body.classList.remove('modal-is-open');
       modalCard.innerHTML = '';
       document.removeEventListener('keydown', onEscape);
     }
@@ -125,3 +130,5 @@ function createMarkupProductCard(
       </svg>
     </button>`;
 }
+
+

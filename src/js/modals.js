@@ -7,17 +7,20 @@ const refs = {
     modalSecondCase: document.querySelector(".js-modal-second-case"),
     closeBtn: document.querySelectorAll(".js-close"),
     checkoutModal: document.querySelector(".js-checkout-modal"),
+    body: document.querySelector('body'),
 }
 
 function onClickFirstCase() {
     refs.backdrop.classList.add("visually-hidden");
     refs.modalFirstCase.classList.add("visually-hidden");
+    refs.body.classList.remove('modal-is-open');
     BtnFistCase.removeEventListener("click", onClickFirstCase);
 };
 
 function onClickSecondCase() {
     refs.backdrop.classList.add("visually-hidden");
     refs.modalSecondCase.classList.add("visually-hidden");
+    refs.body.classList.remove('modal-is-open');
     BtnSecondCase.removeEventListener("click", onClickSecondCase);
 };
 
@@ -26,6 +29,7 @@ function onEscapeFirstCase(evt) {
     if (evt.key === "Escape") {
         refs.backdrop.classList.add("visually-hidden");
         refs.modalFirstCase.classList.add("visually-hidden");
+        refs.body.classList.remove('modal-is-open');
         document.removeEventListener("keydown", onEscape);
     }
 };
@@ -35,6 +39,7 @@ function onEscapeSecondCase(evt) {
     if (evt.key === "Escape") {
         refs.backdrop.classList.add("visually-hidden");
         refs.modalSecondCase.classList.add("visually-hidden");
+        refs.body.classList.remove('modal-is-open');
         document.removeEventListener("keydown", onEscape);
     }
 };
@@ -42,19 +47,23 @@ function onEscapeSecondCase(evt) {
 function backdropFirstCase() {
     refs.backdrop.classList.add("visually-hidden");
     refs.modalFirstCase.classList.add("visually-hidden");
+    refs.body.classList.remove('modal-is-open');
     refs.backdrop.removeEventListener("click", backdropFirstCase);
+    document.removeEventListener("keydown", onEscape);
 };
 
 function backdropSecondCase() {
     refs.backdrop.classList.add("visually-hidden");
     refs.modalSecondCase.add("visually-hidden");
+    refs.body.classList.remove('modal-is-open');
     refs.backdrop.removeEventListener("click", backdropSecondCase);
+    document.removeEventListener("keydown", onEscape);
 };
 
 function showModalFirstCase() {
     refs.backdrop.classList.remove("visually-hidden");
     refs.modalFirstCase.classList.remove("visually-hidden");
-
+    refs.body.classList.add('modal-is-open');
     const BtnFistCase = refs.closeBtn[0];
     BtnFistCase.addEventListener("click", onClickFirstCase);
     document.addEventListener("keydown", onEscapeFirstCase);
@@ -64,7 +73,7 @@ function showModalFirstCase() {
 function showModalSecondCase() {
     refs.backdrop.classList.remove("visually-hidden");
     refs.modalSecondCase.classList.remove("visually-hidden");
-
+    refs.body.classList.add('modal-is-open')
     const BtnSecondCase = refs.closeBtn[1];
     BtnSecondCase.addEventListener("click", onClickSecondCase);
     document.addEventListener("keydown", onEscapeSecondCase);
@@ -75,6 +84,7 @@ function showModalSecondCase() {
 function showCheckoutModal(){
     refs.backdrop.classList.remove("visually-hidden"); 
     refs.checkoutModal.classList.remove("visually-hidden");
+    refs.body.classList.add("modal-is-open")
     const BtnCheckoutClose = refs.closeBtn[2];
     BtnCheckoutClose.addEventListener("click", onClickCheckoutClose);
     document.addEventListener("keydown", onEscapeCheckout);
@@ -84,6 +94,7 @@ function showCheckoutModal(){
 function onClickCheckoutClose(){
     refs.backdrop.classList.add("visually-hidden");
     refs.checkoutModal.classList.add("visually-hidden");
+    refs.body.classList.remove("modal-is-open");
 };
 
 function onEscapeCheckout(evt){
@@ -91,6 +102,7 @@ function onEscapeCheckout(evt){
     if (evt.key === "Escape") {
         refs.backdrop.classList.add("visually-hidden");
         refs.checkoutModal.classList.add("visually-hidden");
+        refs.body.classList.remove("modal-is-open");
         document.removeEventListener("keydown", onEscapeCheckout);
     }
 };
@@ -98,6 +110,7 @@ function onEscapeCheckout(evt){
 function backdropCheckout(){
     refs.backdrop.classList.add("visually-hidden");
     refs.checkoutModal.classList.add("visually-hidden");
+    refs.body.classList.remove("modal-is-open");
     refs.backdrop.removeEventListener("click", backdropCheckout);
 };
 
