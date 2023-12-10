@@ -14,6 +14,19 @@ const productsList = document.getElementById('productsList');
 
 let categories = [];
 
+const saveFiltersToLocalStorage = () => {
+  localStorage.setItem('filters', JSON.stringify(COMMONS.filters));
+};
+
+const loadFiltersFromLocalStorage = () => {
+  const savedFilters = localStorage.getItem('filters');
+  if (savedFilters) {
+    COMMONS.filters = JSON.parse(savedFilters);
+  }
+};
+
+loadFiltersFromLocalStorage();
+
 export const fetchProducts = async () => {
   try {
     let url = `https://food-boutique.b.goit.study/api/products?page=${COMMONS.filters.page}&limit=${COMMONS.filters.limit}`;
@@ -53,14 +66,9 @@ export const fetchProducts = async () => {
     const response = await axios.get(url);
     const data = response.data;
     COMMONS.filters.totalHits = data.totalPages;
-    console.log(data.totalPages, COMMONS.filters.limit, COMMONS.filters.page);
-    console.log(data);
-    createPaginationMarkup(
-      data.totalPages,
-      COMMONS.filters.limit,
-      COMMONS.filters.page
-    );
+    createPaginationMarkup(data.totalPages, COMMONS.filters.limit, COMMONS.filters.page);
     displayProducts(data.results);
+    saveFiltersToLocalStorage();
   } catch (error) {
     console.error('Error fetching products:', error);
   }
@@ -75,9 +83,7 @@ const displayProducts = products => {
 
 const fetchCategories = async () => {
   try {
-    const response = await axios.get(
-      'https://food-boutique.b.goit.study/api/products/categories'
-    );
+    const response = await axios.get('https://food-boutique.b.goit.study/api/products/categories');
     const data = response.data;
     categories = [...data, 'Show all'];
     displayCategories(categories);
@@ -173,16 +179,16 @@ document.addEventListener('click', event => {
 });
 
 keywordInput.addEventListener('input', throttle(() => {
-    COMMONS.filters.keyword = keywordInput.value;
-    COMMONS.filters.page = 1;
-    // fetchProducts();
-}, 300));
+  COMMONS.filters.keyword = keywordInput.value;
+  COMMONS.filters.page = 1;
+  fetchProducts();
+}, 1000));
 
 filterForm.addEventListener('submit', async event => {
   event.preventDefault();
   COMMONS.filters.keyword = keywordInput.value;
   COMMONS.filters.page = 1;
-//   fetchProducts();
+  fetchProducts();
 });
 
 categoryList.addEventListener('click', event => {
@@ -207,6 +213,5 @@ sortProductsList.addEventListener('click', event => {
   }
 });
 
-// Викликати функції з модуля
 fetchCategories();
 fetchProducts();
