@@ -7,8 +7,6 @@ async function createSubscription(data) {
   );
 }
 
-export { createSubscription };
-
 async function getOrders() {
   try {
     const response = await axios.get(
@@ -21,4 +19,44 @@ async function getOrders() {
   }
 }
 
-export { getOrders };
+async function createOrder(order) {
+  return await axios.post(
+    `https://food-boutique.b.goit.study/api/orders`,
+    order
+  );
+}
+
+
+
+// function getFromLS(cartItems) {
+//   const data = localStorage.getItem(order);
+//   try {
+//     const info = JSON.parse(data).map(({ id, quantity }) => {
+//       id, quantity;
+//     });
+//   } catch {
+//     return data;
+//   }
+// }
+// const email = evt.currentTarget.subscribe.value.trim().toLowerCase();
+// const order = {
+//   email: email,
+//   products: [info],
+// };
+
+// createOrder(order)
+//   .then(data => console.log(data))
+//   .catch(e => console.error(e));
+
+// Приклад обʼєкту відправки
+// {
+//   "email": "test@gmail.com",
+//   "products": [
+//     {
+//       "productId": "640c2dd963a319ea671e383b",
+//       "amount": 2
+//     }
+//   ]
+// }
+
+export { createSubscription, getOrders, createOrder };
