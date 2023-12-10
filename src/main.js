@@ -8,4 +8,5 @@ import './js/home-page-js/popular';
 import './js/home-page-js/pagination';
 import './js/home-page-js/discount';
 import './js/modals';
+import './js/modal-product-card';
 import './js/local-storage/locale-storage-fn';
