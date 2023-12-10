@@ -200,4 +200,8 @@ select option {
   #filterForm {
     flex-direction: row;
   }
+
+  .filter__section {
+    padding-bottom: 40px;
+  }
 }

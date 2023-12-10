@@ -119,7 +119,7 @@
   }
   .total-form-title {
     font-size: 32px;
-    line-height: 1.0;
+    line-height: 1;
   }
   #total-price {
     margin-bottom: 40px;
@@ -127,23 +127,23 @@
     width: 590px;
     height: 60px;
   }
-  
+
   .cart_total_input {
     font-size: 20px;
     font-weight: 500;
     line-height: 1.2;
   }
-  
+
   .total_price {
     font-size: 32px;
-    line-height: 1.0;
+    line-height: 1;
   }
   .placeholder-text {
     font-size: 18px;
     line-height: 1.33;
     top: 50%;
   }
-  
+
   .cart_checkout {
     /* position: relative;*/
     display: flex;
@@ -170,7 +170,7 @@
     height: 54px;
     /* flex-shrink: 0; */
   }
-  
+
   .cart_total_order {
     padding-bottom: 100px;
   }
@@ -180,7 +180,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-.cart_total_order {
-  margin-top: 92px;
+  .cart_total_order {
+    margin-top: 92px;
+  }
 }
-} 

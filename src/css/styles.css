@@ -7,18 +7,18 @@
 
 @import url('./reset.css');
 @import url('./header.css');
-@import url('./homePageCss/hero.css');
-@import url('./homePageCss/filtersAndSearch.css');
-@import url('./homePageCss/productsList.css');
-@import url('./homePageCss/discount.css');
-@import url('./homePageCss/popular.css');
-@import url('./cartPage/cartList.css');
-@import url('./cartPage/cartEmpty.css');
-@import url('./cartPage/cartTotal.css');
-@import url('./cartPage/CartWareCount.css');
+@import url('./home-page-css/hero.css');
+@import url('./home-page-css/filters-and-search.css');
+@import url('./home-page-css/products-list.css');
+@import url('./home-page-css/discount.css');
+@import url('./home-page-css/popular.css');
+@import url('./cart-page/cart-list.css');
+@import url('./cart-page/cart-empty.css');
+@import url('./cart-page/cart-total.css');
+@import url('./cart-page/cart-ware-count.css');
 @import url('./footer.css');
 @import url('./modal.css');
-@import url('./homePageCss/pagination.css');
+@import url('./home-page-css/pagination.css');
 
 @font-face {
   font-family: 'Neue Montreal';
@@ -273,13 +273,47 @@ footer {
   }
 }
 
+@media screen and (max-width: 375px) {
+  .father_div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .child_div_two {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
 .father_div {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 }
 
 .child_div_two {
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 80px;
+}
+
+@media screen and (min-width: 375px) {
+}
+@media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 1440px) {
+  .father_div {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .child_div_two {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
 }

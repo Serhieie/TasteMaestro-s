@@ -1,4 +1,4 @@
-import { getOrders } from "./apiService";
+import { getOrders } from "./api-service";
 import AWN from 'awesome-notifications';
 import 'awesome-notifications/dist/style.css';
 import { showModalFirstCase, showModalSecondCase } from './modals';

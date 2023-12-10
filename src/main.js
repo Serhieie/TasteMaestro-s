@@ -1,6 +1,6 @@
-import './js/scrollUpBtn';
+import './js/scroll-up-btn';
 import './js/commons';
-import './js/apiService';
+import './js/api-service';
 import './js/helpers';
 import './js/filter';
 import './js/footer';
@@ -8,4 +8,4 @@ import './js/popular';
 import './js/pagination';
 import './js/discount';
 import './js/modals';
-import './js/localeStorageFn';
+import './js/locale-storage-fn';

@@ -66,7 +66,7 @@ function updatePagination() {
 }
 
 function createPaginationItem(pageNumber, isActive) {
-  const activeClass = isActive ? 'isActive' : '';
+  const activeClass = isActive ? 'is-active' : '';
   const paddingChange = COMMONS.filters.page >= 10 ? 'py' : '';
   return `<li class="pagi_item ${activeClass} pagination_item"><span class="pagi_item_span ${paddingChange}">${pageNumber}</span></li>`;
 }

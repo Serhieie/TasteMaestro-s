@@ -1,5 +1,5 @@
 import sprite from '/img/sprite.svg';
-import { loadStorage } from './localeStorageFn';
+import { loadStorage } from './locale-storage-fn';
 
 export function createProductItemMarkup({
   _id,

@@ -1,6 +1,6 @@
-import './js/scrollUpBtn';
+import './js/scroll-up-btn';
 import './js/commons';
-import './js/apiService';
+import './js/api-service';
 import './js/helpers';
 import './js/footer';
 import './js/modals';
