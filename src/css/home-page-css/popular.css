@@ -15,6 +15,17 @@
   gap: 14px;
 }
 
+.popular-icon-check {
+  stroke: var(--brand-color);
+  fill: transparent;
+  display: none;
+}
+.popular-icon-check:hover {
+  stroke: var(--color-on-grin);
+  /* fill: #6d8434; */
+  display: none;
+}
+
 .popular_list_card {
   display: flex;
   height: 98px;
@@ -72,6 +83,11 @@
 
 .popular_order_btn:hover .popular-icon {
   fill: var(--color-on-grin);
+}
+
+.popular_order_btn:hover .popular-icon-check {
+  stroke: var(--color-on-grin);
+  display: block;
 }
 
 .popular_product_title {
