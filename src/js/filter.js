@@ -2,6 +2,7 @@ import axios from 'axios';
 import { createProductItemMarkup } from './markup.js';
 import COMMONS from './commons.js';
 import { createPaginationMarkup } from './pagination.js';
+import throttle from 'lodash.throttle';
 
 const filterForm = document.getElementById('filterForm');
 const keywordInput = document.getElementById('keywordInput');
@@ -171,17 +172,17 @@ document.addEventListener('click', event => {
   }
 });
 
-keywordInput.addEventListener('input', () => {
-  COMMONS.filters.keyword = keywordInput.value;
-  COMMONS.filters.page = 1;
-  fetchProducts();
-});
+keywordInput.addEventListener('input', throttle(() => {
+    filters.keyword = keywordInput.value;
+    filters.page = 1;
+    // fetchProducts();
+}, 300));
 
 filterForm.addEventListener('submit', async event => {
   event.preventDefault();
   COMMONS.filters.keyword = keywordInput.value;
   COMMONS.filters.page = 1;
-  fetchProducts();
+//   fetchProducts();
 });
 
 categoryList.addEventListener('click', event => {
