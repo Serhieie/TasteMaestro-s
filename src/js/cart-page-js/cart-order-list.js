@@ -110,7 +110,7 @@ function handleRemoveItem(e) {
     cartItem.remove();
     updateTotalPrice();
     renderCartItem();
-    changeCounter();
+    changeListLength();
   }
 }
 
@@ -126,7 +126,7 @@ function handleClearCart() {
   updateTotalPrice();
   updateLocalStorage();
   renderCartItem()
-  changeCounter();
+  changeListLength();
 }
 
 function updateCartItem(cartItem, item) {
@@ -154,18 +154,18 @@ function updateLocalStorage() {
 document.addEventListener('DOMContentLoaded', () => {
   renderCartItem();
   updateTotalPrice();
-  changeCounter();
+  changeListLength();
 
   orderList.addEventListener('click', handleCartClick);
   clearCartBtn.addEventListener('click', handleClearCart);
 });
 
-function changeCounter() {
+function changeListLength() {
 
   if (!cart.length) {
-    cartCount.textContent = `CART (${0})`;
+    cartCount.textContent = `Cart (${0})`;
   } else {
-    cartCount.textContent = `CART (${cart.length})`;
+    cartCount.textContent = `Cart (${cart.length})`;
   }
 }
 
