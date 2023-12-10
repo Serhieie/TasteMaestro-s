@@ -1,3 +1,5 @@
+import { toastSucces } from '../helpers/toasts';
+import { toastDeleted } from '../helpers/toasts';
 const KEY = 'cartItems';
 
 const itemsContainer = document.querySelector('main');
@@ -30,7 +32,7 @@ function checkLS(e) {
   const cart = itemId.querySelector('.card-icon-cart');
 
   if (!localStorage.getItem(KEY)) {
-    //додаємо у випадку відсутнього ключа в ЛС
+    //додаємо у випадку відсутнього ключа в ЛС'
     const cartItem = [
       { id, img, imgDsc, title, category, price, size, quantity: 1 },
     ];
@@ -45,7 +47,6 @@ function checkLS(e) {
     const idx = updateCartItems.findIndex(
       element => element.id === itemId.dataset.id
     );
-    console.log(idx);
     if (idx !== -1) {
       //видалити
       // updateCartItems[idx].quantity += 1;
