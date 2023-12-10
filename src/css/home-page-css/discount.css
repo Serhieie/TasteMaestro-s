@@ -27,6 +27,7 @@
 .discount-card:hover {
   box-shadow: var(--product-cards-hover-shadow);
   transform: scale(1.01);
+  cursor: pointer;
 }
 
 .discount-label-icon {

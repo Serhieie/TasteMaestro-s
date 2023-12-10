@@ -1,5 +1,6 @@
 import axios from 'axios';
-import sprite from '/img/sprite.svg';
+import sprite from '../../img/sprite.svg';
+import { loadStorage } from '../local-storage/locale-storage-fn';
 
 const refs = {
   discountCardList: document.querySelector('.discount-card-list'),
@@ -29,39 +30,6 @@ async function productsWithDiscountServise() {
   }
 }
 
-function productsWithDiscountMarkup(array) {
-  return array
-    .map(
-      ({ name, img, price }) => `
-  <li class="discount-card">
-        <div class="img-field">
-          <img
-            class="discount-product-img"
-            src="${img}"
-            alt="products"
-          />
-        </div>
-        <div class="discount-product-info">
-          <p class="discount-product-name">${name}</p>
-          <div class="discount-product-buy">
-            <p class="discount-product-price">
-              $<span class="js-discount-product-price">${price}</span>
-            </p>
-            <button class="discount-cart-btn" type="button">
-              <svg class="discount-cart-icon" width="18" height="18">
-                <use xlink:href="${sprite}#shopping-cart"></use>
-              </svg>
-            </button>
-          </div>
-        </div>
-        <svg class="discount-label-icon" width="60" height="60">
-          <use xlink:href="${sprite}#discount"></use>
-        </svg>
-      </li>`
-    )
-    .join('');
-}
-
 function getRandomTwoCards(arr) {
   const newArray = [...arr];
 
@@ -74,4 +42,70 @@ function getRandomTwoCards(arr) {
   const element2 = newArray[randomIndex2];
 
   return [element1, element2];
+}
+
+function productsWithDiscountMarkup(array) {
+  let updateCartItems = [];
+  let idx = -1;
+  if (loadStorage('cartItems')) {
+    updateCartItems = loadStorage('cartItems');
+    idx = updateCartItems.findIndex(element => element.id === _id);
+    console.log(idx);
+  }
+
+  return array
+    .map(
+      ({
+        _id,
+        name,
+        img,
+        imgDsc,
+        category,
+        price,
+        size,
+        popularity,
+        is10PercentOff,
+      }) => `
+      <li data-id="${_id}" class="discount-card product_item">
+         <div class="img-field">
+         <img
+            id="product__image"
+             class="discount-product-img"
+             src="${img}"
+             alt="${name}"
+           />
+         </div>
+         <div class="discount-product-info">
+           <p id="product__title" class="discount-product-name">${name}</p>
+           <div class="discount-product-buy">
+             <p id="product__price" class="discount-product-price">
+               $<span class="js-discount-product-price">${price}</span>
+             </p>
+             <button data-id="${_id}" class="discount-cart-btn add-to-cart" type="button">
+                <svg class="card-icon-cart discount-cart-icon" ${
+                  idx === -1
+                    ? "style = 'display:block'"
+                    : "style = 'display:none'"
+                }  width="18" height="18">
+                      <use xlink:href="${sprite}#shopping-cart"></use>
+                  </svg>
+                  <svg class="card-icon-check discount-check-icon" ${
+                    idx === -1
+                      ? "style = 'display:none'"
+                      : "style = 'display:block'"
+                  }  width="18" height="18">
+                      <use xlink:href="${sprite}#check"></use>
+                  </svg>
+             </button>
+           </div>
+         </div>
+         <svg class="discount-label-icon" width="60" height="60">
+           <use xlink:href="${sprite}#discount"></use>
+         </svg>
+         <span id="product_category_name" class="visually-hidden">${category}</span>
+         <span id="product_size" class="visually-hidden">${size}</span>
+
+       </li>`
+    )
+    .join('');
 }

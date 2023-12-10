@@ -1,7 +1,8 @@
 import axios from 'axios';
-import { createProductItemMarkup } from '../helpers/markup.js';
-import COMMONS from '../commons.js';
-import { createPaginationMarkup, hidePagination } from './pagination.js';
+import { createProductItemMarkup } from './markup.js';
+import COMMONS from './commons.js';
+import { createPaginationMarkup } from './pagination.js';
+import throttle from 'lodash.throttle';
 
 const filterForm = document.getElementById('filterForm');
 const keywordInput = document.getElementById('keywordInput');
@@ -10,7 +11,6 @@ const categoryList = document.querySelector('.category-list');
 const sortProductsButton = document.getElementById('sortProducts');
 const sortProductsList = document.querySelector('.sortProducts-list');
 const productsList = document.getElementById('productsList');
-const ulContainer = document.querySelector('.product__list');
 
 let categories = [];
 
@@ -49,26 +49,28 @@ export const fetchProducts = async () => {
       }
     }
 
+    console.log(url);
     const response = await axios.get(url);
     const data = response.data;
     COMMONS.filters.totalHits = data.totalPages;
+    console.log(data.totalPages, COMMONS.filters.limit, COMMONS.filters.page);
+    console.log(data);
+    createPaginationMarkup(
+      data.totalPages,
+      COMMONS.filters.limit,
+      COMMONS.filters.page
+    );
     displayProducts(data.results);
-    hidePagination(data.results);
-    createPaginationMarkup(data.totalPages, COMMONS.filters.page);
   } catch (error) {
     console.error('Error fetching products:', error);
   }
 };
 
 const displayProducts = products => {
-  if (products.length === 0) {
-    ulContainer.innerHTML =
-      '<div style="display: inline-flex; flex-direction: column; align-items: center; gap: 14px; width: 371px; height: 110px; margin: 0 auto;"><p style="color: #010101; display: inline-flex; justify-content: center; text-align: center; font-size: 20px;">Nothing was found for the selected <span style="color: #6D8434; padding-left: 4px;"> filters...</span></p><p style="color: rgba(1, 1, 1, 0.70); display: inline-flex; text-align: center; justify-content: center; font-size: 18px;">Try adjusting your search parameters or browse our range by other criteria to find the perfect product for you. </p></div>';
-  } else {
-    ulContainer.innerHTML = products
-      .map(product => createProductItemMarkup(product))
-      .join('');
-  }
+  productsList.innerHTML =
+    '<ul class="product__list">' +
+    products.map(product => createProductItemMarkup(product)).join('') +
+    '</ul>';
 };
 
 const fetchCategories = async () => {
@@ -170,17 +172,17 @@ document.addEventListener('click', event => {
   }
 });
 
-keywordInput.addEventListener('input', () => {
-  COMMONS.filters.keyword = keywordInput.value;
-  COMMONS.filters.page = 1;
-  fetchProducts();
-});
+keywordInput.addEventListener('input', throttle(() => {
+    COMMONS.filters.keyword = keywordInput.value;
+    COMMONS.filters.page = 1;
+    // fetchProducts();
+}, 300));
 
 filterForm.addEventListener('submit', async event => {
   event.preventDefault();
   COMMONS.filters.keyword = keywordInput.value;
   COMMONS.filters.page = 1;
-  fetchProducts();
+//   fetchProducts();
 });
 
 categoryList.addEventListener('click', event => {
