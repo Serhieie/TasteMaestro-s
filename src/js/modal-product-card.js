@@ -1,16 +1,14 @@
 import axios from "axios";
-import Notiflix from "notiflix";
-
 
 const productListContainer = document.querySelector("#productsList");
 const modalCard = document.querySelector(".js-modal-product-card");
 const backdrop = document.querySelector(".js-backdrop");
 const loader = document.querySelector(".loader-container")
-const cartBtn = document.querySelector(".add-to-cart")
 
 productListContainer.addEventListener("click", onClickProductCard);
 
 async function onClickProductCard(event){
+    console.log(event.target.closest(".add-to-cart"))
     if (event.target === event.currentTarget){
         return;
     };
@@ -19,14 +17,10 @@ async function onClickProductCard(event){
         return;
     }
     const elementId = element.dataset.id;
-    loader.classList.remove("visually-hidden")
-// Ця перевірка на те, щоб модака не працювала при натиску на кнопку корзини
-// Перевірка
-    if (element === cartBtn) {
-        console.log(cartBtn)
+    if (event.target.closest(".add-to-cart")) {
         return
     }
-
+    loader.classList.remove("visually-hidden")
 
     const cardInfo = await getProductCardInfo(elementId);
 

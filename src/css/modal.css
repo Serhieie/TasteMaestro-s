@@ -145,8 +145,7 @@
     width: 295px;
     height: 212px;
     border-radius: 10px;
-    /* background-color: var(--background-color); */
-    background-color: transparent;
+    background-color: var(--background-color);
 }
 
 .product-descr {
