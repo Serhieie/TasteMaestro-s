@@ -1,4 +1,4 @@
-import { createSubscription } from './api-service';
+import { createSubscription } from './api-servise/api-service-basic';
 import AWN from 'awesome-notifications';
 import 'awesome-notifications/dist/style.css';
 import { showModalFirstCase, showModalSecondCase } from './modals';

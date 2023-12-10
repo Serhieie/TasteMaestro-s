@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { createProductItemMarkup } from './markup.js';
-import COMMONS from './commons.js';
+import { createProductItemMarkup } from '../helpers/markup.js';
+import COMMONS from '../commons.js';
 import { createPaginationMarkup } from './pagination.js';
 
 const filterForm = document.getElementById('filterForm');
