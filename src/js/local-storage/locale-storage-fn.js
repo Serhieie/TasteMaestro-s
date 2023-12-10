@@ -1,5 +1,4 @@
-import { toastSucces } from '../helpers/toasts';
-import { toastDeleted } from '../helpers/toasts';
+// import { toastDeleted } from '../helpers/toasts';
 const KEY = 'cartItems';
 
 const itemsContainer = document.querySelector('main');
