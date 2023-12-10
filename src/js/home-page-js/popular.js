@@ -30,7 +30,7 @@ function createMarkup(response) {
         updateCartItems = loadStorage('cartItems');
         idx = updateCartItems.findIndex(element => element.id === _id);
       }
-      return `<li data-id="${_id}" class="popular_list_card product_item">
+      return `<li data-id="${_id}" class="popular_list_card product_item js-card">
          <svg class="popular_discount_icon visually-hidden" width="60" height="60">
           <use xlink:href="${sprite}#Discount"></use>
          </svg>

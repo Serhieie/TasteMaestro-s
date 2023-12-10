@@ -114,7 +114,7 @@ footer {
   background-color: var(--brand-color, #6d8434);
 }
 
-.modal-open {
+body.modal-is-open {
   overflow: hidden;
 }
 
