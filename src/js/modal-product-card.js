@@ -114,13 +114,13 @@ function createMarkupProductCard(
     <button class="product-btn-shopping-cart" type="submit">
         <span>Add to</span>
         <svg class="product-cart-icon" width="18" height="18">
-            <use href="${sprite}#shopping-cart"></use>
+            <use xlink:href="${sprite}#shopping-cart"></use>
         </svg>
     </button>
     </div>
     <button class="modal-btn-close js-btn-close-card" type="button">
     <svg class="icon-close">
-        <use href="${sprite}#close-cross"></use>
+        <use xlink:href="${sprite}#close-cross"></use>
       </svg>
     </button>`;
 }
