@@ -293,6 +293,10 @@ body.modal-is-open {
   gap: 80px;
 }
 
+.child_div_one {
+  width: 100%;
+}
+
 .child_div_two {
   display: flex;
   flex-direction: column;
