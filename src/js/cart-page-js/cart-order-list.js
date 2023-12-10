@@ -43,7 +43,7 @@ function cartOrder(cart) {
               <svg class="cart-remove-icon" width="18" height="18">
                 <use
                   class="cart-remove-svg"
-                  xlink:href="./img/${sprite}#close-cross"
+                  xlink:href="${sprite}#close-cross"
                 ></use>
               </svg>
             </span>
