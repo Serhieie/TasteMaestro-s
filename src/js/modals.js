@@ -15,13 +15,14 @@ function onClickFirstCase() {
     refs.modalFirstCase.classList.add("visually-hidden");
     refs.body.classList.remove('modal-is-open');
     BtnFistCase.removeEventListener("click", onClickFirstCase);
+    document.removeEventListener("keydown", onEscapeFirstCase);
 };
 
 function onClickSecondCase() {
     refs.backdrop.classList.add("visually-hidden");
     refs.modalSecondCase.classList.add("visually-hidden");
     refs.body.classList.remove('modal-is-open');
-    BtnSecondCase.removeEventListener("click", onClickSecondCase);
+    document.removeEventListener("keydown", onEscapeFirstCase);
 };
 
 function onEscapeFirstCase(evt) {
@@ -30,7 +31,7 @@ function onEscapeFirstCase(evt) {
         refs.backdrop.classList.add("visually-hidden");
         refs.modalFirstCase.classList.add("visually-hidden");
         refs.body.classList.remove('modal-is-open');
-        document.removeEventListener("keydown", onEscape);
+        document.removeEventListener("keydown",onEscapeFirstCase);
     }
 };
 
@@ -40,7 +41,7 @@ function onEscapeSecondCase(evt) {
         refs.backdrop.classList.add("visually-hidden");
         refs.modalSecondCase.classList.add("visually-hidden");
         refs.body.classList.remove('modal-is-open');
-        document.removeEventListener("keydown", onEscape);
+        document.removeEventListener("keydown",onEscapeSecondCase);
     }
 };
 
@@ -49,22 +50,21 @@ function backdropFirstCase() {
     refs.modalFirstCase.classList.add("visually-hidden");
     refs.body.classList.remove('modal-is-open');
     refs.backdrop.removeEventListener("click", backdropFirstCase);
-    document.removeEventListener("keydown", onEscape);
+    document.removeEventListener("keydown", onEscapeFirstCase);
 };
 
 function backdropSecondCase() {
     refs.backdrop.classList.add("visually-hidden");
-    refs.modalSecondCase.add("visually-hidden");
+    refs.modalSecondCase.classList.add("visually-hidden");
     refs.body.classList.remove('modal-is-open');
-    refs.backdrop.removeEventListener("click", backdropSecondCase);
-    document.removeEventListener("keydown", onEscape);
+    document.removeEventListener("keydown", onEscapeSecondCase);
 };
 
+const BtnFistCase = refs.closeBtn[0];
 function showModalFirstCase() {
     refs.backdrop.classList.remove("visually-hidden");
     refs.modalFirstCase.classList.remove("visually-hidden");
     refs.body.classList.add('modal-is-open');
-    const BtnFistCase = refs.closeBtn[0];
     BtnFistCase.addEventListener("click", onClickFirstCase);
     document.addEventListener("keydown", onEscapeFirstCase);
     refs.backdrop.addEventListener("click", backdropFirstCase);
@@ -95,6 +95,7 @@ function onClickCheckoutClose(){
     refs.backdrop.classList.add("visually-hidden");
     refs.checkoutModal.classList.add("visually-hidden");
     refs.body.classList.remove("modal-is-open");
+    document.removeEventListener("keydown", onEscapeFirstCase);
 };
 
 function onEscapeCheckout(evt){
@@ -103,15 +104,15 @@ function onEscapeCheckout(evt){
         refs.backdrop.classList.add("visually-hidden");
         refs.checkoutModal.classList.add("visually-hidden");
         refs.body.classList.remove("modal-is-open");
-        document.removeEventListener("keydown", onEscapeCheckout);
     }
+    document.removeEventListener("keydown", onEscapeCheckout);
 };
 
 function backdropCheckout(){
     refs.backdrop.classList.add("visually-hidden");
     refs.checkoutModal.classList.add("visually-hidden");
     refs.body.classList.remove("modal-is-open");
-    refs.backdrop.removeEventListener("click", backdropCheckout);
+    document.removeEventListener("keydown", onEscapeFirstCase);
 };
 
 export {showModalFirstCase, showModalSecondCase, showCheckoutModal}

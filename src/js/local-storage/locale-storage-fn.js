@@ -7,12 +7,15 @@ itemsContainer.addEventListener('click', checkLS);
 function checkLS(e) {
   //отримання кнопки та перевірка чи клік відбувся по ній
   const button = e.target.closest('.add-to-cart');
+  console.log(button)
   //збереження ід елемента в зміну (очікується клас на елемнті '.product_item')
   const itemId = e.target.closest('.product_item');
+  console.log(itemId)
 
-  if (!itemId || itemId.nodeName !== 'LI') {
-    return;
-  }
+  // if (!itemId || itemId.nodeName !== 'LI') {
+  //   console.log(1)
+  //   return;
+  // }
 
   if (button === null) {
     console.log('modal');
