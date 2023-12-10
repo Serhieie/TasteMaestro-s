@@ -70,4 +70,5 @@ function showModalSecondCase() {
     refs.backdrop.addEventListener("click", backdropSecondCase);
 }
 
+
 export {showModalFirstCase, showModalSecondCase}
