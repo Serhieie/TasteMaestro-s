@@ -1,6 +1,11 @@
 import { getOrders } from "../api-servise/api-service-basic";
 import AWN from 'awesome-notifications';
 import 'awesome-notifications/dist/style.css';
+import { showCheckoutModal } from '../modals';
+// import {totalPrice} from "../cart-page-js/cart-order-list";
+
+  // const totalElement = document.getElementById('cart_total');
+  // totalElement.textContent = `$${totalPriceCart}`;
 import { showModalFirstCase, showModalSecondCase } from '../modals';
 
 const checkoutForm = document.getElementById('checkoutForm');
@@ -25,6 +30,7 @@ return;
 }
 
 emailInput.style.borderColor = '#e8e8e2';
+showCheckoutModal()
 
 checkoutForm.reset();
 });

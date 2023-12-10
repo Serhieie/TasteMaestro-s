@@ -6,6 +6,7 @@ const refs = {
     modalFirstCase: document.querySelector(".js-modal-first-case"),
     modalSecondCase: document.querySelector(".js-modal-second-case"),
     closeBtn: document.querySelectorAll(".js-close"),
+    checkoutModal: document.querySelector(".js-checkout-modal"),
 }
 
 function onClickFirstCase() {
@@ -71,4 +72,33 @@ function showModalSecondCase() {
 }
 
 
-export {showModalFirstCase, showModalSecondCase}
+function showCheckoutModal(){
+    refs.backdrop.classList.remove("visually-hidden"); 
+    refs.checkoutModal.classList.remove("visually-hidden");
+    const BtnCheckoutClose = refs.closeBtn[2];
+    BtnCheckoutClose.addEventListener("click", onClickCheckoutClose);
+    document.addEventListener("keydown", onEscapeCheckout);
+    refs.backdrop.addEventListener("click", backdropCheckout);
+}
+
+function onClickCheckoutClose(){
+    refs.backdrop.classList.add("visually-hidden");
+    refs.checkoutModal.classList.add("visually-hidden");
+};
+
+function onEscapeCheckout(evt){
+    evt.preventDefault();
+    if (evt.key === "Escape") {
+        refs.backdrop.classList.add("visually-hidden");
+        refs.checkoutModal.classList.add("visually-hidden");
+        document.removeEventListener("keydown", onEscapeCheckout);
+    }
+};
+
+function backdropCheckout(){
+    refs.backdrop.classList.add("visually-hidden");
+    refs.checkoutModal.classList.add("visually-hidden");
+    refs.backdrop.removeEventListener("click", backdropCheckout);
+};
+
+export {showModalFirstCase, showModalSecondCase, showCheckoutModal}

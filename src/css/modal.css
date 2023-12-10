@@ -128,7 +128,8 @@
     transform: translate(-50%, -50%) scale(1);
     border-radius: 20px;
     padding: 40px 20px;
-    max-width: 335px;
+    width: 335px;
+    height: 535px;
     background-color: var(--product-card-bg-color);
 }
 
@@ -160,6 +161,8 @@
 }
 
 .product-text {
+    height: 54px;
+    overflow-y: auto;
     font-size: 14px;
     line-height: calc(18 / 14);
     color: var(--modal-text);
@@ -269,7 +272,8 @@
 
     .modal-product-card {
         padding: 40px;
-        max-width: 600px;
+        width: 600px;
+        height: 380px;
         background-color: var(--product-card-bg-color);
     }
 
@@ -288,6 +292,7 @@
     }
 
     .product-text {
+        height: 80px;
         width: 256px;
         font-size: 16px;
         line-height: calc(20 / 16);

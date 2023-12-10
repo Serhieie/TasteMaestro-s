@@ -18,7 +18,7 @@ export function createProductItemMarkup({
     updateCartItems = loadStorage('cartItems');
     idx = updateCartItems.findIndex(element => element.id === _id);
   }
-  return `<li data-id="${_id}" class="product__list__card product_item">
+  return `<li data-id="${_id}" class="product__list__card product_item js-card">
         <svg class="sticker_icon ${
           is10PercentOff ? '' : 'visually-hidden'
         }" width="60" height="60">

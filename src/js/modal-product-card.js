@@ -1,18 +1,18 @@
 import axios from 'axios';
 import sprite from '/img/sprite.svg';
 
-const productListContainer = document.querySelector('#productsList');
 const modalCard = document.querySelector('.js-modal-product-card');
 const backdrop = document.querySelector('.js-backdrop');
 const loader = document.querySelector('.loader-container');
+const fatherDiv = document.querySelector('.father_div')
 
-productListContainer.addEventListener('click', onClickProductCard);
+fatherDiv.addEventListener('click', onClickProductCard);
 
 async function onClickProductCard(event) {
   if (event.target === event.currentTarget) {
     return;
   }
-  const element = event.target.closest('.product__list__card');
+  const element = event.target.closest('.js-card');
   if (element === null) {
     return;
   }
@@ -38,6 +38,7 @@ async function onClickProductCard(event) {
 
   loader.classList.add('visually-hidden');
   modalCard.classList.remove('visually-hidden');
+
 
   const closeBtn = document.querySelector('.js-btn-close-card');
   closeBtn.addEventListener('click', onClick);

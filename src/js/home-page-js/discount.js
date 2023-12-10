@@ -58,7 +58,7 @@ function productsWithDiscountMarkup(array) {
   return array
     .map(
       ({ _id, name, img, category, price, size, popularity }) => `
-      <li data-id="${_id}" class="discount-card product_item">
+      <li data-id="${_id}" class="discount-card product_item js-card">
          <div class="img-field">
          <img
             id="product__image"
