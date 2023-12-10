@@ -167,7 +167,7 @@ filterForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     filters.keyword = keywordInput.value;
     filters.page = 1;
-    fetchProducts();
+    // fetchProducts();
 });
 
 categoryList.addEventListener('click', (event) => {
