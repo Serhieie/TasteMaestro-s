@@ -39,7 +39,7 @@
 .img-field {
   border-radius: 10px;
   background: var(--color-on-grin, #e8e8e2);
-  width: 269px;
+  width: 205px;
   height: 150px;
   padding-top: 18px;
   padding-bottom: 18px;
@@ -59,6 +59,13 @@
   font-size: 18px;
   font-weight: 500;
   line-height: 1.11em;
+}
+
+.discount-product-name {
+  width: 124px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .discount-product-buy {
