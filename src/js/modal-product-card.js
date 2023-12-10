@@ -19,8 +19,7 @@ async function onClickProductCard(event) {
   }
   const elementId = element.dataset.id;
   loader.classList.remove('visually-hidden');
-  // Ця перевірка на те, щоб модака не працювала при натиску на кнопку корзини
-  // Перевірка
+
   if (element === cartBtn) {
     console.log(cartBtn);
     return;
