@@ -59,10 +59,12 @@
     <main>
       <section class="cart-list">
         <div class="container">
-          <load ="partials/cartPage/CartWareCount.html" />
-          <load ="partials/cartPage/cartEmpty.html" />
-          <load ="partials/cartPage/cartList.html" />
-          <load ="partials/cartPage/cartTotal.html" />
+          <load ="partials/cart-page/cart-ware-count.html" />
+          <load ="partials/cart-page/cart-empty.html" />
+          <div class="cart-list-total">
+            <load ="partials/cart-page/cart-list.html" />
+            <load ="partials/cart-page/cart-total.html" />
+          </div>
         </div>
       </section>
     </main>
@@ -78,6 +80,6 @@
         ></use>
       </svg>
     </button>
-    <script type="module" src="/main.js"></script>
+    <script type="module" src="/main-cart.js"></script>
   </body>
 </html>

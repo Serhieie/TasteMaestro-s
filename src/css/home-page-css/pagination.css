@@ -3,7 +3,7 @@
   justify-content: center;
 }
 
-.pagination-conteiner {
+.conteiner-pagination{
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,6 +21,15 @@
   align-items: center;
   background-color: transparent;
 }
+
+/* .pagination-btn {
+  display: none;
+}
+
+/* Показати кнопку, якщо є тільки одна дитина (одна кнопка) */
+/* .pagination-btn:only-child {
+  display: flex;
+} */
 
 .pagination-svg {
   display: flex;
@@ -52,7 +61,7 @@
   justify-content: center;
 }
 
-.pagination-item {
+.pagi_item {
   display: flex;
   width: 40px;
   height: 40px;
@@ -64,9 +73,9 @@
   transition: all 300ms ease-in-out;
 }
 
-.pagination-item:hover,
-.pagination-item:focus,
-.pagination-item:active {
+.pagi_item:hover,
+.pagi_item:focus,
+.pagi_item:active {
   cursor: pointer;
   border-radius: 60px;
   background-color: #6d8434;
@@ -75,4 +84,13 @@
 
 .flip-horizontal {
   transform: scaleX(-1);
+}
+
+.pagi_item_span {
+  padding: 10px 16px;
+}
+
+.isActive {
+  background-color: #6d8434;
+  color: #e8e8e2;
 }

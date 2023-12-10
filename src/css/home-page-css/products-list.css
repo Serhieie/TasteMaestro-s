@@ -97,8 +97,14 @@
   background-color: var(--hover-color);
 }
 
-.card-icon-product {
+.card-icon-cart {
   fill: var(--color-on-grin);
+  display: block;
+}
+.card-icon-check {
+  stroke: var(--color-on-grin);
+  fill: transparent;
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -141,7 +147,8 @@
   .product__list {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    column-gap: 20px;
+    row-gap: 40px;
     justify-content: center;
     align-items: center;
   }

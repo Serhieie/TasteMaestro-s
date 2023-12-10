@@ -1,0 +1,207 @@
+select option:checked {
+  color: #010101;
+}
+
+select option {
+  color: rgba(1, 1, 1, 0.5);
+}
+
+.filter__section {
+  padding-bottom: 60px;
+}
+
+#keywordInput,
+#categorySelect {
+  color: #010101;
+  font-size: 14px;
+  line-height: 1.29;
+  /* 128.571% */
+}
+
+#filterForm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter__name {
+  color: rgba(1, 1, 1, 0.3);
+  font-family: Neue Montreal;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.29;
+  /* 128.571% */
+  padding-bottom: 6px;
+}
+
+.filter__position {
+  position: relative;
+}
+
+#keywordInput {
+  background-color: inherit;
+  display: flex;
+  padding: 14px 20px;
+  justify-content: center;
+  align-items: center;
+  /* gap: 189px; */
+  border-radius: 30px;
+  border: 1px solid rgba(1, 1, 1, 0.3);
+  width: 335px;
+  background-color: transparent;
+}
+
+#keywordInput:focus-visible {
+  border: 1px solid #6d8434;
+  outline: transparent;
+}
+
+.svg__search {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  /* left: 229px; */
+}
+
+.svg-icon {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+.svg__category {
+  position: absolute;
+  top: 14px;
+  left: 299px;
+  padding: 3px;
+  stroke: #010101;
+  fill: transparent;
+}
+
+#categorySelect {
+  background-color: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  display: flex;
+  padding: 14px 20px;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 30px;
+  border: 1px solid rgba(1, 1, 1, 0.3);
+  width: 335px;
+  background-color: transparent;
+}
+
+#categorySelect:focus-within {
+  border: 1px solid #6d8434;
+  outline: transparent;
+}
+
+.category-item {
+  color: rgba(1, 1, 1, 0.5);
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.category-item:hover {
+  color: #000;
+}
+
+.category-list {
+  display: none;
+  position: absolute;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.category-list.show {
+  display: inline-flex;
+  padding: 14px 46px 14px 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0px 4px 11.212px 0px rgba(0, 0, 0, 0.04),
+    0px 20px 69px 0px rgba(0, 0, 0, 0.07);
+  width: 335px;
+  margin-top: 8px;
+}
+
+#sortProducts {
+  background-color: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  display: flex;
+  padding: 14px 20px;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 30px;
+  border: 1px solid rgba(1, 1, 1, 0.3);
+  width: 335px;
+  background-color: transparent;
+}
+
+.sortProducts-list {
+  display: none;
+  position: absolute;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.sortProducts-list.show {
+  display: inline-flex;
+  padding: 14px 46px 14px 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0px 4px 11.212px 0px rgba(0, 0, 0, 0.04),
+    0px 20px 69px 0px rgba(0, 0, 0, 0.07);
+  width: 335px;
+  margin-top: 8px;
+}
+
+#sortProducts:focus-within {
+  border: 1px solid #6d8434;
+  outline: transparent;
+}
+
+@media screen and (min-width: 768px) {
+  #keywordInput {
+    width: 269px;
+  }
+
+  #categorySelect {
+    width: 209px;
+  }
+
+  #sortProducts {
+    width: 209px;
+  }
+
+  .svg__category {
+    left: 179px;
+  }
+
+  #filterForm {
+    flex-direction: row;
+  }
+
+  .filter__section {
+    padding-bottom: 40px;
+  }
+}

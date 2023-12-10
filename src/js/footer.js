@@ -1,4 +1,4 @@
-import { createSubscription } from './apiService';
+import { createSubscription } from './api-servise/api-service-basic';
 import AWN from 'awesome-notifications';
 import 'awesome-notifications/dist/style.css';
 import { showModalFirstCase, showModalSecondCase } from './modals';
@@ -6,7 +6,7 @@ import { showModalFirstCase, showModalSecondCase } from './modals';
 const form = document.querySelector('.footer-form-js');
 const inputFooter = document.querySelector('#subscribe');
 form.addEventListener('submit', onSubmit);
-const loader = document.querySelector(".loader-container")
+const loader = document.querySelector('.loader-container');
 
 const regex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
 
@@ -29,31 +29,30 @@ const globalOptionsError = {
 function onSubmit(evt) {
   evt.preventDefault();
   const email = evt.currentTarget.subscribe.value.trim().toLowerCase();
-  // ось це
+
   if (!email.match(regex)) {
     inputFooter.style.borderColor = 'red';
     new AWN().warning('Please enter a correct email', globalOptionsCheck);
     return;
   }
+  
   inputFooter.style.borderColor = '#e8e8e2';
 
   const info = {
     email: email,
   };
-  loader.classList.remove("visually-hidden");
+  loader.classList.remove('visually-hidden');
   createSubscription(info)
     .then(data => {
       if (data.status === 201) {
-        loader.classList.add("visually-hidden");
+        loader.classList.add('visually-hidden');
         showModalSecondCase();
-        console.log('Thanks for subscribing for nnew products');
       }
     })
     .catch(e => {
       if (e.response.status === 409) {
-        loader.classList.add("visually-hidden");
+        loader.classList.add('visually-hidden');
         showModalFirstCase();
-        console.log('This email address has already been entered');
       } else {
         new AWN().warning(
           'Oops! Something went wrong!Your email address is incorrect. Please try again',
