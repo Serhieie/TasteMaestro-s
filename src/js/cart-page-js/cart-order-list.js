@@ -1,3 +1,5 @@
+import sprite from '/img/sprite.svg';
+
 const orderList = document.querySelector('.cart-order-list'),
       cartListSection = document.querySelector('.cart-filled-list'),
       cartEmptySection = document.querySelector('.cart-empty'),
@@ -41,7 +43,7 @@ function cartOrder(cart) {
               <svg class="cart-remove-icon" width="18" height="18">
                 <use
                   class="cart-remove-svg"
-                  xlink:href="./img/sprite.svg#close-cross"
+                  xlink:href="./img/${sprite}#close-cross"
                 ></use>
               </svg>
             </span>
