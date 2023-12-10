@@ -100,6 +100,13 @@ function createEllipsisItem() {
 
 function createPaginationMarkup(totalHits, page) {
   const lastPage = Math.ceil(totalHits);
+  let displayedPages;
+
+  if (window.innerWidth < 768) {
+    displayedPages = 1;
+  } else {
+    displayedPages = 2;
+  }
 
   const paginationList = document.querySelector('.pagination-list');
   paginationList.innerHTML = '';
@@ -111,11 +118,15 @@ function createPaginationMarkup(totalHits, page) {
     let endPage = lastPage;
 
     if (lastPage > 5) {
-      startPage = Math.max(1, page - 2);
-      endPage = Math.min(lastPage, page + 2);
+      startPage = Math.max(1, page - displayedPages);
+      endPage = Math.min(lastPage, page + displayedPages);
 
       if (startPage === 1) {
-        endPage = 5;
+        if (window.innerWidth < 768) {
+          endPage = 3;
+        } else {
+          endPage = 5;
+        }
       } else if (endPage === lastPage) {
         startPage = lastPage - 4;
       }
