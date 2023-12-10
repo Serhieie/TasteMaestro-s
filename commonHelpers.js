@@ -1,4 +1,4 @@
-import{s as o}from"./assets/sprite-74d0a6c3.js";import{A as x}from"./assets/vendor-f728e3bf.js";const u="cartItems";document.querySelector(".js-cart");const m=document.querySelector(".header__js_span"),g=e=>{try{const t=localStorage.getItem(e);return t===null?void 0:JSON.parse(t)}catch(t){console.error("Get state error: ",t.message)}};function $(){g(u)?m.textContent=`CART (${g(u).length})`:m.textContent=`CART (${0})`}window.addEventListener("load",$);const n=document.querySelector(".cart-order-list"),S=document.querySelector(".cart-filled-list"),q=document.querySelector(".cart-empty"),b=document.querySelector(".cart-clear-btn"),p=document.querySelector(".cart-count"),L=document.querySelector(".cart_total_order"),h=document.querySelector(".header__js_span"),E=document.getElementById("cart_total");let a=JSON.parse(localStorage.getItem("cartItems"))||[];function I(e){const t=e.target;t.closest(".cart-order-decr")?A(t):t.closest(".cart-order-incr")?w(t):t.classList.contains("cart-remove-btn")&&y(t)}function k(e){return e.map(t=>`
+import{s}from"./assets/sprite-74d0a6c3.js";import{A as x}from"./assets/vendor-f728e3bf.js";const m="cartItems";document.querySelector(".js-cart");const g=document.querySelector(".header__js_span"),p=e=>{try{const t=localStorage.getItem(e);return t===null?void 0:JSON.parse(t)}catch(t){console.error("Get state error: ",t.message)}};function $(){p(m)?g.textContent=`CART (${p(m).length})`:g.textContent=`CART (${0})`}window.addEventListener("load",$);const n=document.querySelector(".cart-order-list"),S=document.querySelector(".cart-filled-list"),q=document.querySelector(".cart-empty"),b=document.querySelector(".cart-clear-btn"),h=document.querySelector(".cart-count"),L=document.querySelector(".cart_total_order"),v=document.querySelector(".header__js_span"),E=document.getElementById("cart_total");let a=JSON.parse(localStorage.getItem("cartItems"))||[];function I(e){const t=e.target;t.closest(".cart-order-decr")?A(t):t.closest(".cart-order-incr")?w(t):t.classList.contains("cart-remove-btn")&&f(t)}function k(e){return e.map(t=>`
   <li class="cart-order-item">
     <div class="cart-item-content">
       <div class="cart-order-img-cont">
@@ -16,7 +16,7 @@ import{s as o}from"./assets/sprite-74d0a6c3.js";import{A as x}from"./assets/vend
               <svg class="cart-remove-icon" width="18" height="18">
                 <use
                   class="cart-remove-svg"
-                  xlink:href="${o}#close-cross"
+                  xlink:href="${s}#close-cross"
                 ></use>
               </svg>
             </span>
@@ -33,14 +33,14 @@ import{s as o}from"./assets/sprite-74d0a6c3.js";import{A as x}from"./assets/vend
             <button class="cart-order-decr" type="button"><svg class="minus-icon" width="18" height="18">
                 <use
                   class="cart-remove-svg"
-                  xlink:href="${o}#minus"
+                  xlink:href="${s}#minus"
                 ></use>
               </svg></button>
             <span class="cart-order-quantity">${t.quantity}</span>
             <button class="cart-order-incr" type="button"><svg class="plus-icon" width="18" height="18">
                 <use
                   class="cart-remove-svg"
-                  xlink:href="${o}#plus"
+                  xlink:href="${s}#plus"
                 ></use>
               </svg></button>
           </div>
@@ -48,5 +48,5 @@ import{s as o}from"./assets/sprite-74d0a6c3.js";import{A as x}from"./assets/vend
       </div>
     </div>
   </li>
-  `).join("")}function s(){a.length?n.innerHTML=k(a):(q.classList.remove("visually-hidden"),L.classList.add("visually-hidden"),S.classList.add("visually-hidden"))}function A(e){const t=e.closest(".cart-order-item"),r=Array.from(n.children).indexOf(t);a[r].quantity>1&&(a[r].quantity-=1,f(t,a[r]))}function w(e){const t=e.closest(".cart-order-item"),r=Array.from(n.children).indexOf(t);a[r].quantity+=1,f(t,a[r])}function y(e){const t=e.target.closest(".cart-order-item");if(t){const r=Array.from(n.children).indexOf(t);a.splice(r,1)[0],i(),t.remove(),c(),s(),l()}}n.addEventListener("click",e=>{e.target.closest(".cart-remove-btn")&&y(e)});function F(){a=[],n.innerHTML="",c(),i(),s(),l()}function f(e,t){const r=e.querySelector(".cart-order-price"),d=e.querySelector(".cart-order-quantity"),C=parseFloat(t.price.replace("$",""));r.textContent=`$${(C*t.quantity).toFixed(2)}`,d.textContent=t.quantity,c(),i()}function c(){const e=a.reduce((t,r)=>t+parseFloat(r.price.replace("$",""))*r.quantity,0);E.textContent=`$${Number(e.toFixed(2))}`}function i(){localStorage.setItem("cartItems",JSON.stringify(a))}document.addEventListener("DOMContentLoaded",()=>{s(),c(),l(),n.addEventListener("click",I),b.addEventListener("click",F)});function l(){a.length?(p.textContent=`Cart (${a.length})`,h.textContent=`Cart (${a.length})`):(h.textContent=`Cart (${0})`,p.textContent=`Cart (${0})`)}const v=document.getElementById("checkoutForm");v.addEventListener("submit",function(e){e.preventDefault();const t=document.querySelector(".cart-basket-input"),r=t.value;t.checkValidity()||alert("Будь ласка, введіть дійсну електронну адресу."),r.match(_)||(t.style.borderColor="red",new x().warning("Please enter a correct email",O)),t.style.borderColor="#e8e8e2",v.reset()});const _=/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/,O={labels:{warning:"Warning"},icons:{warning:'<i class="fas fa-exclamation-triangle"></i>'},colors:{warning:"#FFA500"},maxNotifications:1,durations:{global:2e3}};
+  `).join("")}function i(){a.length?n.innerHTML=k(a):(q.classList.remove("visually-hidden"),L.classList.add("visually-hidden"),S.classList.add("visually-hidden"))}function A(e){const t=e.closest(".cart-order-item"),r=Array.from(n.children).indexOf(t);a[r].quantity>1&&(a[r].quantity-=1,C(t,a[r]))}function w(e){const t=e.closest(".cart-order-item"),r=Array.from(n.children).indexOf(t);a[r].quantity+=1,C(t,a[r])}function f(e){const t=e.target.closest(".cart-order-item");if(t){const r=Array.from(n.children).indexOf(t);a.splice(r,1)[0],l(),t.remove(),c(),i(),d()}}n.addEventListener("click",e=>{e.target.closest(".cart-remove-btn")&&f(e)});function F(){a=[],n.innerHTML="",c(),l(),i(),d()}function C(e,t){const r=e.querySelector(".cart-order-price"),u=e.querySelector(".cart-order-quantity"),o=parseFloat(t.price.replace("$",""));r.textContent=`$${(o*t.quantity).toFixed(2)}`,u.textContent=t.quantity,c(),l()}function c(){const e=a.reduce((t,r)=>t+parseFloat(r.price.replace("$",""))*r.quantity,0);E.textContent=`$${Number(e.toFixed(2))}`}function l(){localStorage.setItem("cartItems",JSON.stringify(a))}document.addEventListener("DOMContentLoaded",()=>{i(),c(),d(),n.addEventListener("click",I),b.addEventListener("click",F)});function d(){a.length?(h.textContent=`Cart (${a.length})`,v.textContent=`Cart (${a.length})`):(v.textContent=`Cart (${0})`,h.textContent=`Cart (${0})`)}const y=document.getElementById("checkoutForm");y.addEventListener("submit",function(e){e.preventDefault();const t=document.querySelector(".cart-basket-input"),r=t.value;if(!t.checkValidity()){alert("Будь ласка, введіть дійсну електронну адресу.");return}const o=/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;if(!r.match(o)){t.style.borderColor="red",new x().warning("Please enter a correct email",_);return}t.style.borderColor="#e8e8e2",y.reset()});const _={labels:{warning:"Warning"},icons:{warning:'<i class="fas fa-exclamation-triangle"></i>'},colors:{warning:"#FFA500"},maxNotifications:1,durations:{global:2e3}};
 //# sourceMappingURL=commonHelpers.js.map
