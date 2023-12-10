@@ -1,4 +1,5 @@
 import axios from 'axios';
+import sprite from '/img/sprite.svg';
 
 const productListContainer = document.querySelector('#productsList');
 const modalCard = document.querySelector('.js-modal-product-card');
@@ -113,13 +114,13 @@ function createMarkupProductCard(
     <button class="product-btn-shopping-cart" type="submit">
         <span>Add to</span>
         <svg class="product-cart-icon" width="18" height="18">
-            <use href="./img/sprite.svg#shopping-cart"></use>
+            <use href="${sprite}#shopping-cart"></use>
         </svg>
     </button>
     </div>
     <button class="modal-btn-close js-btn-close-card" type="button">
     <svg class="icon-close">
-        <use href="./img/sprite.svg#close-cross"></use>
+        <use href="${sprite}#close-cross"></use>
       </svg>
     </button>`;
 }
