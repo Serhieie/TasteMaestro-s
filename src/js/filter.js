@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createProductItemMarkup } from './markup.js';
+import throttle from 'lodash.throttle';
 
 const filterForm = document.getElementById('filterForm');
 const keywordInput = document.getElementById('keywordInput');
@@ -157,17 +158,17 @@ document.addEventListener('click', (event) => {
     }
 });
 
-keywordInput.addEventListener('input', () => {
+keywordInput.addEventListener('input', throttle(() => {
     filters.keyword = keywordInput.value;
     filters.page = 1;
     fetchProducts();
-});
+}, 300));
 
 filterForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     filters.keyword = keywordInput.value;
     filters.page = 1;
-    // fetchProducts();
+    fetchProducts();
 });
 
 categoryList.addEventListener('click', (event) => {
