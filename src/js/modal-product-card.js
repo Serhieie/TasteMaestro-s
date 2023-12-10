@@ -1,17 +1,16 @@
 import axios from "axios";
+import Notiflix from "notiflix";
+
 
 const productListContainer = document.querySelector("#productsList");
 const modalCard = document.querySelector(".js-modal-product-card");
 const backdrop = document.querySelector(".js-backdrop");
 const loader = document.querySelector(".loader-container")
+const cartBtn = document.querySelector(".add-to-cart")
 
 productListContainer.addEventListener("click", onClickProductCard);
 
-modalCard.classList.add("visually-hidden");
-
 async function onClickProductCard(event){
-
-
     if (event.target === event.currentTarget){
         return;
     };
@@ -19,16 +18,24 @@ async function onClickProductCard(event){
     if (element === null) {
         return;
     }
-    const elementId = element.id;
-
+    const elementId = element.dataset.id;
     loader.classList.remove("visually-hidden")
+// Ця перевірка на те, щоб модака не працювала при натиску на кнопку корзини
+// Перевірка
+    if (element === cartBtn) {
+        console.log(cartBtn)
+        return
+    }
+
 
     const cardInfo = await getProductCardInfo(elementId);
 
     const {category, desc, img, name, popularity, price, size} = cardInfo
 
+    modalCard.innerHTML = "";
     const modalCardMarkup = createMarkupProductCard(category, desc, img, name, popularity, price, size);
     modalCard.innerHTML = modalCardMarkup;
+    
     loader.classList.add("visually-hidden")
     modalCard.classList.remove("visually-hidden");
 
@@ -40,12 +47,14 @@ async function onClickProductCard(event){
     function onClick() {
         backdrop.classList.add("visually-hidden");
         modalCard.classList.add("visually-hidden");
+        modalCard.innerHTML = "";
         closeBtn.removeEventListener("click", onClick);
     };
     
     function backdropOnClick() {
         backdrop.classList.add("visually-hidden");
         modalCard.classList.add("visually-hidden");
+        modalCard.innerHTML = "";
         backdrop.removeEventListener("click", backdropOnClick);
     };
     
@@ -54,6 +63,7 @@ async function onClickProductCard(event){
         if (evt.key === "Escape") {
             backdrop.classList.add("visually-hidden");
             modalCard.classList.add("visually-hidden");
+            modalCard.innerHTML = "";
             document.removeEventListener("keydown", onEscape);
         }
     };    
@@ -90,7 +100,7 @@ function createMarkupProductCard(category, desc, img, name, popularity, price, s
     </div>
     </div>
     <div class="product-wraper">
-    <span class="product-price">${price}</span>
+    <span class="product-price">$${price}</span>
     <button class="product-btn-shopping-cart" type="submit">
         <span>Add to</span>
         <svg class="product-cart-icon" width="18" height="18">

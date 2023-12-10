@@ -1,3 +1,7 @@
+.transparent {
+    background-color: transparent;
+}
+
 .backdrop {
     position: fixed;
     top: 0;
@@ -141,7 +145,8 @@
     width: 295px;
     height: 212px;
     border-radius: 10px;
-    background-color: var(--background-color);
+    /* background-color: var(--background-color); */
+    background-color: transparent;
 }
 
 .product-descr {
