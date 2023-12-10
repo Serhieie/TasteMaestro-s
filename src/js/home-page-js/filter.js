@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { createProductItemMarkup } from './markup.js';
-import COMMONS from './commons.js';
+import { createProductItemMarkup } from '../helpers/markup.js';
+import COMMONS from '../commons.js';
 import { createPaginationMarkup } from './pagination.js';
 import throttle from 'lodash.throttle';
 
@@ -10,7 +10,8 @@ const categorySelectButton = document.getElementById('categorySelect');
 const categoryList = document.querySelector('.category-list');
 const sortProductsButton = document.getElementById('sortProducts');
 const sortProductsList = document.querySelector('.sortProducts-list');
-const productsList = document.getElementById('productsList');
+const productsList = document.querySelector('.product__list');
+const categoryListForNoItems = document.querySelector('.container__products');
 
 let categories = [];
 
@@ -86,10 +87,10 @@ export const fetchProducts = async () => {
 
 const displayProducts = products => {
   if (products.length === 0) {
-    ulContainer.innerHTML =
+    categoryListForNoItems.innerHTML =
       '<div class="nothing-found-conteiner"><p class="nothing-found">Nothing was found for the selected <span class="nothing-found_filter"> filters...</span></p><p class="inf-nothing-found">Try adjusting your search parameters or browse our range by other criteria to find the perfect product for you. </p></div>';
   } else {
-    ulContainer.innerHTML = products
+    productsList.innerHTML = products
       .map(product => createProductItemMarkup(product))
       .join('');
   }
