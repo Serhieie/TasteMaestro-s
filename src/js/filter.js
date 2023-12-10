@@ -161,15 +161,23 @@ document.addEventListener('click', (event) => {
 keywordInput.addEventListener('input', throttle(() => {
     filters.keyword = keywordInput.value;
     filters.page = 1;
-    fetchProducts();
+    // fetchProducts();
 }, 300));
 
-filterForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    filters.keyword = keywordInput.value;
-    filters.page = 1;
-    fetchProducts();
+filterForm.addEventListener('submit', async event => {
+  event.preventDefault();
+  COMMONS.filters.keyword = keywordInput.value;
+  COMMONS.filters.page = 1;
+  fetchProducts();
 });
+
+categoryList.addEventListener('click', event => {
+  if (event.target.classList.contains('category-item')) {
+    const selectedCategory = getCategoryValue(event.target);
+    COMMONS.filters.category = selectedCategory;
+    COMMONS.filters.page = 1;
+    fetchProducts();
+}});
 
 categoryList.addEventListener('click', (event) => {
     if (event.target.classList.contains('category-item')) {
