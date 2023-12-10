@@ -43,6 +43,7 @@ async function onPaginationClick(event) {
 
 function updatePagination() {
   const paginationItems = document.querySelectorAll('.pagi_item');
+  // const paginationBtn = document.querySelectorAll('.pagination-btn');
 
   paginationItems.forEach(item => {
     item.classList.remove('isActive');
@@ -63,6 +64,28 @@ function updatePagination() {
   } else {
     return COMMONS.forward.removeAttribute('disabled');
   }
+
+  // Приховати стрілки, якщо сторінок менше або рівно 1
+  // if (paginationBtn.length <= 1) {
+  //   COMMONS.back.style.display = 'none';
+  //   COMMONS.forward.style.display = 'none';
+  // } else {
+  //   COMMONS.back.style.display = 'block';
+  //   COMMONS.forward.style.display = 'block';
+  // }
+
+  // // Перевірити, чи є тільки один елемент
+  // if (paginationBtn.length <= 1) {
+  //   // Приховати всі кнопки
+  //   paginationBtn.forEach(button => {
+  //     button.style.display = 'none';
+  //   });
+  // } else {
+  //   // Показати всі кнопки
+  //   paginationBtn.forEach(button => {
+  //     button.style.display = 'block';
+  //   });
+  // }
 }
 
 function createPaginationItem(pageNumber, isActive) {
