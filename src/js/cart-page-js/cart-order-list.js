@@ -14,9 +14,9 @@ let totalPriceCart = 0;
 
 function handleCartClick(e) {
   const target = e.target;
-  if (target.classList.contains('cart-order-decr')) {
+  if (target.closest('.cart-order-decr')) {
     handleDecrCount(target);
-  } else if (target.classList.contains('cart-order-incr')) {
+  } else if (target.closest('.cart-order-incr')) {
     handleIncrCount(target);
   } else if (target.classList.contains('cart-remove-btn')) {
     handleRemoveItem(target);
@@ -60,9 +60,19 @@ function cartOrder(cart) {
             parseFloat(item.price.replace('$', '')) * item.quantity
           ).toFixed(2)}</span>
           <div class="cart-order-amount">
-            <button class="cart-order-decr" type="button">-</button>
+            <button class="cart-order-decr" type="button"><svg class="minus-icon" width="18" height="18">
+                <use
+                  class="cart-remove-svg"
+                  xlink:href="${sprite}#minus"
+                ></use>
+              </svg></button>
             <span class="cart-order-quantity">${item.quantity}</span>
-            <button class="cart-order-incr" type="button">+</button>
+            <button class="cart-order-incr" type="button"><svg class="plus-icon" width="18" height="18">
+                <use
+                  class="cart-remove-svg"
+                  xlink:href="${sprite}#plus"
+                ></use>
+              </svg></button>
           </div>
         </div>
       </div>
@@ -122,8 +132,6 @@ orderList.addEventListener('click', e => {
   }
 });
 
-const counter = document.querySelector('.header__js_span');
-
 function handleClearCart() {
   cart = [];
   orderList.innerHTML = '';
@@ -131,7 +139,6 @@ function handleClearCart() {
   updateLocalStorage();
   renderCartItem();
   changeListLength();
-  counter.textContent = `CART (${0})`;
 }
 
 function updateCartItem(cartItem, item) {
