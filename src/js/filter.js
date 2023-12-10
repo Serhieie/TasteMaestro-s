@@ -173,8 +173,8 @@ document.addEventListener('click', event => {
 });
 
 keywordInput.addEventListener('input', throttle(() => {
-    filters.keyword = keywordInput.value;
-    filters.page = 1;
+    COMMONS.filters.keyword = keywordInput.value;
+    COMMONS.filters.page = 1;
     // fetchProducts();
 }, 300));
 
