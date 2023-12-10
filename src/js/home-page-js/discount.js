@@ -7,6 +7,8 @@ const refs = {
 };
 
 productsWithDiscountShow();
+// можна додати зміну продуктів зі знижкою через заданий час:
+// const intervalId = setInterval(productsWithDiscountShow, 10000);
 
 async function productsWithDiscountShow() {
   try {
@@ -49,23 +51,13 @@ function productsWithDiscountMarkup(array) {
   let idx = -1;
   if (loadStorage('cartItems')) {
     updateCartItems = loadStorage('cartItems');
-    idx = updateCartItems.findIndex(element => element.id === _id);
-    console.log(idx);
+    idx = updateCartItems.findIndex(element => element.id === array._id);
   }
 
+  console.log(loadStorage('cartItems'));
   return array
     .map(
-      ({
-        _id,
-        name,
-        img,
-        imgDsc,
-        category,
-        price,
-        size,
-        popularity,
-        is10PercentOff,
-      }) => `
+      ({ _id, name, img, category, price, size, popularity }) => `
       <li data-id="${_id}" class="discount-card product_item">
          <div class="img-field">
          <img
@@ -104,7 +96,7 @@ function productsWithDiscountMarkup(array) {
          </svg>
          <span id="product_category_name" class="visually-hidden">${category}</span>
          <span id="product_size" class="visually-hidden">${size}</span>
-
+         <span class="product__description__span visually-hidden">${popularity}</span>
        </li>`
     )
     .join('');

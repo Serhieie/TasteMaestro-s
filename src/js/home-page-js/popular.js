@@ -1,6 +1,6 @@
 import axios from 'axios';
 import sprite from '/img/sprite.svg';
-import { createProductItemMarkup } from './markup';
+import { createProductItemMarkup } from '../helpers/markup.js';
 
 let limit = 5;
 const popularList = document.querySelector('.popular-js');

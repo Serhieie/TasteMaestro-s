@@ -64,28 +64,6 @@ function updatePagination() {
   } else {
     return COMMONS.forward.removeAttribute('disabled');
   }
-
-  // Приховати стрілки, якщо сторінок менше або рівно 1
-  // if (paginationBtn.length <= 1) {
-  //   COMMONS.back.style.display = 'none';
-  //   COMMONS.forward.style.display = 'none';
-  // } else {
-  //   COMMONS.back.style.display = 'block';
-  //   COMMONS.forward.style.display = 'block';
-  // }
-
-  // // Перевірити, чи є тільки один елемент
-  // if (paginationBtn.length <= 1) {
-  //   // Приховати всі кнопки
-  //   paginationBtn.forEach(button => {
-  //     button.style.display = 'none';
-  //   });
-  // } else {
-  //   // Показати всі кнопки
-  //   paginationBtn.forEach(button => {
-  //     button.style.display = 'block';
-  //   });
-  // }
 }
 
 function createPaginationItem(pageNumber, isActive) {
@@ -95,7 +73,7 @@ function createPaginationItem(pageNumber, isActive) {
 }
 
 function createEllipsisItem() {
-  return `<li class="pagi_item pagination_item"><span class="pagi_item_span">...</span></li>`;
+  return `<li class="pagi_item pagination_item ellipsis"><span class="pagi_item_span pagi_item_span_ellipsis">...</span></li>`;
 }
 
 function createPaginationMarkup(totalHits, page) {
@@ -149,4 +127,13 @@ function createPaginationMarkup(totalHits, page) {
     paginationList.innerHTML = paginationHTML;
   }
 }
-export { createPaginationMarkup };
+
+function hidePagination(totalPages) {
+  if (totalPages.length < COMMONS.filters.limit) {
+    COMMONS.paginationContainer.classList.add('visually-hidden');
+  } else {
+    COMMONS.paginationContainer.classList.remove('visually-hidden');
+  }
+}
+
+export { createPaginationMarkup, hidePagination };
