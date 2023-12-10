@@ -34,7 +34,7 @@
 .cart_total_sum {
   font-size: 12px;
   line-height: 1.17;
-  color: rgba(1, 1, 1, 0.2);
+  color: var(--total-sum-text);
 }
 .total_price {
   color: var(--text-color);
@@ -50,7 +50,7 @@
   transform: translateY(-50%);
   font-size: 14px;
   line-height: 1.29;
-  color: rgba(1, 1, 1, 0.5);
+  color: var(--placeholder-text);
 }
 
 .cart_checkout {
@@ -61,16 +61,16 @@
   padding-left: 56px;
   padding-right: 20px;
   border-radius: 30px;
-  border: 1px solid rgba(1, 1, 1, 0.3);
+  border: 1px solid var(--input-border-color);
   background-color: transparent;
-  
+  outline: none;
   width: 100%;
   height: 42px;
   background-color: var(--background-color);
 }
 .cart-basket-input:hover,
 .cart-basket-input:focus {
-  border: 1px solid var(--background-color);
+  border: 1px solid var(--brand-color);
 }
 .cart-basket-input::placeholder {
   font-size: 14px;

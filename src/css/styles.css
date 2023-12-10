@@ -79,8 +79,9 @@ html {
 
   --cart-list-border: rgba(1, 1, 1, 0.1);
   --total-price-bg-color: rgba(109, 132, 52, 0.05);
-
+  --placeholder-text: rgba(1, 1, 1, 0.5);
   --input-border-color: rgba(1, 1, 1, 0.3);
+  --total-sum-text: rgba(1, 1, 1, 0.2);
 
   --product-description-color: rgba(1, 1, 1, 0.3);
   --product-card-bg-color: #fafafa;
