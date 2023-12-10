@@ -5,5 +5,5 @@ import './js/helpers/loaders';
 import './js/footer';
 import './js/modals';
 import './js/cart-page-js/cart-js';
-import './js/cart-page-js/cart-order-list'
-import './js/cart-page-js/cart-total'
+import './js/cart-page-js/cart-order-list';
+import './js/cart-page-js/cart-total';

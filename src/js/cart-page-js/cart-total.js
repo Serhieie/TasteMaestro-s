@@ -1,7 +1,7 @@
 import { getOrders } from "../api-servise/api-service-basic";
 import AWN from 'awesome-notifications';
 import 'awesome-notifications/dist/style.css';
-import { showModalFirstCase, showModalSecondCase } from '../modals';
+import { showCheckoutModal } from '../modals';
 // import {totalPrice} from "../cart-page-js/cart-order-list";
 
   // const totalElement = document.getElementById('cart_total');
@@ -25,6 +25,7 @@ if (!email.match(regex)) {
   new AWN().warning('Please enter a correct email', globalOptionsCheck);
 }
 emailInput.style.borderColor = '#e8e8e2';
+showCheckoutModal()
 checkoutForm.reset();
 });
 
