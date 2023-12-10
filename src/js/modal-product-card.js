@@ -1,34 +1,29 @@
+
 import axios from 'axios';
-// import Notiflix from "notiflix";
 
 const productListContainer = document.querySelector('#productsList');
 const modalCard = document.querySelector('.js-modal-product-card');
 const backdrop = document.querySelector('.js-backdrop');
 const loader = document.querySelector('.loader-container');
-const cartBtn = document.querySelector('.add-to-cart');
 
 productListContainer.addEventListener('click', onClickProductCard);
 
-async function onClickProductCard(event) {
-  if (event.target === event.currentTarget) {
-    return;
-  }
-  const element = event.target.closest('.product__list__card');
-  if (element === null) {
-    return;
-  }
-  const elementId = element.dataset.id;
-  loader.classList.remove('visually-hidden');
 
-  if (element === cartBtn) {
-    console.log(cartBtn);
-    return;
-  }
-
-  const cardInfo = await getProductCardInfo(elementId);
-
-  const { category, desc, img, name, popularity, price, size } = cardInfo;
-
+async function onClickProductCard(event){
+    if (event.target === event.currentTarget){
+        return;
+    };
+    const element = event.target.closest(".product__list__card");
+    if (element === null) {
+        return;
+    }
+    const elementId = element.dataset.id;
+    if (event.target.closest(".add-to-cart")) {
+        return
+    }
+    loader.classList.remove("visually-hidden")
+const cardInfo = await getProductCardInfo(elementId);
+  
   modalCard.innerHTML = '';
   const modalCardMarkup = createMarkupProductCard(
     category,
