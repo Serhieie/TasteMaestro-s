@@ -1,31 +1,5 @@
-/**
- * очікує спільний контейнер для карток з класом "js-cart"
- * хендлить кнопки корзини картки товару з класом "item-plus" та 'item-minus'
- * да отримання data-id="" на елементі li потрібен клас '.cart-order-item'
- * клік "item-plus" додає
- * клік 'item-minus' віднімає
- *
- */
-//TODO
-//додати для корзини виклик зміни к-ть товарів в хідері
-//привязатися до розмітки корзини для зміни тексКонтенту в спані
-
-//===============================================================
-/**
- * очікує спільний контейнер для карток
- * хендлить кнопку картки товару з класом ".add-to-cart"
- * да отримання data-id="" на елементі li потрібен клас '.product_item'
- * <li data-id="640c2dd963a319ea671e383b" class="product_item"></li>
- * При першому кліку(пустий стор) сторює його, та додає елемент
- * при наступному кліку:
- * -якщо елемент з таким ід відсутній додає з кількістю 1 до ЛС
- * -якщо елемент з таким ід присутній видаляє з ЛС
- * при кожному виклику змінює в хідері к-ть товарів
- */
 const KEY = 'cartItems';
 
-//TODO
-//підключити ф-цію яка перемалюває іконку картки товару
 const itemsContainer = document.querySelector('main');
 itemsContainer.addEventListener('click', checkLS);
 
@@ -55,14 +29,12 @@ function checkLS(e) {
   const check = itemId.querySelector('.card-icon-check');
   const cart = itemId.querySelector('.card-icon-cart');
 
-  //перевіряємо чи є щост в ЛС
   if (!localStorage.getItem(KEY)) {
     //додаємо у випадку відсутнього ключа в ЛС
     const cartItem = [
       { id, img, imgDsc, title, category, price, size, quantity: 1 },
     ];
     saveStorage(KEY, cartItem);
-    console.log('ф-ція зміни картинки додати');
     cart.style.display = 'none';
     check.style.display = 'block';
     changeCounter();
@@ -78,13 +50,9 @@ function checkLS(e) {
       //видалити
       // updateCartItems[idx].quantity += 1;
       updateCartItems.splice(idx, 1);
-
-      console.log('ф-ція зміни картинки прибрати');
       cart.style.display = 'block';
       check.style.display = 'none';
     } else {
-      //додати
-
       updateCartItems.push({
         id,
         img,
@@ -104,7 +72,6 @@ function checkLS(e) {
   }
 }
 
-//ф-ції для роботи з ЛС
 const saveStorage = (key, value) => {
   try {
     const serializedState = JSON.stringify(value);
@@ -123,7 +90,6 @@ export const loadStorage = key => {
   }
 };
 
-//ф-ція зміни текстКонтенту к-ті єлементів в хідері
 function changeCounter() {
   const counter = document.querySelector('.header__js_span');
 
@@ -134,5 +100,4 @@ function changeCounter() {
   }
 }
 
-//зміна к-ті продуктів в хідері при завантаженні вікна
 window.addEventListener('load', changeCounter);
