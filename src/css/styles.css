@@ -290,10 +290,10 @@ footer {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  gap: 80px;
 }
 
 .child_div_two {
-  margin-top: 80px;
   display: flex;
   flex-direction: column;
   gap: 80px;
@@ -302,18 +302,19 @@ footer {
 @media screen and (min-width: 375px) {
 }
 @media screen and (min-width: 768px) {
+  .father_div {
+    gap: 100px;
+  }
 }
 @media screen and (min-width: 1440px) {
   .father_div {
-    display: flex;
-    justify-content: space-between;
     flex-direction: row;
+    margin-bottom: 60px;
+    gap: 0;
   }
 
   .child_div_two {
     margin-top: 0;
-    display: flex;
-    flex-direction: column;
     gap: 40px;
   }
 }

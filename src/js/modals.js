@@ -25,6 +25,7 @@ function onEscape(evt) {
 function backdropClick () {
     refs.backdrop.classList.add("visually-hidden");
     refs.modalFirstCase.classList.add("visually-hidden");
+      document.removeEventListener('keydown', onEscape);
 };
 
 console.log(refs.closeBtn)
