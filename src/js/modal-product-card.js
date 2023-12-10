@@ -8,26 +8,8 @@ const loader = document.querySelector('.loader-container');
 
 productListContainer.addEventListener('click', onClickProductCard);
 
-// async function onClickProductCard(event) {
-//   if (event.target === event.currentTarget) {
-//     return;
-//   }
-//   const element = event.target.closest('.product__list__card');
-//   if (element === null) {
-//     return;
-//   }
-//   const elementId = element.dataset.id;
-//   loader.classList.remove('visually-hidden');
-//   // Ця перевірка на те, щоб модака не працювала при натиску на кнопку корзини
-//   // Перевірка
-//   if (element === cartBtn) {
-//     console.log(cartBtn);
-//     return;
-//   }
-// }
 
 async function onClickProductCard(event){
-    console.log(event.target.closest(".add-to-cart"))
     if (event.target === event.currentTarget){
         return;
     };
@@ -40,7 +22,8 @@ async function onClickProductCard(event){
         return
     }
     loader.classList.remove("visually-hidden")
-
+const cardInfo = await getProductCardInfo(elementId);
+  
   modalCard.innerHTML = '';
   const modalCardMarkup = createMarkupProductCard(
     category,
