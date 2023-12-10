@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 
 const productListContainer = document.querySelector('#productsList');
@@ -8,23 +7,23 @@ const loader = document.querySelector('.loader-container');
 
 productListContainer.addEventListener('click', onClickProductCard);
 
+async function onClickProductCard(event) {
+  if (event.target === event.currentTarget) {
+    return;
+  }
+  const element = event.target.closest('.product__list__card');
+  if (element === null) {
+    return;
+  }
+  const elementId = element.dataset.id;
+  if (event.target.closest('.add-to-cart')) {
+    return;
+  }
+  loader.classList.remove('visually-hidden');
+  const cardInfo = await getProductCardInfo(elementId);
 
-async function onClickProductCard(event){
-    if (event.target === event.currentTarget){
-        return;
-    };
-    const element = event.target.closest(".product__list__card");
-    if (element === null) {
-        return;
-    }
-    const elementId = element.dataset.id;
-    if (event.target.closest(".add-to-cart")) {
-        return
-    }
-    loader.classList.remove("visually-hidden")
-const cardInfo = await getProductCardInfo(elementId);
-  
   modalCard.innerHTML = '';
+  const { category, desc, img, name, popularity, price, size } = cardInfo;
   const modalCardMarkup = createMarkupProductCard(
     category,
     desc,
