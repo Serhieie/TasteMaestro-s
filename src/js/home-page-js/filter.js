@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createProductItemMarkup } from '../helpers/markup.js';
 import COMMONS from '../commons.js';
-import { createPaginationMarkup } from './pagination.js';
+import { createPaginationMarkup, hidePagination } from './pagination.js';
 
 const filterForm = document.getElementById('filterForm');
 const keywordInput = document.getElementById('keywordInput');
@@ -53,6 +53,7 @@ export const fetchProducts = async () => {
     const data = response.data;
     COMMONS.filters.totalHits = data.totalPages;
     displayProducts(data.results);
+    hidePagination(data.results);
     createPaginationMarkup(data.totalPages, COMMONS.filters.page);
   } catch (error) {
     console.error('Error fetching products:', error);
@@ -69,7 +70,6 @@ const displayProducts = products => {
       .join('');
   }
 };
-
 
 const fetchCategories = async () => {
   try {
