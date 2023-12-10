@@ -1,4 +1,6 @@
 // import { toastDeleted } from '../helpers/toasts';
+window.addEventListener('load', changeCounter);
+
 const KEY = 'cartItems';
 
 const itemsContainer = document.querySelector('main');
@@ -18,6 +20,9 @@ function checkLS(e) {
     console.log('modal');
     return;
   }
+
+  //дістаю ід з кнопки
+  const buttonId = e.target.closest('.add-to-cart').dataset.id;
 
   const id = itemId.dataset.id;
   const img = itemId.querySelector('#product__image').src;
@@ -40,6 +45,7 @@ function checkLS(e) {
     check.style.display = 'block';
     changeCounter();
     //потрібно змінити стан кнопки
+    changeIconCards(buttonId);
   } else {
     //при наявному ЛС перевіряється вміст та зміннюється к-ть
     const updateCartItems = loadStorage(KEY);
@@ -52,6 +58,8 @@ function checkLS(e) {
       updateCartItems.splice(idx, 1);
       cart.style.display = 'block';
       check.style.display = 'none';
+      //
+      changeIconCards(buttonId);
     } else {
       updateCartItems.push({
         id,
@@ -66,6 +74,7 @@ function checkLS(e) {
       cart.style.display = 'none';
       check.style.display = 'block';
       console.log('ф-ція зміни картинки додати');
+      changeIconCards(buttonId);
     }
     saveStorage(KEY, updateCartItems);
     changeCounter();
@@ -100,4 +109,21 @@ function changeCounter() {
   }
 }
 
-window.addEventListener('load', changeCounter);
+function changeIconCards(dataId) {
+  // витягую всі кнопки з однаковим data-id
+  const cards = document.querySelectorAll(`[data-id="${dataId}"]`);
+
+  // перебираємо кнопки змінюючи кожній стан
+  cards.forEach(card => {
+    const cartIcon = card.querySelector('.card-icon-cart');
+    const checkIcon = card.querySelector('.card-icon-check');
+
+    if (cartIcon.style.display === 'block') {
+      cartIcon.style.display = 'none';
+      checkIcon.style.display = 'block';
+    } else {
+      cartIcon.style.display = 'block';
+      checkIcon.style.display = 'none';
+    }
+  });
+}
