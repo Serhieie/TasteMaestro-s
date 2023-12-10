@@ -120,13 +120,16 @@ orderList.addEventListener('click', (e) => {
   }
 });
 
+const counter = document.querySelector('.header__js_span');
+
 function handleClearCart() {
   cart = [];
   orderList.innerHTML = '';
   updateTotalPrice();
   updateLocalStorage();
-  renderCartItem()
+  renderCartItem();
   changeListLength();
+  counter.textContent = `CART (${0})`;
 }
 
 function updateCartItem(cartItem, item) {
