@@ -95,13 +95,13 @@ import{s as f,C as a}from"./assets/sprite-ed217468.js";import{a as L}from"./asse
     <button class="product-btn-shopping-cart" type="submit">
         <span>Add to</span>
         <svg class="product-cart-icon" width="18" height="18">
-            <use href="${f}#shopping-cart"></use>
+            <use xlink:href="${f}#shopping-cart"></use>
         </svg>
     </button>
     </div>
     <button class="modal-btn-close js-btn-close-card" type="button">
     <svg class="icon-close">
-        <use href="${f}#close-cross"></use>
+        <use xlink:href="${f}#close-cross"></use>
       </svg>
     </button>`}
 //# sourceMappingURL=commonHelpers2.js.map
