@@ -1,7 +1,7 @@
 const KEY = 'cartItems';
 
 const cartConteiner = document.querySelector('.js-cart');
-cartConteiner.addEventListener('click', handlerClickPlus);
+// cartConteiner.addEventListener('click', handlerClickPlus);
 
 function handlerClickPlus(e) {
   const button = e.target.closest('.item-plus');
