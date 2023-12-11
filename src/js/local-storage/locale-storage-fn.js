@@ -41,8 +41,8 @@ function checkLS(e) {
       { id, img, imgDsc, title, category, price, size, quantity: 1 },
     ];
     saveStorage(KEY, cartItem);
-    cart.style.display = 'none';
-    check.style.display = 'block';
+    // cart.style.display = 'none';
+    // check.style.display = 'block';
     changeCounter();
     //потрібно змінити стан кнопки
     changeIconCards(buttonId);
@@ -56,8 +56,8 @@ function checkLS(e) {
       //видалити
       // updateCartItems[idx].quantity += 1;
       updateCartItems.splice(idx, 1);
-      cart.style.display = 'block';
-      check.style.display = 'none';
+      // cart.style.display = 'block';
+      // check.style.display = 'none';
       //
       changeIconCards(buttonId);
     } else {
@@ -71,8 +71,8 @@ function checkLS(e) {
         size,
         quantity: 1,
       });
-      cart.style.display = 'none';
-      check.style.display = 'block';
+      // cart.style.display = 'none';
+      // check.style.display = 'block';
       console.log('ф-ція зміни картинки додати');
       changeIconCards(buttonId);
     }
@@ -111,17 +111,22 @@ function changeCounter() {
 
 function changeIconCards(dataId) {
   // витягую всі кнопки з однаковим data-id
-  const cards = document.querySelectorAll(`[data-id="${dataId}"]`);
+  const cards = document.querySelectorAll(`.add-to-cart[data-id="${dataId}"]`);
+  console.log(cards);
+  // console.log(cartIcon);
 
   // перебираємо кнопки змінюючи кожній стан
   cards.forEach(card => {
+    console.log('change icon');
     const cartIcon = card.querySelector('.card-icon-cart');
     const checkIcon = card.querySelector('.card-icon-check');
 
     if (cartIcon.style.display === 'block') {
+      console.log('ON');
       cartIcon.style.display = 'none';
       checkIcon.style.display = 'block';
     } else {
+      console.log('OFF');
       cartIcon.style.display = 'block';
       checkIcon.style.display = 'none';
     }

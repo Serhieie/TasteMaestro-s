@@ -132,7 +132,7 @@ function createMarkupProductCard(
     </div>
     <div class="product-wraper">
     <span id="product__price" class="product-price">$${price}</span>
-    <button class="product-btn-shopping-cart add-to-cart" type="button">
+    <button class="product-btn-shopping-cart add-to-cart" type="button" data-id="${_id}">
         <span ${
           idx === -1 ? "style = 'display:block'" : "style = 'display:none'"
         } class="card-icon-cart">Add to</span>
