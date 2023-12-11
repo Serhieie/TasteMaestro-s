@@ -75,11 +75,7 @@ export const fetchProducts = async () => {
     const response = await axios.get(url);
     const data = response.data;
     COMMONS.filters.totalHits = data.totalPages;
-    createPaginationMarkup(
-      data.totalPages,
-      COMMONS.filters.limit,
-      COMMONS.filters.page
-    );
+    createPaginationMarkup(data.totalPages, COMMONS.filters.page);
     displayProducts(data.results);
     saveFiltersToLocalStorage();
   } catch (error) {
