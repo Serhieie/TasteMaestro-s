@@ -11,7 +11,9 @@ const categoryList = document.querySelector('.category-list');
 const sortProductsButton = document.getElementById('sortProducts');
 const sortProductsList = document.querySelector('.sortProducts-list');
 const productsList = document.querySelector('.product__list');
-const categoryListForNoItems = document.querySelector('.container__products');
+// const categoryListForNoItems = document.querySelector('.container__products');
+const svgCategory = document.querySelector('.svg__category');
+const svgSort = document.querySelector('.svg__category_use');
 
 let categories = [];
 
@@ -22,7 +24,6 @@ const saveFiltersToLocalStorage = () => {
 const loadFiltersFromLocalStorage = () => {
   const savedFilters = JSON.parse(localStorage.getItem('filters'));
 
-  console.log(savedFilters);
   if (!savedFilters) {
     return;
   }
@@ -40,8 +41,10 @@ const loadFiltersFromLocalStorage = () => {
   if (savedFilters.sort === null) {
     return;
   }
+  // let displayCategory = savedFilters.category.replace(/[%\d_&]+/g, ' ').trim();
+
   updateSortButtonText(savedFilters.sort);
-  categorySelectButton.textContent = savedFilters.category;
+  // categorySelectButton.textContent = displayCategory.replace(/_/g, ' ');
 };
 
 loadFiltersFromLocalStorage();
@@ -109,8 +112,8 @@ const displayProducts = products => {
   productsList.innerHTML = products
     .map(product => createProductItemMarkup(product))
     .join('');
-  if (!products) {
-    categoryListForNoItems.innerHTML =
+  if (!products.length) {
+    productsList.innerHTML =
       '<div class="nothing-found-conteiner"><p class="nothing-found">Nothing was found for the selected <span class="nothing-found_filter"> filters...</span></p><p class="inf-nothing-found">Try adjusting your search parameters or browse our range by other criteria to find the perfect product for you. </p></div>';
   }
 };
@@ -128,11 +131,10 @@ const fetchCategories = async () => {
   }
 };
 
-const displayCategories = categories => {
+function displayCategories(categories) {
   const listItems = categories
     .map(category => {
       let displayCategory = category.replace(/_/g, ' ');
-
       if (category === 'Breads_&_Bakery') {
         displayCategory = displayCategory.replace(/&/g, '/');
       }
@@ -142,7 +144,7 @@ const displayCategories = categories => {
     .join('');
 
   categoryList.innerHTML = listItems;
-};
+}
 
 function updateSortButtonText(sortOption) {
   switch (sortOption) {
@@ -172,13 +174,10 @@ function updateSortButtonText(sortOption) {
   }
 }
 
-const hideSortList = () => {
-  sortProductsList.classList.remove('show');
-};
-
 sortProductsButton.addEventListener('click', event => {
   event.preventDefault();
   sortProductsList.classList.toggle('show');
+  svgSort.classList.toggle('rotate-sort');
 });
 
 const updateCategoryButtonText = category => {
@@ -197,32 +196,33 @@ const hideCategoryList = () => {
   categoryList.classList.remove('show');
 };
 
+const hideSortList = () => {
+  sortProductsList.classList.remove('show');
+};
+
 categorySelectButton.addEventListener('click', event => {
   event.preventDefault();
   categoryList.classList.toggle('show');
+  svgCategory.classList.toggle('rotate-category');
 });
 
-// document.addEventListener('click', event => {
-//   event.preventDefault();
-//   console.log(6);
-//   if (
-//     !event.target.matches('#sortProducts') &&
-//     !event.target.closest('.sortProducts-list')
-//   ) {
-//     hideSortList();
-//   }
-// });
+document.addEventListener('click', event => {
+  if (
+    !event.target.matches('#sortProducts') &&
+    !event.target.closest('.sortProducts-list')
+  ) {
+    hideSortList();
+  }
+});
 
-// document.addEventListener('click', event => {
-//   event.preventDefault();
-//   console.log(20);
-//   if (
-//     !event.target.matches('#categorySelect') &&
-//     !event.target.closest('.category-list')
-//   ) {
-//     hideCategoryList();
-//   }
-// });
+document.addEventListener('click', event => {
+  if (
+    !event.target.matches('#categorySelect') &&
+    !event.target.closest('.category-list')
+  ) {
+    hideCategoryList();
+  }
+});
 
 keywordInput.addEventListener(
   'input',
@@ -243,9 +243,13 @@ filterForm.addEventListener('submit', async event => {
 categoryList.addEventListener('click', event => {
   if (event.target.classList.contains('category-item')) {
     const selectedCategory = getCategoryValue(event.target);
+    let displayCategory = selectedCategory.replace(/[%\d_]+/g, ' ').trim();
+
     COMMONS.filters.category = selectedCategory;
     COMMONS.filters.page = 1;
-    updateCategoryButtonText(selectedCategory);
+
+    updateCategoryButtonText(displayCategory);
+    svgCategory.classList.toggle('rotate-category');
     fetchProducts();
     hideCategoryList();
   }
@@ -258,6 +262,7 @@ sortProductsList.addEventListener('click', event => {
     COMMONS.filters.sort = selectedSortOption;
     COMMONS.filters.page = 1;
     updateSortButtonText(selectedSortOption);
+    svgSort.classList.toggle('rotate-sort');
     fetchProducts();
     hideSortList();
   }

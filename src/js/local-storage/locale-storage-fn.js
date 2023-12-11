@@ -73,7 +73,6 @@ function checkLS(e) {
       });
       // cart.style.display = 'none';
       // check.style.display = 'block';
-      console.log('ф-ція зміни картинки додати');
       changeIconCards(buttonId);
     }
     saveStorage(KEY, updateCartItems);
@@ -112,21 +111,16 @@ function changeCounter() {
 function changeIconCards(dataId) {
   // витягую всі кнопки з однаковим data-id
   const cards = document.querySelectorAll(`.add-to-cart[data-id="${dataId}"]`);
-  console.log(cards);
-  // console.log(cartIcon);
 
   // перебираємо кнопки змінюючи кожній стан
   cards.forEach(card => {
-    console.log('change icon');
     const cartIcon = card.querySelector('.card-icon-cart');
     const checkIcon = card.querySelector('.card-icon-check');
 
     if (cartIcon.style.display === 'block') {
-      console.log('ON');
       cartIcon.style.display = 'none';
       checkIcon.style.display = 'block';
     } else {
-      console.log('OFF');
       cartIcon.style.display = 'block';
       checkIcon.style.display = 'none';
     }
