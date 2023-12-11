@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {showLoader} from '../helpers/loaders'
 
 async function createSubscription(data) {
   return await axios.post(
@@ -20,6 +21,7 @@ async function getOrders() {
 }
 
 async function createOrder(order) {
+// showLoader()
   return await axios.post(
     `https://food-boutique.b.goit.study/api/orders`,
     order
