@@ -21,26 +21,32 @@ const saveFiltersToLocalStorage = () => {
 
 const loadFiltersFromLocalStorage = () => {
   const savedFilters = JSON.parse(localStorage.getItem('filters'));
-  const savedCategory = savedFilters.category;
-  const savedSort = savedFilters.sort;
+
+  console.log(savedFilters);
+  if (!savedFilters) {
+    return;
+  }
 
   if (savedFilters) {
     if (savedFilters.keyword) {
       keywordInput.value = savedFilters.keyword;
     }
-    if (savedSort) {
-      updateSortButtonText(savedSort);
-    }
-    if (savedCategory) {
-      categorySelectButton.textContent = savedCategory;
-    }
     COMMONS.filters = savedFilters;
   }
+
+  if (savedFilters.category === null) {
+    return;
+  }
+  if (savedFilters.sort === null) {
+    return;
+  }
+  updateSortButtonText(savedFilters.sort);
+  categorySelectButton.textContent = savedFilters.category;
 };
 
 loadFiltersFromLocalStorage();
 
-export const fetchProducts = async () => {
+export async function fetchProducts() {
   try {
     if (window.innerWidth >= 1440) {
       COMMONS.filters.limit = 9;
@@ -97,7 +103,7 @@ export const fetchProducts = async () => {
   } catch (error) {
     console.error('Error fetching products:', error);
   }
-};
+}
 
 const displayProducts = products => {
   productsList.innerHTML = products
