@@ -90,8 +90,7 @@ export const fetchProducts = async () => {
     }
     const response = await axios.get(url);
     const data = response.data;
-
-    COMMONS.filters.totalHits = data.totalPages;
+    COMMONS.filters.totalPages = data.totalPages;
     createPaginationMarkup(data.totalPages, COMMONS.filters.page);
     displayProducts(data.results);
     saveFiltersToLocalStorage();
