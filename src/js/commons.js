@@ -1,5 +1,5 @@
 const BASE_URL = 'https://food-boutique.b.goit.study/api';
-const loader = document.querySelector('.loader');
+const loader = document.querySelector('.loader-container');
 //pagination
 const paginationContainer = document.querySelector('.conteiner-pagination');
 const forward = document.querySelector('.forward');

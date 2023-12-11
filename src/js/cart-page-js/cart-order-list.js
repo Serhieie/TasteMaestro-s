@@ -188,3 +188,5 @@ function changeListLength() {
     headerCounter.textContent = `Cart (${cart.length})`;
   }
 }
+
+export { cartOrder, handleClearCart }

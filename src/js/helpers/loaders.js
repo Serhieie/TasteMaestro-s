@@ -7,4 +7,4 @@ function hideLoader() {
   COMMONS.loader.classList.add('visually-hidden');
   COMMONS.isFetching = true;
 }
-export default { showLoader, hideLoader };
+export { showLoader, hideLoader };
