@@ -55,8 +55,8 @@
     <meta property="og:image:height" content="345" />
     <script type="module" crossorigin src="/TasteMaestro-s/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/vendor-470c038c.js">
-    <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/sprite-7df77d99.js">
-    <link rel="stylesheet" href="/TasteMaestro-s/assets/sprite-680aff3f.css">
+    <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/sprite-6a4280e1.js">
+    <link rel="stylesheet" href="/TasteMaestro-s/assets/sprite-60ab23a0.css">
     <link rel="stylesheet" href="/TasteMaestro-s/assets/vendor-dccfdd0c.css">
   </head>
   <body>
@@ -140,50 +140,58 @@
   </div>
 </section>
 
-      <section class="filter__section">
-    <div class="container">
-        <p class="filter__name">Filters:</p>
-        <form id="filterForm">
-            <div class="filter__position">
-                <label>
-                    <input type="text" id="keywordInput" placeholder="Search for anything" />
-                    <svg class="svg__search" width="20" height="20">
-                        <use href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#search"></use>
-                    </svg>
-                </label>
-            </div>
-            <div class="filter__position">
-                <button id="categorySelect">Categories</button>
-                <ul class="category-list">
-                    <!-- категорії з сервера -->
-                </ul>
-                <svg class="svg__category" width="20" height="20">
-                    <use xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#down-vector"></use>
-                </svg>
-            </div>
-            <div class="filter__position">
-                <div class="sort-dropdown">
-                    <button id="sortProducts">A to Z</button>
-                    <ul class="sortProducts-list">
-                        <li class="category-item" data-value="alphabetical">A to Z</li>
-                        <li class="category-item" data-value="reverse-alphabetical">Z to A</li>
-                        <li class="category-item" data-value="cheap">Cheap</li>
-                        <li class="category-item" data-value="expensive">Expensive</li>
-                        <li class="category-item" data-value="popular">Popular</li>
-                        <li class="category-item" data-value="not-popular">Not popular</li>
-                        <li class="category-item" data-value="all">Show all</li>
-                    </ul>
-                </div>
-                <svg class="svg__category" width="20" height="20">
-                    <use xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#down-vector"></use>
-                </svg>
-            </div>
-        </form>
-    </div>
-</section>
-      <div class="father_div container">
-        <div class="child_div_one">
-          <section class="productsList__section">
+      <section>
+        <div class="filter__section">
+  <div class="container">
+    <p class="filter__name">Filters:</p>
+    <form id="filterForm">
+      <div class="filter__position">
+        <label>
+          <input
+            type="text"
+            id="keywordInput"
+            placeholder="Search for anything"
+          />
+          <svg class="svg__search" width="20" height="20">
+            <use href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#search"></use>
+          </svg>
+        </label>
+      </div>
+      <div class="filter__position">
+        <button id="categorySelect">Categories</button>
+        <ul class="category-list">
+          <!-- категорії з сервера -->
+        </ul>
+        <svg class="svg__category" width="20" height="20">
+          <use xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#down-vector"></use>
+        </svg>
+      </div>
+      <div class="filter__position">
+        <div class="sort-dropdown">
+          <button id="sortProducts">A to Z</button>
+          <ul class="sortProducts-list">
+            <li class="category-item" data-value="alphabetical">A to Z</li>
+            <li class="category-item" data-value="reverse-alphabetical">
+              Z to A
+            </li>
+            <li class="category-item" data-value="cheap">Cheap</li>
+            <li class="category-item" data-value="expensive">Expensive</li>
+            <li class="category-item" data-value="popular">Popular</li>
+            <li class="category-item" data-value="not-popular">Not popular</li>
+            <li class="category-item" data-value="all">Show all</li>
+          </ul>
+        </div>
+        <svg class="svg__category" width="20" height="20">
+          <use xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#down-vector"></use>
+        </svg>
+      </div>
+    </form>
+  </div>
+</div>
+
+        <div class="father_div container">
+          <div class="child_div_one">
+            <section class="productsList__section">
   <h2 class="productsList__section__title visually-hidden">Products</h2>
   <div id="productsList" class="container container__products">
     <div class="loader-container-two visually-hidden">
@@ -238,7 +246,7 @@
   </div>
 </section>
 
-          <section class="pagination-section">
+            <div class="pagination-section">
   <div class="conteiner-pagination">
     <button type="button" class="pagination-btn back">
       <svg class="pagination-svg back" width="40" height="40">
@@ -256,26 +264,27 @@
       </svg>
     </button>
   </div>
-</section>
+</div>
 
-        </div>
-        <div class="child_div_two">
-          <section class="popular_product_section">
+          </div>
+          <div class="child_div_two">
+            <section class="popular_product_section">
   <div class="container popular_container">
     <h3 class="popular_title">Popular products</h3>
     <ul class="popular_products_list popular-js"></ul>
   </div>
 </section>
 
-          <section class="discount-section">
+            <section class="discount-section">
   <div class="container">
     <h2 class="discount-title">Discount products</h2>
     <ul class="discount-card-list"></ul>
   </div>
 </section>
 
+          </div>
         </div>
-      </div>
+      </section>
       <div class="backdrop js-backdrop visually-hidden">
   <!-- Subscription has been already done -->
   <div class="modal modal-first-case js-modal-first-case visually-hidden">
