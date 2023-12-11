@@ -1,7 +1,6 @@
 select option:checked {
   color: #010101;
 }
-
 select option {
   color: rgba(1, 1, 1, 0.5);
 }
@@ -10,7 +9,6 @@ select option {
   padding-bottom: 60px;
 }
 
-#keywordInput,
 #categorySelect {
   color: #010101;
   font-size: 14px;
@@ -36,7 +34,18 @@ select option {
 }
 
 .filter__position {
-  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.filter-button {
+  border-top-right-radius: 60px;
+  border-bottom-right-radius: 60px;
+  height: 48px;
+  width: 40px;
+  border: 1px solid rgba(1, 1, 1, 0.3);
+  border-left: none;
+  background-color: #e8e8e2;
 }
 
 #keywordInput {
@@ -45,24 +54,20 @@ select option {
   padding: 14px 20px;
   justify-content: center;
   align-items: center;
-  /* gap: 189px; */
-  border-radius: 30px;
+  gap: 189px;
+
   border: 1px solid rgba(1, 1, 1, 0.3);
-  width: 335px;
   background-color: transparent;
+  border-top-left-radius: 60px;
+  border-bottom-left-radius: 60px;
+  border-right: none;
+  outline: none;
 }
 
-#keywordInput:focus-visible {
+/* #keywordInput:focus-visible {
   border: 1px solid #6d8434;
   outline: transparent;
-}
-
-.svg__search {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  /* left: 229px; */
-}
+} */
 
 .svg-icon {
   position: absolute;
@@ -216,9 +221,9 @@ select option {
 }
 
 @media screen and (min-width: 768px) {
-  #keywordInput {
+  /* #keywordInput {
     width: 269px;
-  }
+  } */
 
   #categorySelect {
     width: 209px;
