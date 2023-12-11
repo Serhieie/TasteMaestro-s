@@ -112,7 +112,6 @@
     gap: 32px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
   }
 
@@ -145,7 +144,6 @@
     flex-wrap: wrap;
     column-gap: 20px;
     row-gap: 40px;
-    justify-content: center;
     align-items: center;
   }
 
