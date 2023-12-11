@@ -183,12 +183,12 @@ select option {
 .nothing-found-conteiner {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 14px;
   width: 262px;
   height: 110px;
   margin: 0 auto;
+  margin-top: 120px;
 }
 
 .nothing-found {

@@ -77,6 +77,7 @@ function createEllipsisItem() {
 }
 
 function createPaginationMarkup(totalHits, page) {
+  hidePagination(totalHits, page);
   const lastPage = Math.ceil(totalHits);
   let displayedPages;
 
@@ -128,12 +129,16 @@ function createPaginationMarkup(totalHits, page) {
   }
 }
 
-function hidePagination(totalPages) {
-  if (totalPages.length < COMMONS.filters.limit) {
+function hidePagination(totalHits, page) {
+  if (!page || totalHits.length <= 1) {
     COMMONS.paginationContainer.classList.add('visually-hidden');
+    COMMONS.back.classList.add('visually-hidden');
+    COMMONS.forward.classList.add('visually-hidden');
   } else {
     COMMONS.paginationContainer.classList.remove('visually-hidden');
+    COMMONS.back.classList.remove('visually-hidden');
+    COMMONS.forward.classList.remove('visually-hidden');
   }
 }
 
-export { createPaginationMarkup, hidePagination };
+export { createPaginationMarkup };
