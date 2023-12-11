@@ -11,7 +11,6 @@ async function getPopular() {
     const response = await axios.get(
       `https://food-boutique.b.goit.study/api/products/popular?limit=${limit}`
     );
-    console.log(response.data.length);
     popularList.insertAdjacentHTML('beforeend', createMarkup(response));
   } catch (error) {
     //при помилці сетати деф значенняn

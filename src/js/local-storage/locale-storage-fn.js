@@ -1,4 +1,6 @@
 // import { toastDeleted } from '../helpers/toasts';
+window.addEventListener('load', changeCounter);
+
 const KEY = 'cartItems';
 
 const itemsContainer = document.querySelector('main');
@@ -19,6 +21,9 @@ function checkLS(e) {
     return;
   }
 
+  //дістаю ід з кнопки
+  const buttonId = e.target.closest('.add-to-cart').dataset.id;
+
   const id = itemId.dataset.id;
   const img = itemId.querySelector('#product__image').src;
   const imgDsc = itemId.querySelector('#product__image').alt;
@@ -36,10 +41,11 @@ function checkLS(e) {
       { id, img, imgDsc, title, category, price, size, quantity: 1 },
     ];
     saveStorage(KEY, cartItem);
-    cart.style.display = 'none';
-    check.style.display = 'block';
+    // cart.style.display = 'none';
+    // check.style.display = 'block';
     changeCounter();
     //потрібно змінити стан кнопки
+    changeIconCards(buttonId);
   } else {
     //при наявному ЛС перевіряється вміст та зміннюється к-ть
     const updateCartItems = loadStorage(KEY);
@@ -50,8 +56,10 @@ function checkLS(e) {
       //видалити
       // updateCartItems[idx].quantity += 1;
       updateCartItems.splice(idx, 1);
-      cart.style.display = 'block';
-      check.style.display = 'none';
+      // cart.style.display = 'block';
+      // check.style.display = 'none';
+      //
+      changeIconCards(buttonId);
     } else {
       updateCartItems.push({
         id,
@@ -63,9 +71,10 @@ function checkLS(e) {
         size,
         quantity: 1,
       });
-      cart.style.display = 'none';
-      check.style.display = 'block';
-      // console.log('ф-ція зміни картинки додати');
+      // cart.style.display = 'none';
+      // check.style.display = 'block';
+      console.log('ф-ція зміни картинки додати');
+      changeIconCards(buttonId);
     }
     saveStorage(KEY, updateCartItems);
     changeCounter();
@@ -100,4 +109,26 @@ function changeCounter() {
   }
 }
 
-window.addEventListener('load', changeCounter);
+function changeIconCards(dataId) {
+  // витягую всі кнопки з однаковим data-id
+  const cards = document.querySelectorAll(`.add-to-cart[data-id="${dataId}"]`);
+  console.log(cards);
+  // console.log(cartIcon);
+
+  // перебираємо кнопки змінюючи кожній стан
+  cards.forEach(card => {
+    console.log('change icon');
+    const cartIcon = card.querySelector('.card-icon-cart');
+    const checkIcon = card.querySelector('.card-icon-check');
+
+    if (cartIcon.style.display === 'block') {
+      console.log('ON');
+      cartIcon.style.display = 'none';
+      checkIcon.style.display = 'block';
+    } else {
+      console.log('OFF');
+      cartIcon.style.display = 'block';
+      checkIcon.style.display = 'none';
+    }
+  });
+}
