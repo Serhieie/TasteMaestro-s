@@ -21,12 +21,14 @@ const saveFiltersToLocalStorage = () => {
 
 const loadFiltersFromLocalStorage = () => {
   const savedFilters = localStorage.getItem('filters');
+
   if (savedFilters) {
     COMMONS.filters = JSON.parse(savedFilters);
   }
 };
 
 loadFiltersFromLocalStorage();
+console.log(COMMONS.filters);
 
 export const fetchProducts = async () => {
   try {
@@ -158,6 +160,7 @@ const hideSortList = () => {
 };
 
 sortProductsButton.addEventListener('click', () => {
+  console.log(8);
   sortProductsList.classList.toggle('show');
 });
 
@@ -174,10 +177,14 @@ const hideCategoryList = () => {
 };
 
 categorySelectButton.addEventListener('click', () => {
+  event.preventDefault();
+  console.log(7);
   categoryList.classList.toggle('show');
 });
 
 document.addEventListener('click', event => {
+  event.preventDefault();
+  console.log(6);
   if (
     !event.target.matches('#sortProducts') &&
     !event.target.closest('.sortProducts-list')
@@ -187,6 +194,8 @@ document.addEventListener('click', event => {
 });
 
 document.addEventListener('click', event => {
+  event.preventDefault();
+  console.log(20);
   if (
     !event.target.matches('#categorySelect') &&
     !event.target.closest('.category-list')
@@ -198,6 +207,7 @@ document.addEventListener('click', event => {
 keywordInput.addEventListener(
   'input',
   throttle(() => {
+    console.log(4);
     COMMONS.filters.keyword = keywordInput.value;
     COMMONS.filters.page = 1;
     fetchProducts();
@@ -205,6 +215,7 @@ keywordInput.addEventListener(
 );
 
 filterForm.addEventListener('submit', async event => {
+  console.log(3);
   event.preventDefault();
   COMMONS.filters.keyword = keywordInput.value;
   COMMONS.filters.page = 1;
@@ -212,6 +223,7 @@ filterForm.addEventListener('submit', async event => {
 });
 
 categoryList.addEventListener('click', event => {
+  console.log(1);
   if (event.target.classList.contains('category-item')) {
     const selectedCategory = getCategoryValue(event.target);
     COMMONS.filters.category = selectedCategory;
@@ -219,10 +231,14 @@ categoryList.addEventListener('click', event => {
     fetchProducts();
     updateCategoryButtonText(selectedCategory);
     hideCategoryList();
+    saveFiltersToLocalStorage();
+    loadFiltersFromLocalStorage();
+    console.log(COMMONS.filters);
   }
 });
 
 sortProductsList.addEventListener('click', event => {
+  console.log(2);
   if (event.target.classList.contains('category-item')) {
     const selectedSortOption = event.target.getAttribute('data-value');
     COMMONS.filters.sort = selectedSortOption;
