@@ -255,7 +255,6 @@ categoryList.addEventListener('click', event => {
   }
 });
 
-//тут треба якось прибрати 1 клік перший
 sortProductsList.addEventListener('click', event => {
   if (event.target.classList.contains('category-item')) {
     const selectedSortOption = getSortValue(event.target);
