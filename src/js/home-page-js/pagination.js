@@ -77,7 +77,7 @@ function createEllipsisItem() {
 }
 
 function createPaginationMarkup(totalHits, page) {
-  hidePagination(totalHits, page);
+  hidePagination(totalHits);
   const lastPage = Math.ceil(totalHits);
   let displayedPages;
 
@@ -129,8 +129,8 @@ function createPaginationMarkup(totalHits, page) {
   }
 }
 
-function hidePagination(totalHits, page) {
-  if (!page || totalHits.length <= 1) {
+function hidePagination(totalHits) {
+  if (totalHits <= 1) {
     COMMONS.paginationContainer.classList.add('visually-hidden');
     COMMONS.back.classList.add('visually-hidden');
     COMMONS.forward.classList.add('visually-hidden');

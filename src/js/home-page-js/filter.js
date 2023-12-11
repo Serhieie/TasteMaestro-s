@@ -4,7 +4,7 @@ import COMMONS from '../commons.js';
 import { createPaginationMarkup } from './pagination.js';
 import throttle from 'lodash.throttle';
 
-const filterForm = document.getElementById('filterForm');
+const filterForm = document.querySelector('.filters-from');
 const keywordInput = document.getElementById('keywordInput');
 const categorySelectButton = document.getElementById('categorySelect');
 const categoryList = document.querySelector('.category-list');
@@ -20,15 +20,25 @@ const saveFiltersToLocalStorage = () => {
 };
 
 const loadFiltersFromLocalStorage = () => {
-  const savedFilters = localStorage.getItem('filters');
+  const savedFilters = JSON.parse(localStorage.getItem('filters'));
+  const savedCategory = savedFilters.category;
+  const savedSort = savedFilters.sort;
 
   if (savedFilters) {
-    COMMONS.filters = JSON.parse(savedFilters);
+    if (savedFilters.keyword) {
+      keywordInput.value = savedFilters.keyword;
+    }
+    if (savedSort) {
+      updateSortButtonText(savedSort);
+    }
+    if (savedCategory) {
+      categorySelectButton.textContent = savedCategory;
+    }
+    COMMONS.filters = savedFilters;
   }
 };
 
 loadFiltersFromLocalStorage();
-console.log(COMMONS.filters);
 
 export const fetchProducts = async () => {
   try {
@@ -40,13 +50,19 @@ export const fetchProducts = async () => {
       COMMONS.filters.limit = 6;
     }
 
-    let url = `https://food-boutique.b.goit.study/api/products?page=${COMMONS.filters.page}&limit=${COMMONS.filters.limit}`;
+    let url = `${COMMONS.BASE_URL}/products?page=${COMMONS.filters.page}&limit=${COMMONS.filters.limit}`;
 
     if (COMMONS.filters.keyword) {
       url += `&keyword=${COMMONS.filters.keyword}`;
     }
 
     if (COMMONS.filters.category && COMMONS.filters.category !== 'Show all') {
+      if (COMMONS.filters.category.includes('&')) {
+        COMMONS.filters.category = COMMONS.filters.category.replace(
+          /&/g,
+          '%26'
+        );
+      }
       url += `&category=${COMMONS.filters.category}`;
     }
 
@@ -74,6 +90,7 @@ export const fetchProducts = async () => {
     }
     const response = await axios.get(url);
     const data = response.data;
+
     COMMONS.filters.totalHits = data.totalPages;
     createPaginationMarkup(data.totalPages, COMMONS.filters.page);
     displayProducts(data.results);
@@ -84,13 +101,12 @@ export const fetchProducts = async () => {
 };
 
 const displayProducts = products => {
-  if (products.length === 0) {
+  productsList.innerHTML = products
+    .map(product => createProductItemMarkup(product))
+    .join('');
+  if (!products) {
     categoryListForNoItems.innerHTML =
       '<div class="nothing-found-conteiner"><p class="nothing-found">Nothing was found for the selected <span class="nothing-found_filter"> filters...</span></p><p class="inf-nothing-found">Try adjusting your search parameters or browse our range by other criteria to find the perfect product for you. </p></div>';
-  } else {
-    productsList.innerHTML = products
-      .map(product => createProductItemMarkup(product))
-      .join('');
   }
 };
 
@@ -123,7 +139,7 @@ const displayCategories = categories => {
   categoryList.innerHTML = listItems;
 };
 
-const updateSortButtonText = sortOption => {
+function updateSortButtonText(sortOption) {
   switch (sortOption) {
     case 'alphabetical':
       sortProductsButton.textContent = 'A to Z';
@@ -149,14 +165,14 @@ const updateSortButtonText = sortOption => {
     default:
       break;
   }
-};
+}
 
 const hideSortList = () => {
   sortProductsList.classList.remove('show');
 };
 
-sortProductsButton.addEventListener('click', () => {
-  console.log(8);
+sortProductsButton.addEventListener('click', event => {
+  event.preventDefault();
   sortProductsList.classList.toggle('show');
 });
 
@@ -168,50 +184,51 @@ const getCategoryValue = selectedItem => {
   return selectedItem ? selectedItem.getAttribute('data-value') : null;
 };
 
+const getSortValue = selectedItem => {
+  return selectedItem ? selectedItem.getAttribute('data-value') : null;
+};
+
 const hideCategoryList = () => {
   categoryList.classList.remove('show');
 };
 
-categorySelectButton.addEventListener('click', () => {
+categorySelectButton.addEventListener('click', event => {
   event.preventDefault();
-  console.log(7);
   categoryList.classList.toggle('show');
 });
 
-document.addEventListener('click', event => {
-  event.preventDefault();
-  console.log(6);
-  if (
-    !event.target.matches('#sortProducts') &&
-    !event.target.closest('.sortProducts-list')
-  ) {
-    hideSortList();
-  }
-});
+// document.addEventListener('click', event => {
+//   event.preventDefault();
+//   console.log(6);
+//   if (
+//     !event.target.matches('#sortProducts') &&
+//     !event.target.closest('.sortProducts-list')
+//   ) {
+//     hideSortList();
+//   }
+// });
 
-document.addEventListener('click', event => {
-  event.preventDefault();
-  console.log(20);
-  if (
-    !event.target.matches('#categorySelect') &&
-    !event.target.closest('.category-list')
-  ) {
-    hideCategoryList();
-  }
-});
+// document.addEventListener('click', event => {
+//   event.preventDefault();
+//   console.log(20);
+//   if (
+//     !event.target.matches('#categorySelect') &&
+//     !event.target.closest('.category-list')
+//   ) {
+//     hideCategoryList();
+//   }
+// });
 
 keywordInput.addEventListener(
   'input',
   throttle(() => {
-    console.log(4);
     COMMONS.filters.keyword = keywordInput.value;
     COMMONS.filters.page = 1;
     fetchProducts();
-  }, 1000)
+  }, 1500)
 );
 
 filterForm.addEventListener('submit', async event => {
-  console.log(3);
   event.preventDefault();
   COMMONS.filters.keyword = keywordInput.value;
   COMMONS.filters.page = 1;
@@ -219,31 +236,28 @@ filterForm.addEventListener('submit', async event => {
 });
 
 categoryList.addEventListener('click', event => {
-  console.log(1);
   if (event.target.classList.contains('category-item')) {
     const selectedCategory = getCategoryValue(event.target);
     COMMONS.filters.category = selectedCategory;
     COMMONS.filters.page = 1;
-    fetchProducts();
     updateCategoryButtonText(selectedCategory);
+    fetchProducts();
     hideCategoryList();
-    saveFiltersToLocalStorage();
-    loadFiltersFromLocalStorage();
-    console.log(COMMONS.filters);
   }
 });
 
+//тут треба якось прибрати 1 клік перший
 sortProductsList.addEventListener('click', event => {
-  console.log(2);
   if (event.target.classList.contains('category-item')) {
-    const selectedSortOption = event.target.getAttribute('data-value');
+    const selectedSortOption = getSortValue(event.target);
     COMMONS.filters.sort = selectedSortOption;
     COMMONS.filters.page = 1;
-    fetchProducts();
     updateSortButtonText(selectedSortOption);
+    fetchProducts();
     hideSortList();
   }
 });
 
 fetchCategories();
 fetchProducts();
+loadFiltersFromLocalStorage();

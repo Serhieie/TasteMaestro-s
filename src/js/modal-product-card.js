@@ -23,7 +23,7 @@ async function onClickProductCard(event) {
     return;
   }
   loader.classList.remove('visually-hidden');
-  body.classList.add('modal-is-open')
+  body.classList.add('modal-is-open');
   const cardInfo = await getProductCardInfo(elementId);
 
   modalCard.innerHTML = '';
@@ -43,7 +43,6 @@ async function onClickProductCard(event) {
   loader.classList.add('visually-hidden');
   modalCard.classList.remove('visually-hidden');
 
-
   const closeBtn = document.querySelector('.js-btn-close-card');
   closeBtn.addEventListener('click', onClick);
   backdrop.addEventListener('click', backdropOnClick);
@@ -59,9 +58,8 @@ async function onClickProductCard(event) {
   }
 
   function backdropOnClick(event) {
-    console.log('backdrop');
-    if (event.target.closest(".product_item")) {
-      return
+    if (event.target.closest('.product_item')) {
+      return;
     }
 
     backdrop.classList.add('visually-hidden');
@@ -153,5 +151,3 @@ function createMarkupProductCard(
     </button>
     </div>`;
 }
-
-

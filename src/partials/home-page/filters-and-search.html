@@ -1,12 +1,13 @@
 <div class="filter__section">
   <div class="container">
     <p class="filter__name">Filters:</p>
-    <form id="filterForm">
+    <form id="filterForm" class="filters-from">
       <div class="filter__position">
         <label>
           <input
             type="text"
             id="keywordInput"
+            type="submit"
             placeholder="Search for anything"
           />
           <svg class="svg__search" width="20" height="20">
@@ -16,9 +17,7 @@
       </div>
       <div class="filter__position">
         <button id="categorySelect">Categories</button>
-        <ul class="category-list">
-          <!-- категорії з сервера -->
-        </ul>
+        <ul class="category-list"></ul>
         <svg class="svg__category" width="20" height="20">
           <use xlink:href="./img/sprite.svg#down-vector"></use>
         </svg>

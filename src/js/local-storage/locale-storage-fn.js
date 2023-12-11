@@ -7,10 +7,8 @@ itemsContainer.addEventListener('click', checkLS);
 function checkLS(e) {
   //отримання кнопки та перевірка чи клік відбувся по ній
   const button = e.target.closest('.add-to-cart');
-  console.log(button)
   //збереження ід елемента в зміну (очікується клас на елемнті '.product_item')
   const itemId = e.target.closest('.product_item');
-  console.log(itemId)
 
   // if (!itemId || itemId.nodeName !== 'LI') {
   //   console.log(1)
@@ -18,7 +16,6 @@ function checkLS(e) {
   // }
 
   if (button === null) {
-    console.log('modal');
     return;
   }
 
@@ -68,7 +65,7 @@ function checkLS(e) {
       });
       cart.style.display = 'none';
       check.style.display = 'block';
-      console.log('ф-ція зміни картинки додати');
+      // console.log('ф-ція зміни картинки додати');
     }
     saveStorage(KEY, updateCartItems);
     changeCounter();
