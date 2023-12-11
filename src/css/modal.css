@@ -1,5 +1,5 @@
-.transparent {
-    background-color: transparent;
+.modal-is-open {
+    overflow: hidden;
 }
 
 .backdrop {

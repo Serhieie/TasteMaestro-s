@@ -12,12 +12,12 @@ function checkLS(e) {
   //збереження ід елемента в зміну (очікується клас на елемнті '.product_item')
   const itemId = e.target.closest('.product_item');
 
-  if (!itemId || itemId.nodeName !== 'LI') {
-    return;
-  }
+  // if (!itemId || itemId.nodeName !== 'LI') {
+  //   console.log(1)
+  //   return;
+  // }
 
   if (button === null) {
-    console.log('modal');
     return;
   }
 

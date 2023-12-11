@@ -1,7 +1,6 @@
 .pagination-section {
   display: flex;
   justify-content: center;
-  padding-bottom: 60px;
 }
 
 .conteiner-pagination {
@@ -23,14 +22,9 @@
   background-color: transparent;
 }
 
-/* .pagination-btn {
-  display: none;
+.pagination-btn:disabled {
+  opacity: 0.3;
 }
-
-/* Показати кнопку, якщо є тільки одна дитина (одна кнопка) */
-/* .pagination-btn:only-child {
-  display: flex;
-} */
 
 .pagination-svg {
   display: flex;
