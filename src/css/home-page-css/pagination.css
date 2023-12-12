@@ -1,10 +1,11 @@
 .pagination-section {
+  position: relative;
   display: flex;
   justify-content: center;
 }
 
 .conteiner-pagination {
-  width: 472px;
+  max-width: 472px;
   display: flex;
   align-items: center;
   justify-content: space-between;

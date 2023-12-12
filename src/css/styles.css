@@ -225,7 +225,7 @@ body.modal-is-open {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 94%;
+  height: 96%;
   left: 0;
   right: 0;
   z-index: 9999;
@@ -286,6 +286,20 @@ body.modal-is-open {
   animation: mltShdSpin 1.7s infinite ease, round 1.7s infinite ease;
 }
 
+.loader-products-bottom-top {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  bottom: 40px;
+  color: #6d8434;
+  box-sizing: border-box;
+  animation: animloader 2s linear infinite;
+  z-index: 500;
+}
+
 @keyframes mltShdSpin {
   0% {
     box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
@@ -341,6 +355,10 @@ body.modal-is-open {
     flex-direction: column;
     gap: 40px;
   }
+
+  .loader-product-container {
+    height: 97.5%;
+  }
 }
 
 .father_div {
@@ -364,10 +382,25 @@ body.modal-is-open {
   flex-direction: column;
   gap: 80px;
 }
+.loader-product-container-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 @media screen and (min-width: 375px) {
+  .loader-product-container {
+    height: 97%;
+  }
 }
 @media screen and (min-width: 768px) {
+  .loader-product-container {
+    height: 94.5%;
+  }
+  .loader-products {
+    font-size: 70px;
+  }
   .child_div_one {
     display: flex;
     flex-direction: column;
@@ -377,9 +410,15 @@ body.modal-is-open {
   }
 }
 @media screen and (min-width: 1440px) {
+  .loader-products {
+    font-size: 120px;
+  }
   .father_div {
     flex-direction: row;
     padding-bottom: 60px;
+  }
+  .loader-product-container {
+    height: 94.5%;
   }
 
   .child_div_one {
@@ -393,5 +432,26 @@ body.modal-is-open {
   .child_div_two {
     margin-top: 0;
     gap: 40px;
+  }
+  .loader-product-container-center {
+    display: none;
+  }
+}
+
+@keyframes animloader {
+  0% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 -2px;
+  }
+  25% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 2px;
+  }
+  50% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 2px, -38px 0 0 -2px;
+  }
+  75% {
+    box-shadow: 14px 0 0 2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 -2px;
+  }
+  100% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 2px, -14px 0 0 -2px, -38px 0 0 -2px;
   }
 }
