@@ -1,5 +1,10 @@
 const BASE_URL = 'https://food-boutique.b.goit.study/api';
-const loader = document.querySelector('.loader');
+const loader = document.querySelector('.loader-container');
+const loaderProductList = document.querySelector('.loader-product-container');
+const loaderPopular = document.querySelector('.loader-popular-container');
+const loaderDiscount = document.querySelector('.loader-discount-container');
+const loadersSmall = document.querySelector('.loader-product-container-center');
+
 //pagination
 const paginationContainer = document.querySelector('.conteiner-pagination');
 const forward = document.querySelector('.forward');
@@ -16,4 +21,8 @@ export default {
   back,
   filters,
   isFetching,
+  loaderProductList,
+  loaderPopular,
+  loaderDiscount,
+  loadersSmall,
 };

@@ -54,11 +54,11 @@ function productsWithDiscountMarkup(array) {
     idx = updateCartItems.findIndex(element => element.id === array._id);
   }
 
-  console.log(loadStorage('cartItems'));
+  // console.log(loadStorage('cartItems'));
   return array
     .map(
       ({ _id, name, img, category, price, size, popularity }) => `
-      <li data-id="${_id}" class="discount-card product_item">
+      <li data-id="${_id}" class="discount-card product_item js-card">
          <div class="img-field">
          <img
             id="product__image"

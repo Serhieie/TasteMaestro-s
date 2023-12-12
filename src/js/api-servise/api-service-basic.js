@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {showLoader} from '../helpers/loaders'
 
 async function createSubscription(data) {
   return await axios.post(
@@ -20,13 +21,12 @@ async function getOrders() {
 }
 
 async function createOrder(order) {
+// showLoader()
   return await axios.post(
     `https://food-boutique.b.goit.study/api/orders`,
     order
   );
 }
-
-
 
 // function getFromLS(cartItems) {
 //   const data = localStorage.getItem(order);
@@ -45,8 +45,13 @@ async function createOrder(order) {
 // };
 
 // createOrder(order)
-//   .then(data => console.log(data))
-//   .catch(e => console.error(e));
+//   .then(data => {
+//     if (data.status === 201) {
+//         loader.classList.add('visually-hidden');
+
+//       }
+//   })
+//   .catch(e => console.error(e)); //тут тостік
 
 // Приклад обʼєкту відправки
 // {

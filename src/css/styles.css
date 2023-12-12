@@ -114,7 +114,7 @@ footer {
   background-color: var(--brand-color, #6d8434);
 }
 
-.modal-open {
+body.modal-is-open {
   overflow: hidden;
 }
 
@@ -152,7 +152,7 @@ footer {
 .btn-up {
   width: 40px;
   height: 40px;
-  z-index: 100;
+  z-index: 9999;
   cursor: pointer;
   background-color: var(--brand-color, #6d8434);
   color: var(--color-on-grin, #e8e8e2);
@@ -216,7 +216,61 @@ footer {
   top: 0;
   left: 0;
   background: var(--backdrop-color-loader, rgba(236, 235, 235, 0.1));
+  z-index: 999;
+}
+
+.loader-product-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 96%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background: #e8e8e2;
+  border-radius: 20px;
+}
+
+.loader-popular-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 9999;
+}
+
+.loader-discount-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: -100px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+
+.loader-products {
+  color: var(--brand-color, #6d8434);
+  font-size: 45px;
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  transform: translateZ(0);
+  animation: mltShdSpin 1.7s infinite ease, round 1.7s infinite ease;
 }
 
 .loader {
@@ -230,6 +284,20 @@ footer {
   position: relative;
   transform: translateZ(0);
   animation: mltShdSpin 1.7s infinite ease, round 1.7s infinite ease;
+}
+
+.loader-products-bottom-top {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  bottom: 40px;
+  color: #6d8434;
+  box-sizing: border-box;
+  animation: animloader 2s linear infinite;
+  z-index: 500;
 }
 
 @keyframes mltShdSpin {
@@ -278,19 +346,35 @@ footer {
     display: flex;
     justify-content: space-between;
   }
+  .child_div_one {
+    min-width: 335px;
+  }
 
   .child_div_two {
     display: flex;
     flex-direction: column;
     gap: 40px;
   }
+
+  .loader-product-container {
+    height: 97.5%;
+  }
 }
 
 .father_div {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  gap: 80px;
+  margin-bottom: 0px;
+}
+
+.child_div_one {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 80px;
 }
 
 .child_div_two {
@@ -298,23 +382,88 @@ footer {
   flex-direction: column;
   gap: 80px;
 }
+.loader-product-container-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 @media screen and (min-width: 375px) {
+  .loader-product-container {
+    height: 95.8%;
+  }
+
+  .loader-products {
+    display: none;
+  }
 }
 @media screen and (min-width: 768px) {
-  .father_div {
-    gap: 100px;
+  .loader-product-container {
+    height: 94.5%;
+  }
+
+  .loader-products-bottom-top {
+    width: 12px;
+    height: 12px;
+    bottom: 30px;
+  }
+  .loader-products {
+    font-size: 70px;
+    display: none;
+  }
+  .child_div_one {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-bottom: 100px;
+    min-width: 704px;
   }
 }
 @media screen and (min-width: 1440px) {
+  .loader-products {
+    font-size: 110px;
+    display: block;
+  }
   .father_div {
     flex-direction: row;
-    margin-bottom: 60px;
-    gap: 0;
+    padding-bottom: 60px;
+  }
+  .loader-product-container {
+    height: 94.5%;
+  }
+
+  .child_div_one {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 0px;
+    min-width: 925px;
   }
 
   .child_div_two {
     margin-top: 0;
     gap: 40px;
+  }
+  .loader-product-container-center {
+    display: none;
+  }
+}
+
+@keyframes animloader {
+  0% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 -2px;
+  }
+  25% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 2px;
+  }
+  50% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 2px, -38px 0 0 -2px;
+  }
+  75% {
+    box-shadow: 14px 0 0 2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 -2px;
+  }
+  100% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 2px, -14px 0 0 -2px, -38px 0 0 -2px;
   }
 }

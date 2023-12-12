@@ -1,41 +1,45 @@
-<section class="filter__section">
-    <div class="container">
-        <p class="filter__name">Filters:</p>
-        <form id="filterForm">
-            <div class="filter__position">
-                <label>
-                    <input type="text" id="keywordInput" placeholder="Search for anything" />
-                    <svg class="svg__search" width="20" height="20">
-                        <use href="./img/sprite.svg#search"></use>
-                    </svg>
-                </label>
-            </div>
-            <div class="filter__position">
-                <button id="categorySelect">Categories</button>
-                <ul class="category-list">
-                    <!-- категорії з сервера -->
-                </ul>
-                <svg class="svg__category" width="20" height="20">
-                    <use xlink:href="./img/sprite.svg#down-vector"></use>
-                </svg>
-            </div>
-            <div class="filter__position">
-                <div class="sort-dropdown">
-                    <button id="sortProducts">A to Z</button>
-                    <ul class="sortProducts-list">
-                        <li class="category-item" data-value="alphabetical">A to Z</li>
-                        <li class="category-item" data-value="reverse-alphabetical">Z to A</li>
-                        <li class="category-item" data-value="cheap">Cheap</li>
-                        <li class="category-item" data-value="expensive">Expensive</li>
-                        <li class="category-item" data-value="popular">Popular</li>
-                        <li class="category-item" data-value="not-popular">Not popular</li>
-                        <li class="category-item" data-value="all">Show all</li>
-                    </ul>
-                </div>
-                <svg class="svg__category" width="20" height="20">
-                    <use xlink:href="./img/sprite.svg#down-vector"></use>
-                </svg>
-            </div>
-        </form>
-    </div>
-</section>
+<div class="filter__section">
+  <div class="container">
+    <p class="filter__name">Filters:</p>
+    <form id="filterForm" class="filters-from">
+      <div class="filter__position">
+        <input
+          type="text"
+          id="keywordInput"
+          placeholder="Search for anything"
+        />
+        <button class="filter-button" type="submit">
+          <svg class="svg__search" width="20" height="20">
+            <use href="./img/sprite.svg#search"></use>
+          </svg>
+        </button>
+      </div>
+      <div class="filter__position">
+        <button id="categorySelect" class="categorySelectClass">
+          Categories
+        </button>
+        <svg class="svg__category" width="14" height="14">
+          <use xlink:href="./img/sprite.svg#down-vector"></use>
+        </svg>
+        <ul class="category-list"></ul>
+      </div>
+      <div class="filter__position">
+        <button id="sortProducts">A to Z</button>
+        <ul class="sortProducts-list">
+          <li class="category-item" data-value="alphabetical">A to Z</li>
+          <li class="category-item" data-value="reverse-alphabetical">
+            Z to A
+          </li>
+          <li class="category-item" data-value="cheap">Cheap</li>
+          <li class="category-item" data-value="expensive">Expensive</li>
+          <li class="category-item" data-value="popular">Popular</li>
+          <li class="category-item" data-value="not-popular">Not popular</li>
+          <li class="category-item" data-value="all">Show all</li>
+        </ul>
+        <svg class="svg__category_use" width="14" height="14">
+          <use xlink:href="./img/sprite.svg#down-vector"></use>
+        </svg>
+      </div>
+    </form>
+  </div>
+</div>

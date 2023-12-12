@@ -2,6 +2,9 @@
   font-size: 24px;
   margin-bottom: 20px;
 }
+.popular_container {
+  position: relative;
+}
 
 .popular_list {
   display: flex;

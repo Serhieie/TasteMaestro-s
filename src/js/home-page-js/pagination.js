@@ -1,13 +1,14 @@
-// import { filters } from './filter.js';
 import COMMONS from '../commons.js';
 import { fetchProducts } from './filter.js';
 
-let lastTotalHits = COMMONS.filters.totalHits;
-
 COMMONS.paginationContainer.addEventListener('click', onPaginationClick);
 
+//запускаємо запит по кліку та робимо +/- сторінки
 async function onPaginationClick(event) {
   const selectedPage = parseInt(event.target.textContent);
+  if (COMMONS.isFetching) {
+    return;
+  }
 
   if (event.target.closest('.pagination-btn')) {
     if (event.target.classList.contains('back')) {
@@ -17,14 +18,11 @@ async function onPaginationClick(event) {
         COMMONS.filters.page -= 1;
       }
     } else if (event.target.classList.contains('forward')) {
-      if (COMMONS.filters.page === lastTotalHits) {
-        COMMONS.forward.setAttribute('disabled', true);
+      if (COMMONS.filters.page >= COMMONS.filters.totalPages) {
         return;
-      } else if (COMMONS.filters.page < lastTotalHits) {
-        COMMONS.forward.removeAttribute('disabled');
+      } else if (COMMONS.filters.page < COMMONS.filters.totalPages) {
+        COMMONS.filters.page += 1;
       }
-
-      COMMONS.filters.page += 1;
     }
     fetchProducts(COMMONS.filters.page);
   }
@@ -41,42 +39,43 @@ async function onPaginationClick(event) {
   }
 }
 
+//відтворюємо активний елемент та передаємо значення сторінки
 function updatePagination() {
   const paginationItems = document.querySelectorAll('.pagi_item');
-  // const paginationBtn = document.querySelectorAll('.pagination-btn');
-
   paginationItems.forEach(item => {
     item.classList.remove('isActive');
     if (parseInt(item.textContent) === COMMONS.filters.page) {
       item.classList.add('isActive');
     }
   });
+}
 
-  // Дізейбл кнопки назад, якщо сторінка перша
+//створюємо елементи
+function createPaginationItem(pageNumber, isActive) {
+  const activeClass = isActive ? 'is-active' : '';
+  const paddingChange = COMMONS.filters.page >= 10 ? 'py' : '';
+  return `<li class="pagi_item ${activeClass} pagination_item"><span class="pagi_item_span ${paddingChange}">${pageNumber}</span></li>`;
+}
+function createEllipsisItem() {
+  return `<li class="pagi_item pagination_item ellipsis"><span class="pagi_item_span pagi_item_span_ellipsis">...</span></li>`;
+}
+
+//створюємо вміст елементів і їх стан
+function createPaginationMarkup(totalHits, page) {
+  hidePagination(totalHits);
+
   if (COMMONS.filters.page <= 1) {
     COMMONS.back.setAttribute('disabled', true);
   } else {
     COMMONS.back.removeAttribute('disabled');
   }
 
-  if (COMMONS.filters.page === lastTotalHits) {
-    return COMMONS.forward.setAttribute('disabled', true);
+  if (COMMONS.filters.page >= COMMONS.filters.totalPages) {
+    COMMONS.forward.setAttribute('disabled', true);
   } else {
-    return COMMONS.forward.removeAttribute('disabled');
+    COMMONS.forward.removeAttribute('disabled');
   }
-}
 
-function createPaginationItem(pageNumber, isActive) {
-  const activeClass = isActive ? 'is-active' : '';
-  const paddingChange = COMMONS.filters.page >= 10 ? 'py' : '';
-  return `<li class="pagi_item ${activeClass} pagination_item"><span class="pagi_item_span ${paddingChange}">${pageNumber}</span></li>`;
-}
-
-function createEllipsisItem() {
-  return `<li class="pagi_item pagination_item ellipsis"><span class="pagi_item_span pagi_item_span_ellipsis">...</span></li>`;
-}
-
-function createPaginationMarkup(totalHits, page) {
   const lastPage = Math.ceil(totalHits);
   let displayedPages;
 
@@ -128,12 +127,13 @@ function createPaginationMarkup(totalHits, page) {
   }
 }
 
-function hidePagination(totalPages) {
-  if (totalPages.length < COMMONS.filters.limit) {
+//приховуємо пагінацію
+function hidePagination(totalHits) {
+  if (totalHits <= 1) {
     COMMONS.paginationContainer.classList.add('visually-hidden');
   } else {
     COMMONS.paginationContainer.classList.remove('visually-hidden');
   }
 }
 
-export { createPaginationMarkup, hidePagination };
+export { createPaginationMarkup };
