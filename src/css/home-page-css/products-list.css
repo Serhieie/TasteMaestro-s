@@ -158,6 +158,8 @@
   .product__list__card {
     max-width: calc((100% - 40px) / 3);
     height: 363px;
+    display: flex;
+    flex-direction: column;
   }
 
   .product__details {
@@ -175,6 +177,10 @@
   }
 
   .product__description__wraper {
-    margin-bottom: 20px;
+    margin-bottom: 0;
+  }
+
+  .product__order__wraper {
+    margin-top: auto;
   }
 }
