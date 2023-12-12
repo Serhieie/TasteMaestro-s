@@ -13,6 +13,7 @@
 
     background-color: var(--backdrop-color);
     overflow: hidden;
+    opacity: 1;
 
     transition: opacity var(--animation), visibility var(--animation);
 
