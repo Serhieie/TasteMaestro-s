@@ -118,7 +118,7 @@ function createMarkupProductCard(
     <div class="product-image-box">
         <img id="product__image" class="product-image" src="${
           img !== null ? img : placeholderImg
-        }" alt="${name}">
+        }" alt="${name}"  aria-label="product">
     </div>
     <div class="product-descr">
         <h4 id="product__title" class="product-title">${name}</h4>
@@ -132,20 +132,20 @@ function createMarkupProductCard(
     </div>
     <div class="product-wraper">
     <span id="product__price" class="product-price">$${price}</span>
-    <button class="product-btn-shopping-cart add-to-cart" type="button" data-id="${_id}">
+    <button class="product-btn-shopping-cart add-to-cart" type="button" data-id="${_id}" aria-label="add-cart">
         <span ${
           idx === -1 ? "style = 'display:block'" : "style = 'display:none'"
         } class="card-icon-cart">Add to</span>
         <span ${
           idx === -1 ? "style = 'display:none'" : "style = 'display:block'"
         } class="card-icon-check">Remove from</span>
-        <svg class="product-cart-icon" width="18" height="18">
-            <use xlink:href="${sprite}#shopping-cart"></use>
+        <svg class="product-cart-icon" width="18" height="18" aria-label="remove-cart">
+            <use xlink:href="${sprite}#shopping-cart" ></use>
         </svg>
     </button>
     </div>
-    <button class="modal-btn-close js-btn-close-card" type="button">
-    <svg class="icon-close">
+    <button class="modal-btn-close js-btn-close-card" type="button" aria-label="close-modal">
+    <svg class="icon-close" aria-label="cart"> 
         <use xlink:href="${sprite}#close-cross"></use>
       </svg>
     </button>

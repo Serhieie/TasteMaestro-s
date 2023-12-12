@@ -21,7 +21,7 @@ export function createProductItemMarkup({
   return `<li data-id="${_id}" class="product__list__card product_item js-card">
         <svg class="sticker_icon ${
           is10PercentOff ? '' : 'visually-hidden'
-        }" width="60" height="60">
+        }" width="60" height="60" aria-label="discount">
           <use xlink:href="${sprite}#discount"></use>
         </svg>
         <div class="product__image__wraper">
@@ -32,6 +32,7 @@ export function createProductItemMarkup({
             alt="${name}"
             width="140px"
             height="140px"
+            aria-label="product"
           />
         </div>
         <div class="product__description__wraper">
@@ -60,15 +61,15 @@ export function createProductItemMarkup({
         </div>
         <div class="product__order__wraper">
           <p id="product__price" class="product__price">${'$' + price}</p>
-          <button data-id="${_id}" class="product__order__btn add-to-cart">
+          <button type="button" data-id="${_id}" class="product__order__btn add-to-cart" aria-label="add-cart">
             <svg class="card-icon-cart" ${
               idx === -1 ? "style = 'display:block'" : "style = 'display:none'"
-            }  width="18" height="18">
+            }  width="18" height="18" aria-label="cart">
               <use xlink:href="${sprite}#shopping-cart"></use>
             </svg>
             <svg class="card-icon-check" ${
               idx === -1 ? "style = 'display:none'" : "style = 'display:block'"
-            }  width="18" height="18">
+            }  width="18" height="18" aria-label="cart">
               <use xlink:href="${sprite}#check"></use>
             </svg>
           </button>

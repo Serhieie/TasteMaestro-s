@@ -47,12 +47,13 @@ function cartOrder(cart) {
           class="cart-order-img"
           src="${item.img}"
           alt="${item.imgDsc}"
+           aria-label="product"
         />
       </div>
       <div class="cart-order-desc">
         <div class="cart-order-title-btn">
           <h3 class="cart-order-title">${item.title}</h3>
-          <button class="cart-remove-btn" type="button">
+          <button class="cart-remove-btn" type="button"  aria-label="remove-product">
             <span class="cart-remove-span">
               <svg class="cart-remove-icon" width="18" height="18">
                 <use
@@ -73,14 +74,15 @@ function cartOrder(cart) {
             parseFloat(item.price.replace('$', '')) * item.quantity
           ).toFixed(2)}</span>
           <div class="cart-order-amount">
-            <button class="cart-order-decr" type="button"><svg class="minus-icon" width="18" height="18">
+            <button class="cart-order-decr" type="button" aria-label="decrement"><svg class="minus-icon" width="18" height="18" aria-label="minus">
                 <use
                   class="cart-remove-svg"
                   xlink:href="${sprite}#minus"
+                  
                 ></use>
               </svg></button>
             <span class="cart-order-quantity">${item.quantity}</span>
-            <button class="cart-order-incr" type="button"><svg class="plus-icon" width="18" height="18">
+            <button class="cart-order-incr" type="button" aria-label="increment"><svg class="plus-icon" width="18" height="18" aria-label="plus">
                 <use
                   class="cart-remove-svg"
                   xlink:href="${sprite}#plus"
@@ -198,4 +200,4 @@ function updateTotalPrice() {
   totalElement.textContent = `$${Number(total.toFixed(2))}`;
 }
 
-export { cartOrder, handleClearCart }
+export { cartOrder, handleClearCart };

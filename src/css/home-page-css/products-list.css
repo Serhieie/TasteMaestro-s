@@ -17,7 +17,6 @@
   margin-bottom: 20px;
   position: relative;
   transition: transform 300ms ease-in-out;
-  height: 356px;
 }
 
 .product__list__card:hover {
