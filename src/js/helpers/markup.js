@@ -37,7 +37,7 @@ export function createProductItemMarkup({
         <div class="product__description__wraper">
           <h3 id="product__title" class="product__title">${name}</h3>
           <ul class="product__details">
-            <li>
+            <li class="product-description-item">
               <p class="product__description__text">
                 Category:
                 <span id="product_category_name" class="product__description__span"}>${category.replace(
@@ -46,12 +46,12 @@ export function createProductItemMarkup({
                 )}</span>
               </p>
             </li>
-            <li>
+            <li class="product-description-item">
               <p class="product__description__text">
                 Size: <span id="product_size" class="product__description__span">${size}</span>
               </p>
             </li>
-            <li>
+            <li class="product-description-item">
               <p class="product__description__text">
                 Popularity: <span class="product__description__span">${popularity}</span>
               </p>
