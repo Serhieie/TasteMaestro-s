@@ -1,6 +1,10 @@
 import axios from 'axios';
 import { createProductItemMarkup } from '../helpers/markup.js';
 import COMMONS from '../commons.js';
+import {
+  showLoaderProductList,
+  hideLoaderProductList,
+} from '../helpers/loaders.js';
 import { createPaginationMarkup } from './pagination.js';
 import throttle from 'lodash.throttle';
 
@@ -97,12 +101,14 @@ export async function fetchProducts() {
           break;
       }
     }
+    showLoaderProductList();
     const response = await axios.get(url);
     const data = response.data;
     COMMONS.filters.totalPages = data.totalPages;
     createPaginationMarkup(data.totalPages, COMMONS.filters.page);
     displayProducts(data.results);
     saveFiltersToLocalStorage();
+    hideLoaderProductList();
   } catch (error) {
     console.error('Error fetching products:', error);
   }

@@ -10,6 +10,7 @@
 }
 
 .popular_products_list {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 14px;

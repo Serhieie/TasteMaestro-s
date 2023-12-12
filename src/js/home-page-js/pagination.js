@@ -1,4 +1,3 @@
-// import { filters } from './filter.js';
 import COMMONS from '../commons.js';
 import { fetchProducts } from './filter.js';
 
@@ -7,6 +6,9 @@ COMMONS.paginationContainer.addEventListener('click', onPaginationClick);
 //запускаємо запит по кліку та робимо +/- сторінки
 async function onPaginationClick(event) {
   const selectedPage = parseInt(event.target.textContent);
+  if (COMMONS.isFetching) {
+    return;
+  }
 
   if (event.target.closest('.pagination-btn')) {
     if (event.target.classList.contains('back')) {
