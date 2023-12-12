@@ -218,6 +218,9 @@ document.addEventListener('click', event => {
     !event.target.closest('.sortProducts-list')
   ) {
     hideSortList();
+    if (svgSort.classList.contains('rotate-sort')) {
+      svgSort.classList.toggle('rotate-sort');
+    }
   }
 });
 
@@ -227,6 +230,9 @@ document.addEventListener('click', event => {
     !event.target.closest('.category-list')
   ) {
     hideCategoryList();
+    if (svgCategory.classList.contains('rotate-category')) {
+      svgCategory.classList.toggle('rotate-category');
+    }
   }
 });
 

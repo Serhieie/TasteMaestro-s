@@ -60,6 +60,11 @@ select option {
   align-items: center;
 }
 
+.svg__category,
+.svg__category_use {
+  transform: rotate(0);
+  transition: transform 0.3s ease;
+}
 .svg__category.rotate-category,
 .svg__category_use.rotate-sort {
   transform: rotate(180deg);
