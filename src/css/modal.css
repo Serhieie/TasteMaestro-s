@@ -215,7 +215,12 @@
 }
 
 .span-details-text {
+    margin-right: 4px;
     color: var(--product-description-color);
+}
+
+.product-details-item {
+    flex: 0 0 50%;
 }
 
 @media screen and (min-width: 768px) {
@@ -278,7 +283,7 @@
     }
 
     .product-container {
-        margin-bottom: 48px;
+        margin-bottom: 28px;
         display: flex;
         justify-content: center;
         gap: 24px;
