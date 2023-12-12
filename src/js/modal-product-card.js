@@ -113,7 +113,7 @@ function createMarkupProductCard(
     idx = updateCartItems.findIndex(element => element.id === _id);
   }
   const placeholderImg = './img/image-placeholder.png';
-  return `<div data-id="${_id}" class="product_item">
+  return `<div data-id="${_id}" class="product_item modal-product-div">
   <div class="product-container">
     <div class="product-image-box">
         <img id="product__image" class="product-image" src="${
