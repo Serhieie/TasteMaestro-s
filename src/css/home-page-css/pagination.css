@@ -5,7 +5,7 @@
 }
 
 .conteiner-pagination {
-  max-width: 472px;
+  width: 472px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,6 +16,7 @@
   display: flex;
   width: 40px;
   height: 40px;
+  padding: 0;
   border-radius: 60px;
   flex-direction: column;
   justify-content: center;
@@ -30,9 +31,6 @@
 .pagination-svg {
   display: flex;
   padding: 8px;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
   border-radius: 60px;
   background-color: #fafafa;
   fill: transparent;
@@ -52,17 +50,11 @@
 .pagination-list {
   gap: 8px;
   display: flex;
-  list-style: none;
-  align-items: center;
-  justify-content: center;
 }
 
 .pagi_item {
   display: flex;
-  width: 40px;
-  height: 40px;
   border-radius: 60px;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #a3a3a3;
@@ -89,6 +81,11 @@
 }
 
 .pagi_item_span {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px 16px;
 }
 
@@ -97,25 +94,19 @@
   color: #e8e8e2;
 }
 
-.ellipsis {
-  width: 100%;
-  height: 100%;
-}
-
 .ellipsis:hover {
   background-color: transparent;
   color: #a3a3a3;
   cursor: default;
 }
 
-.pagi_item_span_ellipsis {
-  padding: 8px 0;
+.pagi_item.pagination_item.ellipsis  {
+  width: 8px;
 }
 
-@media only screen and (max-width: 375px) {
-  .container-pagination {
-    flex-direction: column;
-    align-items: stretch;
+@media only screen and (max-width: 767px) {
+  .conteiner-pagination {
+    max-width: 312px;
   }
 
   .pagi_item_span {
@@ -123,7 +114,6 @@
   }
 
   .pagination-list {
-    margin: 0 4px;
     gap: 4px;
   }
 
@@ -134,15 +124,10 @@
     height: 35px;
   }
 
-  .pagi_item_span_ellipsis {
-    padding: 4px 0;
-  }
-  .ellipsis {
-    width: 100%;
-    height: 100%;
-  }
-
   .pagi_item_span {
     font-size: 14px;
+    width: 35px;
+    height: 35px;
+    display: flex;
   }
 }
