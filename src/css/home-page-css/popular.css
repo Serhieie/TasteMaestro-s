@@ -155,4 +155,8 @@
     flex-direction: column;
     gap: 13px;
   }
+  .popular_container {
+    width: 275px;
+    height: 594px;
+  }
 }
