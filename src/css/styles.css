@@ -226,6 +226,7 @@ body.modal-is-open {
   align-items: center;
   width: 100%;
   height: 96%;
+  top: -5px;
   left: 0;
   right: 0;
   z-index: 99;
@@ -391,7 +392,7 @@ body.modal-is-open {
 
 @media screen and (min-width: 375px) {
   .loader-product-container {
-    height: 96%;
+    height: 96.3%;
   }
 
   .loader-products {
@@ -400,7 +401,7 @@ body.modal-is-open {
 }
 @media screen and (min-width: 768px) {
   .loader-product-container {
-    height: 94.5%;
+    height: 95.5%;
   }
 
   .loader-products-bottom-top {
