@@ -6,7 +6,6 @@ import {
   hideLoaderProductList,
 } from '../helpers/loaders.js';
 import { createPaginationMarkup } from './pagination.js';
-import throttle from 'lodash.throttle';
 
 const filterForm = document.querySelector('.filters-from');
 const keywordInput = document.getElementById('keywordInput');
@@ -45,10 +44,12 @@ const loadFiltersFromLocalStorage = () => {
   if (savedFilters.sort === null) {
     return;
   }
-  // let displayCategory = savedFilters.category.replace(/[%\d_&]+/g, ' ').trim();
-
+  let displayCategory = savedFilters.category.replace(/_/g, ' ');
+  if (savedFilters.category.includes('%26')) {
+    displayCategory = displayCategory.replace(/%26/g, '&');
+  }
   updateSortButtonText(savedFilters.sort);
-  // categorySelectButton.textContent = displayCategory.replace(/_/g, ' ');
+  categorySelectButton.textContent = displayCategory.replace(/_/g, ' ');
 };
 
 loadFiltersFromLocalStorage();
@@ -236,17 +237,17 @@ document.addEventListener('click', event => {
   }
 });
 
-keywordInput.addEventListener(
-  'input',
-  throttle(() => {
-    COMMONS.filters.keyword = keywordInput.value;
-    COMMONS.filters.page = 1;
+keywordInput.addEventListener('input', () => {
+  COMMONS.filters.keyword = keywordInput.value;
+  COMMONS.filters.page = 1;
+  if (COMMONS.filters.keyword === '') {
     fetchProducts();
-  }, 1500)
-);
+  }
+});
 
 filterForm.addEventListener('submit', async event => {
   event.preventDefault();
+  if (COMMONS.isFetching || !COMMONS.filters.keyword) return;
   COMMONS.filters.keyword = keywordInput.value;
   COMMONS.filters.page = 1;
   fetchProducts();
