@@ -123,9 +123,9 @@ function createMarkupProductCard(
     <div class="product-descr">
         <h4 id="product__title" class="product-title">${name}</h4>
         <ul class="product-details-list">
-            <li id="product-details-item product_category_name" class="product-details-text"><span class="span-details-text">Category: </span>${category}</li>
-            <li id="product-details-item product_size" class="product-details-text"><span class="span-details-text">Size: </span>${size}</li>
-            <li class="product-details-item product-details-text"><span class="span-details-text">Popularity: </span>${popularity}</li>
+            <li id="product_category_name" class="product-details-text product-details-item "><span class="span-details-text">Category: </span>${category}</li>
+            <li id="product_size" class="product-details-text product-details-item"><span class="span-details-text">Size: </span>${size}</li>
+            <li class="product-details-text"><span class="span-details-text product-details-item">Popularity: </span>${popularity}</li>
         </ul>
         <p class="product-text">${desc}</p>
     </div>
