@@ -152,7 +152,7 @@ body.modal-is-open {
 .btn-up {
   width: 40px;
   height: 40px;
-  z-index: 100;
+  z-index: 9999;
   cursor: pointer;
   background-color: var(--brand-color, #6d8434);
   color: var(--color-on-grin, #e8e8e2);
@@ -216,7 +216,7 @@ body.modal-is-open {
   top: 0;
   left: 0;
   background: var(--backdrop-color-loader, rgba(236, 235, 235, 0.1));
-  z-index: 9999;
+  z-index: 999;
 }
 
 .loader-product-container {
@@ -228,7 +228,7 @@ body.modal-is-open {
   height: 96%;
   left: 0;
   right: 0;
-  z-index: 9999;
+  z-index: 99;
   background: #e8e8e2;
   border-radius: 20px;
 }
@@ -391,15 +391,26 @@ body.modal-is-open {
 
 @media screen and (min-width: 375px) {
   .loader-product-container {
-    height: 97%;
+    height: 95.8%;
+  }
+
+  .loader-products {
+    display: none;
   }
 }
 @media screen and (min-width: 768px) {
   .loader-product-container {
     height: 94.5%;
   }
+
+  .loader-products-bottom-top {
+    width: 12px;
+    height: 12px;
+    bottom: 30px;
+  }
   .loader-products {
     font-size: 70px;
+    display: none;
   }
   .child_div_one {
     display: flex;
@@ -411,7 +422,8 @@ body.modal-is-open {
 }
 @media screen and (min-width: 1440px) {
   .loader-products {
-    font-size: 120px;
+    font-size: 110px;
+    display: block;
   }
   .father_div {
     flex-direction: row;

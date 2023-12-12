@@ -143,7 +143,6 @@ select option {
   margin: 0;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 1;
 }
 
 .category-list.show {
@@ -159,6 +158,7 @@ select option {
     0px 20px 69px 0px rgba(0, 0, 0, 0.07);
   width: 100%;
   margin-top: 550px;
+  z-index: 9999;
 }
 
 #sortProducts {
@@ -182,7 +182,6 @@ select option {
   margin: 0;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 1;
 }
 
 .sortProducts-list.show {
@@ -198,6 +197,7 @@ select option {
     0px 20px 69px 0px rgba(0, 0, 0, 0.07);
   width: 100%;
   margin-top: 356px;
+  z-index: 9998;
 }
 
 #sortProducts:focus-within {
