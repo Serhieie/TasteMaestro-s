@@ -151,6 +151,7 @@
     column-gap: 20px;
     row-gap: 40px;
     height: 1169px;
+    align-content: flex-start;
   }
 
   .container.container__products {

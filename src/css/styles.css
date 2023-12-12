@@ -225,7 +225,7 @@ body.modal-is-open {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 94%;
   left: 0;
   right: 0;
   z-index: 9999;
@@ -379,7 +379,7 @@ body.modal-is-open {
 @media screen and (min-width: 1440px) {
   .father_div {
     flex-direction: row;
-    margin-bottom: 60px;
+    padding-bottom: 60px;
   }
 
   .child_div_one {
