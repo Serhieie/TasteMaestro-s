@@ -357,7 +357,7 @@ body.modal-is-open {
   }
 
   .loader-product-container {
-    height: 97.5%;
+    height: 96.5%;
   }
 }
 
@@ -391,7 +391,7 @@ body.modal-is-open {
 
 @media screen and (min-width: 375px) {
   .loader-product-container {
-    height: 95.8%;
+    height: 96%;
   }
 
   .loader-products {
