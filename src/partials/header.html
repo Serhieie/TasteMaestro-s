@@ -1,9 +1,9 @@
 <header class="header">
   <div class="container header__container">
-    <nav class="nav">
+    <nav class="nav" role="navigation">
       <ul class="nav-list">
         <li class="header__nav_list_item_logo">
-          <a class="nav_link_logo" href="./index.html">
+          <a class="nav_link_logo" href="./index.html" aria-label="Home">
             <span class="header__nav_span_logo">
               <svg class="logo_icon" width="16" height="16">
                 <use xlink:href="/img/sprite.svg#cabbage"></use>
@@ -19,7 +19,11 @@
         </li>
 
         <li class="header__list_item">
-          <a class="header__nav_link_cart" href="./cart-page.html">
+          <a
+            class="header__nav_link_cart"
+            href="./cart-page.html"
+            aria-label="Shopping Cart"
+          >
             <span class="header__nav_span_cart"
               ><svg class="cart_icon" width="14" height="14">
                 <use
