@@ -55,9 +55,9 @@
     <meta property="og:image:height" content="345" />
     <script type="module" crossorigin src="/TasteMaestro-s/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/vendor-f728e3bf.js">
-    <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/sprite-0b3ba2bd.js">
+    <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/sprite-a5f138b5.js">
     <link rel="stylesheet" href="/TasteMaestro-s/assets/vendor-dccfdd0c.css">
-    <link rel="stylesheet" href="/TasteMaestro-s/assets/sprite-ad2b18ba.css">
+    <link rel="stylesheet" href="/TasteMaestro-s/assets/sprite-0d19f8f7.css">
   </head>
   <body>
     <header class="header">
@@ -84,7 +84,7 @@
           <a
             class="header__nav_link_cart"
             href="./cart-page.html"
-            aria-label="Shopping Cart"
+            aria-label="link to the cart page"
           >
             <span class="header__nav_span_cart"
               ><svg class="cart_icon" width="14" height="14">
@@ -109,7 +109,7 @@
 
 <div class="cart-ware-count">
   <span class="cart-svg-span">
-    <svg class="cart-count-icon" width="18" height="18">
+    <svg class="cart-count-icon" width="18" height="18" aria-label="cart">
       <use
         class="cart_logo_svg"
         xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#shopping-cart"
@@ -120,6 +120,7 @@
 </div>
 
 <!-- ! Empty cart count end -->
+
           <!-- ! Empty cart start -->
 
 <div class="cart-empty visually-hidden">
@@ -128,6 +129,7 @@
       src="/TasteMaestro-s/assets/shopingPic-x1-0d14f2e8.png"
       srcset="/TasteMaestro-s/assets/shopingPic-x1-0d14f2e8.png 1x, /TasteMaestro-s/assets/shopingBasket-x2-48b7a7f8.png 2x"
       alt="Shopping Basket"
+      aria-label="empty-basket"
     />
     <h2>Your basket is <span class="cart-empty-cgreen">empty...</span></h2>
     <p class="cart-empty-text">
@@ -141,17 +143,26 @@
 
           <div class="cart-list-total">
             <div class="cart-filled-list">
-  <button class="cart-clear-btn" type="button">
+  <button class="cart-clear-btn" type="button" aria-label="clear-button">
     Delete all
     <span class="cart-clear-span">
-      <svg class="cart-clear-icon" width="24" height="24">
-        <use class="cart-clear-svg" xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#close-cross"></use>
+      <svg
+        class="cart-clear-icon"
+        width="24"
+        height="24"
+        aria-label="delete all"
+      >
+        <use
+          class="cart-clear-svg"
+          xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#close-cross"
+        ></use>
       </svg>
     </span>
   </button>
 
   <ul class="cart-order-list"></ul>
 </div>
+
             <div class="cart_total_order">
   <p class="total-form-title">Your Order</p>
 
@@ -163,21 +174,25 @@
   </div>
 
   <div class="input-container-main">
-  <form id="checkoutForm">
-    <div class="cart_input_container">
-      <input
-        type="email"
-        name="cartsubmit"
-        class="cart-basket-input"
-        placeholder="Enter your email"
-      />
-      <span class="placeholder-text">Mail:</span>
-    </div>
-    <button class="cart_checkout_btn" type="submit" aria-label="Checkout cart">
-      Checkout
-    </button>
-  </form>
-</div>
+    <form id="checkoutForm">
+      <div class="cart_input_container">
+        <input
+          type="email"
+          name="cartsubmit"
+          class="cart-basket-input"
+          placeholder="Enter your email"
+        />
+        <span class="placeholder-text">Mail:</span>
+      </div>
+      <button
+        class="cart_checkout_btn"
+        type="submit"
+        aria-label="Checkout cart"
+      >
+        Checkout
+      </button>
+    </form>
+  </div>
 </div>
 
           </div>
@@ -194,11 +209,11 @@
           aria-label="Go to Home Page"
         >
           <span class="footer-span-logo">
-            <svg class="logo-icon-footer alt='Footer logo'">
+            <svg class="logo-icon-footer" aria-label="cabbage">
               <use xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#cabbage"></use>
             </svg>
           </span>
-          <svg class="footer-logo-icon-text">
+          <svg class="footer-logo-icon-text" aria-label="logo-text">
             <use xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#icon-Food-Boutique"></use>
           </svg>
         </a>
@@ -209,7 +224,10 @@
               target="_blank"
               aria-label="Visit our Facebook page"
               ><svg class="item-icon-footer">
-                <use xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#icon-Frame-52" alt="Facebook"></use></svg
+                <use
+                  xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#icon-Frame-52"
+                  alt="Facebook"
+                ></use></svg
             ></a>
           </li>
           <li class="item-social-footer">
@@ -218,7 +236,10 @@
               target="_blank"
               aria-label="Visit our Instagram page"
               ><svg class="item-icon-footer">
-                <use xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#icon-instagram" alt="Instagram"></use></svg
+                <use
+                  xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#icon-instagram"
+                  alt="Instagram"
+                ></use></svg
             ></a>
           </li>
           <li class="item-social-footer">
@@ -227,7 +248,10 @@
               target="_blank"
               aria-label="Visit our Youtube page"
               ><svg class="item-icon-footer">
-                <use xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#icon-Frame-60" alt="Youtube"></use></svg
+                <use
+                  xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#icon-Frame-60"
+                  alt="Youtube"
+                ></use></svg
             ></a>
           </li>
         </ul>
@@ -255,7 +279,13 @@
                 placeholder="Email"
               />
             </label>
-            <button class="footer-btn" type="submit">Send</button>
+            <button
+              class="footer-btn"
+              type="submit"
+              aria-label="subscribtion button"
+            >
+              Send
+            </button>
           </form>
         </div>
       </div>
@@ -303,8 +333,12 @@
       expectations. Please stay with us and we promise you many pleasant
       surprises.
     </p>
-    <button class="modal-btn-close js-close" type="button">
-      <svg class="icon-close">
+    <button
+      class="modal-btn-close js-close"
+      type="button"
+      aria-label="close modal button"
+    >
+      <svg class="icon-close" aria-label="close icon">
         <use href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#close-cross"></use>
       </svg>
     </button>
@@ -337,8 +371,12 @@
       nourishing goodness, delivered right to your doorstep. We're thrilled to
       be part of your journey to better health and happiness.
     </p>
-    <button class="modal-btn-close js-close" type="button">
-      <svg class="icon-close">
+    <button
+      class="modal-btn-close js-close"
+      type="button"
+      aria-label="close modal button"
+    >
+      <svg class="icon-close" aria-label="close icon">
         <use href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#close-cross"></use>
       </svg>
     </button>
