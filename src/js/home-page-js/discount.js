@@ -7,8 +7,7 @@ const refs = {
 };
 
 productsWithDiscountShow();
-// можна додати зміну продуктів зі знижкою через заданий час:
-// const intervalId = setInterval(productsWithDiscountShow, 10000);
+const intervalId = setInterval(productsWithDiscountShow, 10000);
 
 async function productsWithDiscountShow() {
   try {
@@ -54,7 +53,6 @@ function productsWithDiscountMarkup(array) {
     idx = updateCartItems.findIndex(element => element.id === array._id);
   }
 
-  // console.log(loadStorage('cartItems'));
   return array
     .map(
       ({ _id, name, img, category, price, size, popularity }) => `
