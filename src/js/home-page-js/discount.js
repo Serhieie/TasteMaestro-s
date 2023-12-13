@@ -71,7 +71,7 @@ function productsWithDiscountMarkup(array) {
              <p id="product__price" class="discount-product-price">
                $<span class="js-discount-product-price">${price}</span>
              </p>
-             <button data-id="${_id}" class="discount-cart-btn add-to-cart" type="button">
+             <button data-id="${_id}" class="discount-cart-btn add-to-cart" aria-label="discount-cart-btn" type="button">
                 <svg class="card-icon-cart discount-cart-icon" ${
                   idx === -1
                     ? "style = 'display:block'"
