@@ -31,7 +31,7 @@ function createMarkup(response) {
       }
       return `<li id="product_${_id}" data-id="${_id}" class="popular_list_card product_item js-card">
          <svg class="popular_discount_icon visually-hidden" width="60" height="60" alt="Discount" aria-hidden="true"
-  role="img"   focusable="false">
+  role="img"  >
           <use xlink:href="${sprite}#Discount"></use>
          </svg>
          <div class="popular_image_container">
@@ -72,12 +72,12 @@ function createMarkup(response) {
           <button data-id="${_id}" class=" popular_order_btn add-to-cart" aria-label="Add product to cart">
             <svg class="card-icon-cart popular-icon" ${
               idx === -1 ? "style = 'display:block'" : "style = 'display:none'"
-            }  width="12" height="12" aria-hidden="true" role="img" focusable="false">
+            }  width="12" height="12" aria-hidden="true" role="img">
               <use xlink:href="${sprite}#shopping-cart"></use>
             </svg>
             <svg class="card-icon-check popular-icon-check" ${
               idx === -1 ? "style = 'display:none'" : "style = 'display:block'"
-            }  width="12" height="12" aria-hidden="true" role="img" focusable="false">
+            }  width="12" height="12" aria-hidden="true" role="img">
               <use xlink:href="${sprite}#check"></use>
             </svg>
           </button>

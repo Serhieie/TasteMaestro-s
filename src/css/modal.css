@@ -21,6 +21,7 @@
   background-color: var(--backdrop-color);
   overflow: hidden;
   opacity: 0.6;
+  transition: opacity 300ms ease-in-out;
 }
 
 .backdrop:not(.visually-hidden) {

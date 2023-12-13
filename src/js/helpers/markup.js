@@ -30,8 +30,8 @@ export function createProductItemMarkup({
             class="product__image"
             src="${img}"
             alt="${name}"
-            width="140px"
-            height="140px"
+            width="140"
+            height="140"
             aria-label="product"
           />
         </div>
@@ -41,7 +41,7 @@ export function createProductItemMarkup({
             <li class="product-description-item">
               <p class="product__description__text">
                 Category:
-                <span id="product_category_name" class="product__description__span"}>${category.replace(
+                <span id="product_category_name" class="product__description__span">${category.replace(
                   /_/g,
                   ' '
                 )}</span>
