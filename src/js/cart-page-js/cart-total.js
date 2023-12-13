@@ -63,7 +63,7 @@ checkoutForm.addEventListener('submit', function (event) {
       }
     })
     .catch(e => {
-      console.log(e);
+      hideLoader();
       new AWN().warning('Something went wrong', globalOptionsCheck);
     });
 });
