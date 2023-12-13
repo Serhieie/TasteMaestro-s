@@ -43,7 +43,6 @@
 .img-field {
   border-radius: 10px;
   background: var(--color-on-grin, #e8e8e2);
-  width: 205px;
   height: 150px;
   padding-top: 18px;
   padding-bottom: 18px;
@@ -101,16 +100,6 @@
 .discount-check-icon {
   stroke: var(--color-on-grin, #e8e8e2);
   fill: transparent;
-}
-
-@media screen and (min-width: 375px) {
-  .discount-card {
-    width: 335px;
-  }
-
-  .img-field {
-    width: 304px;
-  }
 }
 
 @media screen and (min-width: 768px) {
