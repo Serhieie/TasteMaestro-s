@@ -52,17 +52,23 @@ const loadFiltersFromLocalStorage = () => {
   categorySelectButton.textContent = displayCategory.replace(/_/g, ' ');
 };
 
+window.addEventListener('resize', onResize);
+
+function onResize() {
+  if (window.innerWidth >= 1440) {
+    COMMONS.filters.limit = 9;
+  } else if (window.innerWidth <= 1440 && window.innerWidth >= 768) {
+    COMMONS.filters.limit = 8;
+  } else {
+    COMMONS.filters.limit = 6;
+  }
+}
+
 loadFiltersFromLocalStorage();
 
 export async function fetchProducts() {
   try {
-    if (window.innerWidth >= 1440) {
-      COMMONS.filters.limit = 9;
-    } else if (window.innerWidth <= 1440 && window.innerWidth >= 768) {
-      COMMONS.filters.limit = 8;
-    } else {
-      COMMONS.filters.limit = 6;
-    }
+    onResize();
 
     let url = `${COMMONS.BASE_URL}/products?page=${COMMONS.filters.page}&limit=${COMMONS.filters.limit}`;
 
