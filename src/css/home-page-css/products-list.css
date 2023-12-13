@@ -125,6 +125,16 @@
     max-width: calc((100% - 32px) / 2);
     margin-bottom: 0px;
     height: 360px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product__description__wraper {
+    margin-bottom: 0;
+  }
+
+  .product__order__wraper {
+    margin-top: auto;
   }
 
   .product__title {
