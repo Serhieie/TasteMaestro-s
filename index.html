@@ -55,14 +55,14 @@
     <meta property="og:image:height" content="345" />
     <script type="module" crossorigin src="/TasteMaestro-s/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/vendor-f728e3bf.js">
-    <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/sprite-1f485dfc.js">
-    <link rel="stylesheet" href="/TasteMaestro-s/assets/sprite-7584cc8a.css">
+    <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/sprite-f67b33d6.js">
+    <link rel="stylesheet" href="/TasteMaestro-s/assets/sprite-70c6fd41.css">
     <link rel="stylesheet" href="/TasteMaestro-s/assets/vendor-dccfdd0c.css">
   </head>
   <body>
     <header class="header">
   <div class="container header__container">
-    <nav class="nav" role="navigation">
+    <nav class="nav">
       <ul class="nav-list">
         <li class="header__nav_list_item_logo">
           <a class="nav_link_logo" href="./index.html" aria-label="Home">
@@ -165,7 +165,6 @@
           type="text"
           id="keywordInput"
           placeholder="Search for anything"
-          aria-labelledby="keywordLabel"
         />
         <button class="filter-button d-flex" type="submit" aria-label="Search">
           <svg class="svg__search" width="20" height="20">
@@ -177,7 +176,7 @@
         <button
           id="categorySelect"
           class="categorySelectClass d-flex"
-          aria-haspopup="listbox"
+          aria-haspopup="menu"
           aria-expanded="false"
         >
           Categories
@@ -198,7 +197,7 @@
           id="sortProducts"
           class="d-flex"
           type="button"
-          aria-haspopup="listbox"
+          aria-haspopup="menu"
           aria-expanded="false"
         >
           A to Z
@@ -350,7 +349,11 @@
       You have already subscribed to our new products. Watch for offers at the
       mailing address.
     </p>
-    <button class="modal-btn-close js-close"  aria-label="modal-btn-close js-close" type="button">
+    <button
+      class="modal-btn-close js-close"
+      aria-label="modal-btn-close js-close"
+      type="button"
+    >
       <svg class="icon-close">
         <use href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#close-cross"></use>
       </svg>
@@ -391,8 +394,8 @@
         class="modal-cart-img"
         src="/TasteMaestro-s/assets/modal-cart-1x-06d052a5.png"
         alt="tomatoes"
-        width="140px"
-        height="140px"
+        width="140"
+        height="140"
       />
       <img
         class="modal-cart-shadow"
