@@ -111,7 +111,7 @@ import{s as g,C as a,d as Z,e as G}from"./assets/sprite-9dc59fac.js";import{a as
              <p id="product__price" class="discount-product-price">
                $<span class="js-discount-product-price">${c}</span>
              </p>
-             <button data-id="${i}" class="discount-cart-btn add-to-cart" type="button">
+             <button data-id="${i}" class="discount-cart-btn add-to-cart" aria-label="discount-cart-btn" type="button">
                 <svg class="card-icon-cart discount-cart-icon" ${s===-1?"style = 'display:block'":"style = 'display:none'"}  width="18" height="18">
                       <use xlink:href="${g}#shopping-cart"></use>
                   </svg>
