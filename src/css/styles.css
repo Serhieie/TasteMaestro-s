@@ -194,6 +194,9 @@ body.modal-is-open {
 }
 
 .visually-hidden {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   position: absolute;
   width: 1px;
   height: 1px;

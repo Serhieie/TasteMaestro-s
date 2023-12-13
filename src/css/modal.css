@@ -5,6 +5,8 @@
   transform: translate(-50%, -50%) scale(1);
   background-color: var(--background-color);
   border-radius: 20px;
+  transition: all 400ms ease-in-out;
+  overflow: hidden;
 }
 
 .backdrop {
@@ -19,9 +21,6 @@
   background-color: var(--backdrop-color);
   overflow: hidden;
   opacity: 0.6;
-
-  /* transition: opacity var(--animation), visibility var(--animation); */
-  transition: opacity 1000ms ease-in-out;
 }
 
 .backdrop:not(.visually-hidden) {

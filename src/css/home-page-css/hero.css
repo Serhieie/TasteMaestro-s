@@ -6,6 +6,7 @@
   overflow: hidden;
   border-radius: 30px;
   margin: 0 auto;
+  user-select: none;
 }
 
 .hero__title {
@@ -16,6 +17,7 @@
   font-weight: 500;
   line-height: 1.09;
   letter-spacing: -0.88px;
+  user-select: none;
 }
 
 .hero__h1_span {
@@ -24,6 +26,8 @@
 
 .hero__add_text {
   color: var(--secondary-color, rgba(1, 1, 1, 0.8));
+
+  user-select: none;
 
   text-align: center;
   font-size: 14px;
