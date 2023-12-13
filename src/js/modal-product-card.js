@@ -7,6 +7,7 @@ const backdrop = document.querySelector('.js-backdrop');
 const loader = document.querySelector('.loader-container');
 const fatherDiv = document.querySelector('.father_div');
 const body = document.querySelector('body');
+const btnToUp = document.querySelector('.btn-up');
 
 fatherDiv.addEventListener('click', onClickProductCard);
 
@@ -28,6 +29,7 @@ async function onClickProductCard(event) {
 
   modalCard.innerHTML = '';
   const { _id, category, desc, img, name, popularity, price, size } = cardInfo;
+
   const modalCardMarkup = createMarkupProductCard(
     _id,
     category,
@@ -86,6 +88,7 @@ async function getProductCardInfo(id) {
   try {
     modalCard.classList.remove('visually-hidden');
     backdrop.classList.remove('visually-hidden');
+    btnToUp.classList.add('visually-hidden');
 
     const BASE_URL = 'https://food-boutique.b.goit.study/api';
     const ENDPOINT = 'products';
@@ -121,11 +124,14 @@ function createMarkupProductCard(
         }" alt="${name}"  aria-label="product">
     </div>
     <div class="product-descr">
-        <h4 id="product__title" class="product-title">${name}</h4>
+        <h3 id="product__title" class="product-title">${name}</h3>
         <ul class="product-details-list">
-            <li id="product_category_name" class="product-details-text product-details-item"><span class="span-details-text">Category: </span>${category}</li>
+            <li id="product_category_name" class="product-details-text product-details-item"><span class="span-details-text">Category: </span>${category.replace(
+              /_/g,
+              ' '
+            )}</li>
             <li id="product_size" class="product-details-text product-details-item"><span class="span-details-text">Size: </span>${size}</li>
-            <li class="product-details-text"><span class="span-details-text product-details-item">Popularity: </span>${popularity}</li>
+            <li class="product-details-text col-md-3"><span class="span-details-text product-details-item">Popularity: </span>${popularity}</li>
         </ul>
         <p class="product-text">${desc}</p>
     </div>

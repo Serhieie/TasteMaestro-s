@@ -18,9 +18,14 @@
 
   background-color: var(--backdrop-color);
   overflow: hidden;
-  opacity: 1;
+  opacity: 0.6;
 
-  transition: opacity var(--animation), visibility var(--animation);
+  /* transition: opacity var(--animation), visibility var(--animation); */
+  transition: opacity 1000ms ease-in-out;
+}
+
+.backdrop:not(.visually-hidden) {
+  opacity: 1;
 }
 
 .modal-first-case {
@@ -213,7 +218,7 @@
   color: var(--product-description-color);
 }
 
-.product-details-item {
+.col-md-3 {
   flex: 0 0 50%;
 }
 

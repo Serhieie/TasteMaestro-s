@@ -103,7 +103,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 1.29;
-  outline:none;
+  outline: none;
 }
 
 .footer-subscribe-input::placeholder {
@@ -113,7 +113,7 @@
 .footer-btn {
   display: flex;
   width: 100%;
-  padding: 12px 149px;
+  padding: 12px 100px;
   justify-content: center;
   align-items: center;
   gap: 8px;
@@ -161,8 +161,6 @@
     width: 20px;
     height: 20px;
   }
-
-  
 
   .footer-span-logo {
     width: 32px;
@@ -219,7 +217,7 @@
     align-items: flex-start;
     gap: 148px;
   }
-  .footer-form-cover{
+  .footer-form-cover {
     margin-top: 0;
     margin-bottom: 0;
   }

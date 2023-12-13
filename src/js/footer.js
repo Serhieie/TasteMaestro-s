@@ -39,6 +39,7 @@ function onSubmit(evt) {
         showModalFirstCase();
       } else {
         toastWarning();
+        loader.classList.add('visually-hidden');
       }
     });
   evt.target.reset();

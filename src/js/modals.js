@@ -8,6 +8,7 @@ const refs = {
   closeBtn: document.querySelectorAll('.js-close'),
   checkoutModal: document.querySelector('.js-checkout-modal'),
   body: document.querySelector('body'),
+  btnToUp: document.querySelector('.btn-up'),
 };
 
 function onClickFirstCase() {
@@ -63,6 +64,7 @@ function backdropSecondCase() {
 const BtnFistCase = refs.closeBtn[0];
 function showModalFirstCase() {
   refs.backdrop.classList.remove('visually-hidden');
+  refs.btnToUp.classList.add('visually-hidden');
   refs.modalFirstCase.classList.remove('visually-hidden');
   refs.body.classList.add('modal-is-open');
   BtnFistCase.addEventListener('click', onClickFirstCase);
@@ -73,6 +75,7 @@ function showModalFirstCase() {
 function showModalSecondCase() {
   refs.backdrop.classList.remove('visually-hidden');
   refs.modalSecondCase.classList.remove('visually-hidden');
+  refs.btnToUp.classList.add('visually-hidden');
   refs.body.classList.add('modal-is-open');
   const BtnSecondCase = refs.closeBtn[1];
   BtnSecondCase.addEventListener('click', onClickSecondCase);
@@ -83,6 +86,7 @@ function showModalSecondCase() {
 function showCheckoutModal() {
   refs.backdrop.classList.remove('visually-hidden');
   refs.checkoutModal.classList.remove('visually-hidden');
+  refs.btnToUp.classList.add('visually-hidden');
   refs.body.classList.add('modal-is-open');
   const BtnCheckoutClose = refs.closeBtn[2];
   BtnCheckoutClose.addEventListener('click', onClickCheckoutClose);
