@@ -1,4 +1,4 @@
-import{s as g,C as a,d as Z,e as G}from"./assets/sprite-fcc4c8e5.js";import{a as b}from"./assets/vendor-f728e3bf.js";window.addEventListener("load",M);const v="cartItems",K=document.querySelector("main");K.addEventListener("click",Y);function Y(t){const e=t.target.closest(".add-to-cart"),s=t.target.closest(".product_item");if(e===null)return;const i=t.target.closest(".add-to-cart").dataset.id,r=s.dataset.id,o=s.querySelector("#product__image").src,n=s.querySelector("#product__image").alt,c=s.querySelector("#product__title").textContent,l=s.querySelector("#product_category_name").textContent,d=s.querySelector("#product_size").textContent,u=s.querySelector("#product__price").textContent;if(s.querySelector(".card-icon-check"),s.querySelector(".card-icon-cart"),!localStorage.getItem(v))z(v,[{id:r,img:o,imgDsc:n,title:c,category:l,price:u,size:d,quantity:1}]),M(),E(i);else{const p=y(v),k=p.findIndex(L=>L.id===s.dataset.id);k!==-1?(p.splice(k,1),E(i)):(p.push({id:r,img:o,imgDsc:n,title:c,category:l,price:u,size:d,quantity:1}),E(i)),z(v,p),M()}}const z=(t,e)=>{try{const s=JSON.stringify(e);localStorage.setItem(t,s)}catch(s){console.error("Set state error: ",s.message)}},y=t=>{try{const e=localStorage.getItem(t);return e===null?void 0:JSON.parse(e)}catch(e){console.error("Get state error: ",e.message)}};function M(){const t=document.querySelector(".header__js_span");y(v)?t.textContent=`CART (${y(v).length})`:t.textContent=`CART (${0})`}function E(t){document.querySelectorAll(`.add-to-cart[data-id="${t}"]`).forEach(s=>{const i=s.querySelector(".card-icon-cart"),r=s.querySelector(".card-icon-check");i.style.display==="block"?(i.style.display="none",r.style.display="block"):(i.style.display="block",r.style.display="none")})}function Q({_id:t,name:e,img:s,desc:i,category:r,price:o,size:n,popularity:c,is10PercentOff:l}){let d=[],u=-1;return y("cartItems")&&(d=y("cartItems"),u=d.findIndex(p=>p.id===t)),`<li data-id="${t}" class="product__list__card product_item js-card">
+import{s as g,C as a,d as Z,e as G}from"./assets/sprite-fcc4c8e5.js";import{a as b}from"./assets/vendor-f728e3bf.js";window.addEventListener("load",M);const v="cartItems",K=document.querySelector("main");K.addEventListener("click",Y);function Y(t){const e=t.target.closest(".add-to-cart"),s=t.target.closest(".product_item");if(e===null)return;const i=t.target.closest(".add-to-cart").dataset.id,r=s.dataset.id,o=s.querySelector("#product__image").src,n=s.querySelector("#product__image").alt,c=s.querySelector("#product__title").textContent,l=s.querySelector("#product_category_name").textContent,d=s.querySelector("#product_size").textContent,u=s.querySelector("#product__price").textContent;if(s.querySelector(".card-icon-check"),s.querySelector(".card-icon-cart"),!localStorage.getItem(v))B(v,[{id:r,img:o,imgDsc:n,title:c,category:l,price:u,size:d,quantity:1}]),M(),E(i);else{const p=y(v),k=p.findIndex(L=>L.id===s.dataset.id);k!==-1?(p.splice(k,1),E(i)):(p.push({id:r,img:o,imgDsc:n,title:c,category:l,price:u,size:d,quantity:1}),E(i)),B(v,p),M()}}const B=(t,e)=>{try{const s=JSON.stringify(e);localStorage.setItem(t,s)}catch(s){console.error("Set state error: ",s.message)}},y=t=>{try{const e=localStorage.getItem(t);return e===null?void 0:JSON.parse(e)}catch(e){console.error("Get state error: ",e.message)}};function M(){const t=document.querySelector(".header__js_span");y(v)?t.textContent=`CART (${y(v).length})`:t.textContent=`CART (${0})`}function E(t){document.querySelectorAll(`.add-to-cart[data-id="${t}"]`).forEach(s=>{const i=s.querySelector(".card-icon-cart"),r=s.querySelector(".card-icon-check");i.style.display==="block"?(i.style.display="none",r.style.display="block"):(i.style.display="block",r.style.display="none")})}function Q({_id:t,name:e,img:s,desc:i,category:r,price:o,size:n,popularity:c,is10PercentOff:l}){let d=[],u=-1;return y("cartItems")&&(d=y("cartItems"),u=d.findIndex(p=>p.id===t)),`<li data-id="${t}" class="product__list__card product_item js-card">
         <svg class="sticker_icon ${l?"":"visually-hidden"}" width="60" height="60" aria-label="discount">
           <use xlink:href="${g}#discount"></use>
         </svg>
@@ -63,26 +63,26 @@ import{s as g,C as a,d as Z,e as G}from"./assets/sprite-fcc4c8e5.js";import{a as
          </div>
         <div class="popular_description_container">
           <h3 id="product__title" class="popular_product_title" aria-label="product_${e}_title">${s}</h3>
-          <ul class="popular_details">
-            <li class="popular_details_item">
+          <div class="popular_details">
+            <div class="popular_details_item">
               <p class="popular_details_category">
                 Category:
                 <span id="product_category_name" class="popular_details_text">${l}</span>
               </p>
-            </li>
+            </div>
              <div class="popular_detail_wrap">
-            <li class="popular_details_item">
+            <div class="popular_details_item">
               <p class="popular_details_category">
                 Size: <span id="product_size" class="popular_details_text">${n}</span>
               </p>
-            </li>
-            <li class="popular_details_item">
+            </div>
+            <div class="popular_details_item">
               <p class="popular_details_category">
                 Popularity: <span class="popular_details_text">${c}</span>
               </p>
-            </li>
             </div>
-          </ul>
+            </div>
+          </div>
         </div>
         <div class="popular_order_container">
           <p id="product__price" style = "display:none">${"$"+o}</p>
@@ -127,35 +127,35 @@ import{s as g,C as a,d as Z,e as G}from"./assets/sprite-fcc4c8e5.js";import{a as
          <span id="product_category_name" class="visually-hidden">${n}</span>
          <span id="product_size" class="visually-hidden">${l}</span>
          <span class="product__description__span visually-hidden">${d}</span>
-       </li>`).join("")}const f=document.querySelector(".js-modal-product-card"),h=document.querySelector(".js-backdrop"),O=document.querySelector(".loader-container"),vt=document.querySelector(".father_div"),S=document.querySelector("body"),bt=document.querySelector(".btn-up");vt.addEventListener("click",kt);async function kt(t){if(t.target===t.currentTarget)return;const e=t.target.closest(".js-card");if(e===null)return;const s=e.dataset.id;if(t.target.closest(".add-to-cart"))return;O.classList.remove("visually-hidden"),S.classList.add("modal-is-open");const i=await Lt(s);f.innerHTML="";const{_id:r,category:o,desc:n,img:c,name:l,popularity:d,price:u,size:p}=i,k=$t(r,o,n,c,l,d,u,p);f.innerHTML=k,O.classList.add("visually-hidden"),f.classList.remove("visually-hidden");const L=document.querySelector(".js-btn-close-card");L.addEventListener("click",j),h.addEventListener("click",B),document.addEventListener("keydown",$);function j(){h.classList.add("visually-hidden"),f.classList.add("visually-hidden"),S.classList.remove("modal-is-open"),f.innerHTML="",L.removeEventListener("click",j),document.removeEventListener("keydown",$)}function B(w){w.target.closest(".product_item")||(h.classList.add("visually-hidden"),f.classList.add("visually-hidden"),S.classList.remove("modal-is-open"),f.innerHTML="",h.removeEventListener("click",B),document.removeEventListener("keydown",$))}function $(w){w.preventDefault(),w.key==="Escape"&&(h.classList.add("visually-hidden"),f.classList.add("visually-hidden"),S.classList.remove("modal-is-open"),f.innerHTML="",document.removeEventListener("keydown",$))}}async function Lt(t){try{f.classList.remove("visually-hidden"),h.classList.remove("visually-hidden"),bt.classList.add("visually-hidden");const e="https://food-boutique.b.goit.study/api",s="products",{data:i}=await b.get(`${e}/${s}/${t}`);return i}catch(e){console.error(e)}}function $t(t,e,s,i,r,o,n,c){let l=[],d=-1;return y("cartItems")&&(l=y("cartItems"),d=l.findIndex(p=>p.id===t)),`<div data-id="${t}" class="product_item modal-product-div">
+       </li>`).join("")}const f=document.querySelector(".js-modal-product-card"),h=document.querySelector(".js-backdrop"),O=document.querySelector(".loader-container"),vt=document.querySelector(".father_div"),S=document.querySelector("body"),bt=document.querySelector(".btn-up");vt.addEventListener("click",kt);async function kt(t){if(t.target===t.currentTarget)return;const e=t.target.closest(".js-card");if(e===null)return;const s=e.dataset.id;if(t.target.closest(".add-to-cart"))return;O.classList.remove("visually-hidden"),S.classList.add("modal-is-open");const i=await Lt(s);f.innerHTML="";const{_id:r,category:o,desc:n,img:c,name:l,popularity:d,price:u,size:p}=i,k=$t(r,o,n,c,l,d,u,p);f.innerHTML=k,O.classList.add("visually-hidden"),f.classList.remove("visually-hidden");const L=document.querySelector(".js-btn-close-card");L.addEventListener("click",j),h.addEventListener("click",z),document.addEventListener("keydown",$);function j(){h.classList.add("visually-hidden"),f.classList.add("visually-hidden"),S.classList.remove("modal-is-open"),f.innerHTML="",L.removeEventListener("click",j),document.removeEventListener("keydown",$)}function z(w){w.target.closest(".product_item")||(h.classList.add("visually-hidden"),f.classList.add("visually-hidden"),S.classList.remove("modal-is-open"),f.innerHTML="",h.removeEventListener("click",z),document.removeEventListener("keydown",$))}function $(w){w.preventDefault(),w.key==="Escape"&&(h.classList.add("visually-hidden"),f.classList.add("visually-hidden"),S.classList.remove("modal-is-open"),f.innerHTML="",document.removeEventListener("keydown",$))}}async function Lt(t){try{f.classList.remove("visually-hidden"),h.classList.remove("visually-hidden"),bt.classList.add("visually-hidden");const e="https://food-boutique.b.goit.study/api",s="products",{data:i}=await b.get(`${e}/${s}/${t}`);return i}catch(e){console.error(e)}}function $t(t,e,s,i,r,o,n,c){let l=[],d=-1;return y("cartItems")&&(l=y("cartItems"),d=l.findIndex(p=>p.id===t)),`<div data-id="${t}" class="product_item modal-product-div">
   <div class="product-container">
     <div class="product-image-box">
-        <img id="product__image" class="product-image" src="${i!==null?i:"./img/image-placeholder.png"}" alt="${r}"  aria-label="product">
+      <img id="product__image" class="product-image" src="${i!==null?i:"./img/image-placeholder.png"}" alt="${r}" aria-labelledby="product__title" aria-describedby="product_category_name product_size" />
     </div>
     <div class="product-descr">
-        <h3 id="product__title" class="product-title">${r}</h3>
-        <ul class="product-details-list">
-            <li id="product_category_name" class="product-details-text product-details-item"><span class="span-details-text">Category: </span>${e.replace(/_/g," ")}</li>
-            <li id="product_size" class="product-details-text product-details-item"><span class="span-details-text">Size: </span>${c}</li>
-            <li class="product-details-text col-md-3"><span class="span-details-text product-details-item">Popularity: </span>${o}</li>
-        </ul>
-        <p class="product-text">${s}</p>
+      <h3 id="product__title" class="product-title">${r}</h3>
+      <ul class="product-details-list">
+        <li id="product_category_name" class="product-details-text product-details-item"><span class="span-details-text">Category: </span>${e.replace(/_/g," ")}</li>
+        <li id="product_size" class="product-details-text product-details-item"><span class="span-details-text">Size: </span>${c}</li>
+        <li class="product-details-text col-md-3"><span class="span-details-text product-details-item">Popularity: </span>${o}</li>
+      </ul>
+      <p class="product-text">${s}</p>
     </div>
-    </div>
-    <div class="product-wraper">
+  </div>
+  <div class="product-wraper">
     <span id="product__price" class="product-price">$${n}</span>
     <button class="product-btn-shopping-cart add-to-cart" type="button" data-id="${t}" aria-label="add-cart">
-        <span ${d===-1?"style = 'display:block'":"style = 'display:none'"} class="card-icon-cart">Add to</span>
-        <span ${d===-1?"style = 'display:none'":"style = 'display:block'"} class="card-icon-check">Remove from</span>
-        <svg class="product-cart-icon" width="18" height="18" aria-label="remove-cart">
-            <use xlink:href="${g}#shopping-cart" ></use>
-        </svg>
-    </button>
-    </div>
-    <button class="modal-btn-close js-btn-close-card" type="button" aria-label="close-modal">
-    <svg class="icon-close" aria-label="cart"> 
-        <use xlink:href="${g}#close-cross"></use>
+      <span ${d===-1?"style = 'display:block'":"style = 'display:none'"} class="card-icon-cart">Add to</span>
+      <span ${d===-1?"style = 'display:none'":"style = 'display:block'"} class="card-icon-check">Remove from</span>
+      <svg class="product-cart-icon" width="18" height="18" aria-label="remove-cart">
+        <use xlink:href="${g}#shopping-cart" ></use>
       </svg>
     </button>
-    </div>`}
+  </div>
+  <button class="modal-btn-close js-btn-close-card" type="button" aria-label="close-modal">
+    <svg class="icon-close" aria-label="cart"> 
+      <use xlink:href="${g}#close-cross"></use>
+    </svg>
+  </button>
+</div>`}
 //# sourceMappingURL=commonHelpers2.js.map
