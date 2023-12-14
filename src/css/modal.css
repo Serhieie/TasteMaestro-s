@@ -5,7 +5,7 @@
   transform: translate(-50%, -50%);
   background-color: var(--background-color);
   border-radius: 20px;
-  transition: all 700ms ease-in-out;
+  transition: opacity 800ms ease-in-out;
   overflow: hidden;
   opacity: 1;
 }
