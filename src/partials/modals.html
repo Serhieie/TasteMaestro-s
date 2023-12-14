@@ -1,19 +1,29 @@
-<div class="backdrop js-backdrop visually-hidden">
+<div
+  class="backdrop js-backdrop visually-hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Subscription Status"
+>
   <!-- Subscription has been already done -->
-  <div class="modal modal-first-case js-modal-first-case visually-hidden">
+  <div
+    class="modal modal-first-case js-modal-first-case visually-hidden"
+    role="alertdialog"
+    aria-labelledby="modal-title-1"
+    aria-describedby="modal-text-1"
+  >
     <div class="modal-title-position">
-      <h3 class="modal-title">
-        This <span class="modal-title-span">email adress</span> has already been
-        entered
+      <h3 id="modal-title-1" class="modal-title">
+        This <span class="modal-title-span">email address</span> has already
+        been entered
       </h3>
     </div>
-    <p class="modal-text">
+    <p id="modal-text-1" class="modal-text" aria-label="polite">
       You have already subscribed to our new products. Watch for offers at the
       mailing address.
     </p>
     <button
       class="modal-btn-close js-close"
-      aria-label="modal-btn-close js-close"
+      aria-label="Close modal"
       type="button"
     >
       <svg class="icon-close">
@@ -22,14 +32,19 @@
     </button>
   </div>
   <!-- Subscription success -->
-  <div class="modal modal-second-case js-modal-second-case visually-hidden">
+  <div
+    class="modal modal-second-case js-modal-second-case visually-hidden"
+    role="alertdialog"
+    aria-labelledby="modal-title-2"
+    aria-describedby="modal-text-2"
+  >
     <div class="modal-title-position">
-      <h3 class="modal-title">
+      <h3 id="modal-title-2" class="modal-title">
         Thanks for subscribing for
         <span class="modal-title-span">new</span> products
       </h3>
     </div>
-    <p class="modal-text">
+    <p id="modal-text-2" class="modal-text" aria-label="polite">
       We promise you organic and high-quality products that will meet your
       expectations. Please stay with us and we promise you many pleasant
       surprises.
@@ -37,7 +52,7 @@
     <button
       class="modal-btn-close js-close"
       type="button"
-      aria-label="close modal button"
+      aria-label="Close modal"
     >
       <svg class="icon-close" aria-label="close icon">
         <use href="./img/sprite.svg#close-cross"></use>
@@ -50,7 +65,12 @@
     />
   </div>
   <!-- Order success -->
-  <div class="modal modal-order visually-hidden js-checkout-modal">
+  <div
+    class="modal modal-order visually-hidden js-checkout-modal"
+    role="alertdialog"
+    aria-labelledby="modal-title-3"
+    aria-describedby="modal-text-3"
+  >
     <div class="modal-cart-img-position">
       <img
         class="modal-cart-img"
@@ -65,8 +85,8 @@
         alt="shadow"
       />
     </div>
-    <h3 class="modal-title-cart">Order success</h3>
-    <p class="modal-cart-text">
+    <h3 id="modal-title-3" class="modal-title-cart">Order success</h3>
+    <p id="modal-text-3" class="modal-cart-text" aria-label="polite">
       Thank you for shopping at Food Boutique. Your order has been received and
       is now being freshly prepared just for you! Get ready to indulge in
       nourishing goodness, delivered right to your doorstep. We're thrilled to
@@ -75,7 +95,7 @@
     <button
       class="modal-btn-close js-close"
       type="button"
-      aria-label="close modal button"
+      aria-label="Close modal"
     >
       <svg class="icon-close" aria-label="close icon">
         <use href="./img/sprite.svg#close-cross"></use>

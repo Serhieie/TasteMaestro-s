@@ -119,41 +119,41 @@ function createMarkupProductCard(
   return `<div data-id="${_id}" class="product_item modal-product-div">
   <div class="product-container">
     <div class="product-image-box">
-        <img id="product__image" class="product-image" src="${
-          img !== null ? img : placeholderImg
-        }" alt="${name}"  aria-label="product">
+      <img id="product__image" class="product-image" src="${
+        img !== null ? img : placeholderImg
+      }" alt="${name}" aria-labelledby="product__title" aria-describedby="product_category_name product_size" />
     </div>
     <div class="product-descr">
-        <h3 id="product__title" class="product-title">${name}</h3>
-        <ul class="product-details-list">
-            <li id="product_category_name" class="product-details-text product-details-item"><span class="span-details-text">Category: </span>${category.replace(
-              /_/g,
-              ' '
-            )}</li>
-            <li id="product_size" class="product-details-text product-details-item"><span class="span-details-text">Size: </span>${size}</li>
-            <li class="product-details-text col-md-3"><span class="span-details-text product-details-item">Popularity: </span>${popularity}</li>
-        </ul>
-        <p class="product-text">${desc}</p>
+      <h3 id="product__title" class="product-title">${name}</h3>
+      <ul class="product-details-list">
+        <li id="product_category_name" class="product-details-text product-details-item"><span class="span-details-text">Category: </span>${category.replace(
+          /_/g,
+          ' '
+        )}</li>
+        <li id="product_size" class="product-details-text product-details-item"><span class="span-details-text">Size: </span>${size}</li>
+        <li class="product-details-text col-md-3"><span class="span-details-text product-details-item">Popularity: </span>${popularity}</li>
+      </ul>
+      <p class="product-text">${desc}</p>
     </div>
-    </div>
-    <div class="product-wraper">
+  </div>
+  <div class="product-wraper">
     <span id="product__price" class="product-price">$${price}</span>
     <button class="product-btn-shopping-cart add-to-cart" type="button" data-id="${_id}" aria-label="add-cart">
-        <span ${
-          idx === -1 ? "style = 'display:block'" : "style = 'display:none'"
-        } class="card-icon-cart">Add to</span>
-        <span ${
-          idx === -1 ? "style = 'display:none'" : "style = 'display:block'"
-        } class="card-icon-check">Remove from</span>
-        <svg class="product-cart-icon" width="18" height="18" aria-label="remove-cart">
-            <use xlink:href="${sprite}#shopping-cart" ></use>
-        </svg>
-    </button>
-    </div>
-    <button class="modal-btn-close js-btn-close-card" type="button" aria-label="close-modal">
-    <svg class="icon-close" aria-label="cart"> 
-        <use xlink:href="${sprite}#close-cross"></use>
+      <span ${
+        idx === -1 ? "style = 'display:block'" : "style = 'display:none'"
+      } class="card-icon-cart">Add to</span>
+      <span ${
+        idx === -1 ? "style = 'display:none'" : "style = 'display:block'"
+      } class="card-icon-check">Remove from</span>
+      <svg class="product-cart-icon" width="18" height="18" aria-label="remove-cart">
+        <use xlink:href="${sprite}#shopping-cart" ></use>
       </svg>
     </button>
-    </div>`;
+  </div>
+  <button class="modal-btn-close js-btn-close-card" type="button" aria-label="close-modal">
+    <svg class="icon-close" aria-label="cart"> 
+      <use xlink:href="${sprite}#close-cross"></use>
+    </svg>
+  </button>
+</div>`;
 }

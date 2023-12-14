@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer" role="contentinfo" aria-labelledby="footerTitle">
   <div class="container footer-container">
     <div class="footer-main-part">
       <div class="first-part-footer">
@@ -60,7 +60,7 @@
         <div class="footer-form-cover">
           <p class="text-footer">Subscribe and learn about new products!</p>
           <form class="footer-form footer-form-js">
-            <label class="label-form-footer">
+            <label class="label-form-footer" for="subscribe">
               <input
                 class="footer-subscribe-input"
                 type="email"
@@ -69,11 +69,7 @@
                 placeholder="Email"
               />
             </label>
-            <button
-              class="footer-btn"
-              type="submit"
-              aria-label="subscribtion button"
-            >
+            <button class="footer-btn" type="submit" aria-label="Send">
               Send
             </button>
           </form>

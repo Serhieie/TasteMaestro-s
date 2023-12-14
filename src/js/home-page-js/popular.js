@@ -46,26 +46,26 @@ function createMarkup(response) {
          </div>
         <div class="popular_description_container">
           <h3 id="product__title" class="popular_product_title" aria-label="product_${_id}_title">${name}</h3>
-          <ul class="popular_details">
-            <li class="popular_details_item">
+          <div class="popular_details">
+            <div class="popular_details_item">
               <p class="popular_details_category">
                 Category:
                 <span id="product_category_name" class="popular_details_text">${newCategory}</span>
               </p>
-            </li>
+            </div>
              <div class="popular_detail_wrap">
-            <li class="popular_details_item">
+            <div class="popular_details_item">
               <p class="popular_details_category">
                 Size: <span id="product_size" class="popular_details_text">${size}</span>
               </p>
-            </li>
-            <li class="popular_details_item">
+            </div>
+            <div class="popular_details_item">
               <p class="popular_details_category">
                 Popularity: <span class="popular_details_text">${popularity}</span>
               </p>
-            </li>
             </div>
-          </ul>
+            </div>
+          </div>
         </div>
         <div class="popular_order_container">
           <p id="product__price" style = "display:none">${'$' + price}</p>
