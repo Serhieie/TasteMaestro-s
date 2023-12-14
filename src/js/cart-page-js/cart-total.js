@@ -24,20 +24,20 @@ checkoutForm.addEventListener('submit', function (event) {
     return;
   }
 
-  const regex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
-  if (!email.match(regex)) {
-    emailInput.style.borderColor = 'red';
-    new AWN().warning('Please enter a correct email', globalOptionsCheck);
-    return;
-  }
-
-  const globalOptionsCheck = {
+    const globalOptionsCheck = {
     labels: { warning: 'Warning' },
     icons: { warning: '<i class="fas fa-exclamation-triangle"></i>' },
     colors: { warning: '#FFA500' },
     maxNotifications: 1,
     durations: { global: 2000 },
   };
+
+  const regex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
+  if (!email.match(regex)) {
+    emailInput.style.borderColor = 'red';
+    new AWN().warning('Please enter a correct email', globalOptionsCheck);
+    return;
+  }
 
   emailInput.style.borderColor = '#e8e8e2';
   showLoader();

@@ -78,7 +78,7 @@ function cartOrder(cart) {
                 <use
                   class="cart-remove-svg"
                   xlink:href="${sprite}#minus"
-                  
+
                 ></use>
               </svg></button>
             <span class="cart-order-quantity">${item.quantity}</span>
