@@ -2,11 +2,12 @@
   position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%);
   background-color: var(--background-color);
   border-radius: 20px;
-  transition: all 400ms ease-in-out;
+  transition: all 700ms ease-in-out;
   overflow: hidden;
+  opacity: 1;
 }
 
 .backdrop {
