@@ -82,10 +82,13 @@ select option {
   padding-right: 14px;
   height: 46.4px;
   width: 50px;
-  
+  background-color: transparent;
+  border: 1px solid rgba(1, 1, 1, 0.3);
+  outline: none;
+  border-left: none;
+
   border-top-right-radius: 60px;
   border-bottom-right-radius: 60px;
-  border-left: none;
 }
 
 #keywordInput {
@@ -115,6 +118,18 @@ select option {
 #sortProducts:focus-within {
   border: 1px solid #6d8434;
   outline: transparent;
+}
+
+#keywordInput:focus-within {
+  border: 1px solid hsl(77, 43%, 36%);
+  border-right: none;
+  outline: transparent;
+}
+
+#keywordInput:focus-within + #search_button {
+  border: none;
+  border: 1px solid #6d8434;
+  border-left: none;
 }
 
 .category-item {
@@ -213,7 +228,7 @@ select option {
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 18px; 
+  line-height: 18px;
   /* 128.571% */
 }
 
