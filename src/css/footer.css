@@ -46,6 +46,7 @@
 .item-social-footer:hover,
 .item-social-footer:focus {
   background-color: rgba(232, 232, 226, 0.2);
+  cursor: pointer;
 }
 
 .item-social-footer a {
