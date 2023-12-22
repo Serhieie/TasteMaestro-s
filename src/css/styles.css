@@ -103,6 +103,7 @@ html {
   position: relative;
   overflow-y: auto;
   background-color: #e8e8e2;
+  user-select: none;
 }
 
 body.modal-is-open {
