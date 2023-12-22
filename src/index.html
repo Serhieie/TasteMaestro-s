@@ -55,36 +55,38 @@
     <meta property="og:image:height" content="345" />
   </head>
   <body>
-    <load ="partials/header.html" />
-    <main>
-      <load ="partials/home-page/hero.html" />
-      <section>
-        <load ="partials/home-page/filters-and-search.html" />
-        <div class="father_div container">
-          <div class="child_div_one">
-            <load ="partials/home-page/products-list.html" />
-            <load ="partials/home-page/pagination.html" />
+    <div class="wrapper">
+      <load ="partials/header.html" />
+      <main>
+        <load ="partials/home-page/hero.html" />
+        <section>
+          <load ="partials/home-page/filters-and-search.html" />
+          <div class="father_div container">
+            <div class="child_div_one">
+              <load ="partials/home-page/products-list.html" />
+              <load ="partials/home-page/pagination.html" />
+            </div>
+            <div class="child_div_two">
+              <load ="partials/home-page/popular.html" />
+              <load ="partials/home-page/discount.html" />
+            </div>
           </div>
-          <div class="child_div_two">
-            <load ="partials/home-page/popular.html" />
-            <load ="partials/home-page/discount.html" />
-          </div>
-        </div>
-      </section>
-      <load ="partials/modals.html" />
-    </main>
-    <load ="partials/footer.html" />
-    <div class="loader-container visually-hidden">
-      <span class="loader"></span>
+        </section>
+        <load ="partials/modals.html" />
+      </main>
+      <load ="partials/footer.html" />
+      <div class="loader-container visually-hidden">
+        <span class="loader"></span>
+      </div>
+      <button class="btn-up visually-hidden" aria-label="btn-up">
+        <svg class="arrow-up" width="44" height="44">
+          <use
+            class="arrow-up-icon"
+            xlink:href="/img/sprite.svg#icon-caret-small-left"
+          ></use>
+        </svg>
+      </button>
     </div>
-    <button class="btn-up visually-hidden"  aria-label="btn-up">
-      <svg class="arrow-up" width="44" height="44">
-        <use
-          class="arrow-up-icon"
-          xlink:href="/img/sprite.svg#icon-caret-small-left"
-        ></use>
-      </svg>
-    </button>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

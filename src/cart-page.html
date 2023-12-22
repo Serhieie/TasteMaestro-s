@@ -55,32 +55,34 @@
     <meta property="og:image:height" content="345" />
   </head>
   <body>
-    <load ="partials/header.html" />
-    <main>
-      <section class="cart-list">
-        <div class="container">
-          <load ="partials/cart-page/cart-ware-count.html" />
-          <load ="partials/cart-page/cart-empty.html" />
-          <div class="cart-list-total">
-            <load ="partials/cart-page/cart-list.html" />
-            <load ="partials/cart-page/cart-total.html" />
+    <div class="wrapper">
+      <load ="partials/header.html" />
+      <main>
+        <section class="cart-list">
+          <div class="container">
+            <load ="partials/cart-page/cart-ware-count.html" />
+            <load ="partials/cart-page/cart-empty.html" />
+            <div class="cart-list-total">
+              <load ="partials/cart-page/cart-list.html" />
+              <load ="partials/cart-page/cart-total.html" />
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
-    <load ="partials/footer.html" />
-    <load ="partials/modals.html" />
-    <div class="loader-container visually-hidden">
-      <span class="loader"></span>
+        </section>
+      </main>
+      <load ="partials/footer.html" />
+      <load ="partials/modals.html" />
+      <div class="loader-container visually-hidden">
+        <span class="loader"></span>
+      </div>
+      <button class="btn-up visually-hidden">
+        <svg class="arrow-up" width="44" height="44">
+          <use
+            class="arrow-up-icon"
+            xlink:href="/img/sprite.svg#icon-caret-small-left"
+          ></use>
+        </svg>
+      </button>
     </div>
-    <button class="btn-up visually-hidden">
-      <svg class="arrow-up" width="44" height="44">
-        <use
-          class="arrow-up-icon"
-          xlink:href="/img/sprite.svg#icon-caret-small-left"
-        ></use>
-      </svg>
-    </button>
     <script type="module" src="/main-cart.js"></script>
   </body>
 </html>

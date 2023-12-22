@@ -99,23 +99,28 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
-body {
+.wrapper {
+  position: relative;
+  overflow-y: auto;
   background-color: #e8e8e2;
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-main {
-  flex: 1;
-}
-
-footer {
-  background-color: var(--brand-color, #6d8434);
 }
 
 body.modal-is-open {
   overflow: hidden;
+}
+
+body.modal-is-open .wrapper {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+body:not(.modal-is-open) .wrapper {
+  height: auto;
+}
+
+footer {
+  background-color: var(--brand-color, #6d8434);
 }
 
 @media screen and (max-width: 375px) {
