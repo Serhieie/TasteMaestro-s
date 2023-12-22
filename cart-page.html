@@ -55,12 +55,13 @@
     <meta property="og:image:height" content="345" />
     <script type="module" crossorigin src="/TasteMaestro-s/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/vendor-f728e3bf.js">
-    <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/sprite-b1e609fd.js">
+    <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/sprite-98c897a8.js">
     <link rel="stylesheet" href="/TasteMaestro-s/assets/vendor-dccfdd0c.css">
-    <link rel="stylesheet" href="/TasteMaestro-s/assets/sprite-bc2fb9fa.css">
+    <link rel="stylesheet" href="/TasteMaestro-s/assets/sprite-60ec47f2.css">
   </head>
   <body>
-    <header class="header">
+    <div class="wrapper">
+      <header class="header">
   <div class="container header__container">
     <nav class="nav">
       <ul class="nav-list">
@@ -109,10 +110,10 @@
   </div>
 </header>
 
-    <main>
-      <section class="cart-list">
-        <div class="container">
-          <!-- ! Empty cart count start -->
+      <main>
+        <section class="cart-list">
+          <div class="container">
+            <!-- ! Empty cart count start -->
 
 <div class="cart-ware-count">
   <span class="cart-svg-span">
@@ -128,7 +129,7 @@
 
 <!-- ! Empty cart count end -->
 
-          <!-- ! Empty cart start -->
+            <!-- ! Empty cart start -->
 
 <div class="cart-empty visually-hidden">
   <div class="cart-empty-desc">
@@ -148,8 +149,8 @@
 
 <!-- ! Empty cart end -->
 
-          <div class="cart-list-total">
-            <div class="cart-filled-list">
+            <div class="cart-list-total">
+              <div class="cart-filled-list">
   <button class="cart-clear-btn" type="button" aria-label="clear-button">
     Delete all
     <span class="cart-clear-span">
@@ -170,7 +171,7 @@
   <ul class="cart-order-list"></ul>
 </div>
 
-            <div class="cart_total_order">
+              <div class="cart_total_order">
   <p class="total-form-title">Your Order</p>
 
   <div id="total-price">
@@ -202,11 +203,11 @@
   </div>
 </div>
 
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
-    <footer class="footer" role="contentinfo" aria-labelledby="footerTitle">
+        </section>
+      </main>
+      <footer class="footer" role="contentinfo" aria-labelledby="footerTitle">
   <div class="container footer-container">
     <div class="footer-main-part">
       <div class="first-part-footer">
@@ -295,7 +296,7 @@
   </div>
 </footer>
 
-    <div
+      <div
   class="backdrop js-backdrop visually-hidden"
   role="dialog"
   aria-modal="true"
@@ -405,17 +406,18 @@
   ></div>
 </div>
 
-    <div class="loader-container visually-hidden">
-      <span class="loader"></span>
+      <div class="loader-container visually-hidden">
+        <span class="loader"></span>
+      </div>
+      <button class="btn-up visually-hidden">
+        <svg class="arrow-up" width="44" height="44">
+          <use
+            class="arrow-up-icon"
+            xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#icon-caret-small-left"
+          ></use>
+        </svg>
+      </button>
     </div>
-    <button class="btn-up visually-hidden">
-      <svg class="arrow-up" width="44" height="44">
-        <use
-          class="arrow-up-icon"
-          xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#icon-caret-small-left"
-        ></use>
-      </svg>
-    </button>
     
   </body>
 </html>

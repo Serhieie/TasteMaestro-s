@@ -55,12 +55,13 @@
     <meta property="og:image:height" content="345" />
     <script type="module" crossorigin src="/TasteMaestro-s/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/vendor-f728e3bf.js">
-    <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/sprite-b1e609fd.js">
-    <link rel="stylesheet" href="/TasteMaestro-s/assets/sprite-bc2fb9fa.css">
+    <link rel="modulepreload" crossorigin href="/TasteMaestro-s/assets/sprite-98c897a8.js">
+    <link rel="stylesheet" href="/TasteMaestro-s/assets/sprite-60ec47f2.css">
     <link rel="stylesheet" href="/TasteMaestro-s/assets/vendor-dccfdd0c.css">
   </head>
   <body>
-    <header class="header">
+    <div class="wrapper">
+      <header class="header">
   <div class="container header__container">
     <nav class="nav">
       <ul class="nav-list">
@@ -109,8 +110,8 @@
   </div>
 </header>
 
-    <main>
-      <section class="hero__section">
+      <main>
+        <section class="hero__section">
   <div class="container">
     <h1 class="hero__title">
       Welcome to the <span class="hero__h1_span">Food</span> Boutique!
@@ -160,8 +161,8 @@
   </div>
 </section>
 
-      <section>
-        <div class="filter__section">
+        <section>
+          <div class="filter__section">
   <div class="container">
     <h2 class="filter__name">Filters:</h2>
     <form id="filterForm" class="filters-from">
@@ -228,7 +229,6 @@
           <li class="category-item" data-value="expensive">Expensive</li>
           <li class="category-item" data-value="popular">Popular</li>
           <li class="category-item" data-value="not-popular">Not popular</li>
-          <li class="category-item" data-value="all">Show all</li>
         </ul>
         <svg class="svg__category_use" width="14" height="14">
           <use xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#down-vector"></use>
@@ -238,9 +238,9 @@
   </div>
 </div>
 
-        <div class="father_div container">
-          <div class="child_div_one">
-            <section class="productsList__section">
+          <div class="father_div container">
+            <div class="child_div_one">
+              <section class="productsList__section">
   <h2 class="productsList__section__title visually-hidden">Products</h2>
   <div id="productsList" class="container container__products">
     <div class="loader-product-container visually-hidden">
@@ -295,7 +295,7 @@
   </div>
 </section>
 
-            <div class="pagination-section">
+              <div class="pagination-section">
   <div class="loader-product-container-center visually-hidden">
     <span class="loader-products-bottom-top"></span>
   </div>
@@ -324,9 +324,9 @@
   </div>
 </div>
 
-          </div>
-          <div class="child_div_two">
-            <section class="popular_product_section">
+            </div>
+            <div class="child_div_two">
+              <section class="popular_product_section">
   <div class="container popular_container">
     <h3 class="popular_title">Popular products</h3>
     <div class="loader-popular-container visually-hidden">
@@ -336,7 +336,7 @@
   </div>
 </section>
 
-            <section class="discount-section">
+              <section class="discount-section">
   <div class="container discount_container">
     <h2 class="discount-title">Discount products</h2>
     <div class="loader-discount-container visually-hidden">
@@ -346,10 +346,10 @@
   </div>
 </section>
 
+            </div>
           </div>
-        </div>
-      </section>
-      <div
+        </section>
+        <div
   class="backdrop js-backdrop visually-hidden"
   role="dialog"
   aria-modal="true"
@@ -459,8 +459,8 @@
   ></div>
 </div>
 
-    </main>
-    <footer class="footer" role="contentinfo" aria-labelledby="footerTitle">
+      </main>
+      <footer class="footer" role="contentinfo" aria-labelledby="footerTitle">
   <div class="container footer-container">
     <div class="footer-main-part">
       <div class="first-part-footer">
@@ -549,17 +549,18 @@
   </div>
 </footer>
 
-    <div class="loader-container visually-hidden">
-      <span class="loader"></span>
+      <div class="loader-container visually-hidden">
+        <span class="loader"></span>
+      </div>
+      <button class="btn-up visually-hidden" aria-label="btn-up">
+        <svg class="arrow-up" width="44" height="44">
+          <use
+            class="arrow-up-icon"
+            xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#icon-caret-small-left"
+          ></use>
+        </svg>
+      </button>
     </div>
-    <button class="btn-up visually-hidden"  aria-label="btn-up">
-      <svg class="arrow-up" width="44" height="44">
-        <use
-          class="arrow-up-icon"
-          xlink:href="/TasteMaestro-s/assets/sprite-c044ac3a.svg#icon-caret-small-left"
-        ></use>
-      </svg>
-    </button>
     
   </body>
 </html>
